@@ -18,5 +18,13 @@ es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
 ecmascript@0.6.1              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.1            # Server-side component of the `meteor shell` command
 
-autopublish@1.0.7             # Publish all data to the clients (for prototyping)
-insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
+#autopublish@1.0.7             # Publish all data to the clients (for prototyping)
+#insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
+
+kadira:flow-router      # FlowRouter is a very simple router for Meteor
+kadira:blaze-layout     # Layout manager for blaze (works well with FlowRouter)
+less@2.7.8                    # Leaner CSS language
+
+
+practicalmeteor:mocha             # A package for writing and running your meteor app and package tests with mocha
+johanbrook:publication-collector  # Test a Meteor publication by collecting its output
