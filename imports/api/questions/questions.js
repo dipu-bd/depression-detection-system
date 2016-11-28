@@ -1,45 +1,21 @@
 // Definition of the questions collection
 
-import { Mongo } from 'meteor/mongo';
-import { Factory } from 'meteor/factory';
+import { Mongo } from 'meteor/mongo'; 
 import { SimpleSchema } from 'meteor/aldeed:simple-schema'; 
+
+import { QuestionsSchema } from './schema/questions'
 
 export const Questions = new Mongo.Collection('questions');
 
-// Deny all client-side updates since we will be using methods to manage this collection
+Questions.attachSchema(QuestionsSchema);
+
+// Deny all client-side updates since we will be using methods
+// to manage this collection
 Questions.deny({
   insert() { return true; },
   update() { return true; },
   remove() { return true; },
-});
-
-Questions.schema = new SimpleSchema({
-  _id: {
-    type: String,
-    regEx: SimpleSchema.RegEx.Id,
-  }, 
-  "type": {
-    type: Number,    
-  },
-  title: {
-    type: String,
-    max: 20,
-    optional: true,
-  },
-  desc: {
-    type: String,
-    max: 100,
-  },
-  options: {
-
-  },
-  createdAt: {
-    type: Date,
-    denyUpdate: true, 
-  },  
-});
-
-Questions.attachSchema(Questions.schema);
+}); 
   
 /*
 Todos.helpers({
