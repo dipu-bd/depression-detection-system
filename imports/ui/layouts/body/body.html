@@ -1,3 +1,11 @@
 <template name="App_body">
-  {{> Template.dynamic template=main}}
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    {{> nav}}
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        {{> Template.dynamic template=main}}
+      </div>
+    </main>
+    {{> footer}}
+  </div>
 </template>

@@ -1,6 +1,9 @@
 {
   "theme": {
-    "primary": "deep_orange",
-    "accent": "blue"
+    "primary": "indigo",
+    "accent": "pink"
+  },
+  "patches": {
+    "autoUpgrade": false
   }
 }
