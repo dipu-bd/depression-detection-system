@@ -1,16 +1,11 @@
 <template name="nav">
-    <!-- Always shows a header, even in smaller screens. -->
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <span class="mdl-layout-title">Adaptive Depression Test</span>
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
-            <!-- Navigation. We hide it in small screens. -->
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="/login">Login</a>
-                <a class="mdl-navigation__link" href="/join">Join</a>
-            </nav>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">Adaptive Depression Test</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/login"><i class="fa fa-sign-in"></i> Login</a></li>
+                <li><a href="/join"><i class="fa fa-user-plus"></i> Join</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 </template>

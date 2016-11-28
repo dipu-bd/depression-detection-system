@@ -1,9 +1,0 @@
-{
-  "theme": {
-    "primary": "indigo",
-    "accent": "pink"
-  },
-  "patches": {
-    "autoUpgrade": false
-  }
-}
