@@ -9,7 +9,7 @@ Meteor.methods({
         if (!Meteor.user().admin) {
             console.log("Unauthorized access");
             return null;
-        }
+        } 
 
         check(type, Number);
         check(desc, String);

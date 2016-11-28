@@ -18,10 +18,20 @@ Questions.schema = new SimpleSchema({
     type: String,
     regEx: SimpleSchema.RegEx.Id,
   }, 
+  "type": {
+    type: Number,    
+  },
+  title: {
+    type: String,
+    max: 20,
+    optional: true,
+  },
   desc: {
     type: String,
     max: 100,
-    optional: true,
+  },
+  options: {
+
   },
   createdAt: {
     type: Date,
