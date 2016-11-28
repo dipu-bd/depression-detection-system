@@ -1,0 +1,13 @@
+// If you want to override materialize sass variables you can uncomment the following:
+// @import "{poetic:materialize-scss}/sass/components/_color.scss";
+// $primary-color: color("blue", "lighten-2");
+
+// import main scss file
+@import "{poetic:materialize-scss}/sass/materialize.scss";
+
+// import other scss file
+@import "{}/imports/ui/stylesheets/not-found.scss";
+
+main {
+    min-height: 86vh;
+}

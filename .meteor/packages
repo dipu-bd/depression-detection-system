@@ -21,17 +21,20 @@ shell-server@0.2.1              # Server-side component of the `meteor shell` co
 #autopublish@1.0.7              # Publish all data to the clients (for prototyping)
 #insecure@1.0.7                 # Allow all DB writes from clients (for prototyping)
 
-practicalmeteor:mocha               # A package for writing and running your meteor app and package tests with mocha
-johanbrook:publication-collector    # Test a Meteor publication by collecting its output
+#practicalmeteor:mocha               # A package for writing and running your meteor app and package tests with mocha
+#johanbrook:publication-collector    # Test a Meteor publication by collecting its output
 
+#less@2.7.8                      # Leaner CSS language
 kadira:flow-router              # FlowRouter is a very simple router for Meteor
 kadira:blaze-layout             # Layout manager for blaze (works well with FlowRouter)
-less@2.7.8                      # Leaner CSS language
+
+fourseven:scss 
+poetic:materialize-scss
+seba:minifiers-autoprefixer
+#materialize:materialize@=0.97.7
 
 aldeed:simple-schema
 aldeed:collection2
 aldeed:autoform
 fortawesome:fontawesome
-fourseven:scss
-seba:minifiers-autoprefixer
-materialize:materialize@=0.97.7
+

@@ -1,11 +1,18 @@
 <template name="nav">
-    <nav>
-        <div class="nav-wrapper">
+    <nav class="indigo lighten-1" role="navigation">        
+        <div class="nav-wrapper container">
             <a href="/" class="brand-logo">Adaptive Depression Test</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/login"><i class="fa fa-sign-in"></i> Login</a></li>
                 <li><a href="/join"><i class="fa fa-user-plus"></i> Join</a></li>
             </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse">
+                <i class="material-icons">menu</i>
+            </a>
         </div>
     </nav>
 </template>
