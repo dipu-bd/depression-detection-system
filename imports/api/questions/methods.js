@@ -5,24 +5,14 @@ import { check } from 'meteor/check';
 import { Questions } from './questions.js';
 
 Meteor.methods({
-    'questions.insert' (type, title, desc, options) {
+    'questions.insert' (ques) {
         if (!Meteor.user().admin) {
             console.log("Unauthorized access");
             return null;
         } 
 
-        check(type, Number);
-        check(desc, String);
-        check(options, [ { desc: String, score: Number, }, ]);
-        
-        const ques = {
-            type,
-            title,
-            desc,
-            options,
-            createdAt: new Date(),
-        };
-
+        check(ques, Questions.schema);
+         
         return Questions.insert(ques);
     },
 

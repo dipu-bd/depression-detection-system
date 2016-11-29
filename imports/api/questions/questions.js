@@ -1,7 +1,7 @@
 // Definition of the questions collection
 
 import { Mongo } from 'meteor/mongo';  
-import { SimpleSchema } from 'meteor/aldeed:collection2'; 
+import { SimpleSchema } from 'meteor/aldeed:simple-schema'; 
 
 import { QuestionsSchema } from './schema/questions'
 
