@@ -26,17 +26,18 @@ shell-server@0.2.1                  # Server-side component of the `meteor shell
 #less@2.7.8                         # Leaner CSS language
 kadira:flow-router                  # FlowRouter is a very simple router for Meteor
 kadira:blaze-layout                 # Layout manager for blaze (works well with FlowRouter)
-fortawesome:fontawesome
+underscore
+momentjs:moment
+dburles:collection-helpers
 aldeed:simple-schema
 aldeed:collection2
 aldeed:autoform 
-momentjs:moment
-underscore
-
+fortawesome:fontawesome
 fourseven:scss 
 poetic:materialize-scss
 seba:minifiers-autoprefixer
 gildaspk:autoform-materialize
+gildaspk:autoform-modals-materialize
 #meteorstuff:materialize-modal
 #materialize:materialize@=0.97.7
 
