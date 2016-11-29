@@ -1,4 +1,22 @@
 <template name="App_home">
-    {{> hello}}
-    {{> info}}
+    <section id="home-page" class="row valign-wrapper main-page">
+
+        {{> clouds }}
+
+        <div class="valign container z-depth-1-half cyan lighten-5" id="starter">
+            <br><br>
+            <h1 class="header center orange-text">Depression Test</h1>
+            <div class="row center">
+                <h5 class="header col s12 light black-text">
+                    Test now and discover your level of depression.
+                </h5>
+            </div>
+            <div class="row center">
+                <a href="/test" id="start-button" class="btn-large waves-effect waves-light orange z-depth-2"><i class="material-icons right">send</i> Start Test
+                </a>
+            </div>
+            <br><br>
+        </div>
+
+    </section>
 </template>

@@ -1,4 +1,7 @@
-import './home.html';
+// Controller class for starter
 
-import '../../components/hello/hello.js';
-import '../../components/info/info.js';
+import { Template } from 'meteor/templating';
+
+import "../../components/clouds/clouds.js";
+import "./home.html";
+  

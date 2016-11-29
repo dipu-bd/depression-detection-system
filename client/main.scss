@@ -2,12 +2,21 @@
 // @import "{poetic:materialize-scss}/sass/components/_color.scss";
 // $primary-color: color("blue", "lighten-2");
 
-// import main scss file
-@import "{poetic:materialize-scss}/sass/materialize.scss";
+// import scss files
+@import "{poetic:materialize-scss}/sass/materialize.scss";  
 
-// import other scss file
-@import "{}/imports/ui/stylesheets/not-found.scss";
+html, body, .main-page {
+  height: 90vh;
+  margin-bottom: 0;
+}
 
-main {
-    min-height: 86vh;
+#home-page {
+  color: #FFF; 
+  background-color: #FD940A;
+  background-image: -webkit-radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
+  background-image: radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
+}
+
+footer.page-footer {
+  margin-top: 0;
 }
