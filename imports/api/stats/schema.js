@@ -1,8 +1,9 @@
 // Schema for Statistics
 
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { OptionsSchema } from "../questions/schema/options";
- 
-export const StatsSchema = new SimpleSchema({
+
+export const StatsSchema = new SimpleSchema({ 
     name: {
         type: String,
         label: "Full Name",
@@ -19,7 +20,7 @@ export const StatsSchema = new SimpleSchema({
             type: "pickadate",
             pickadateOptions: {
                 selectMonths: true,
-                selectYears: 100,                 
+                selectYears: 100,
             }
         }
     },
@@ -37,17 +38,17 @@ export const StatsSchema = new SimpleSchema({
 
     choice: {
         type: [OptionsSchema],
-        blackbox: true, 
+        blackbox: true,
         defaultValue: [],
     },
     completed: {
         type: Boolean,
-        defaultValue: false, 
+        defaultValue: false,
     },
 
     // auto-managed properties
     createdAt: {
-        type: Date, 
+        type: Date,
         optional: true,
         autoValue() {
             if (this.isInsert) {

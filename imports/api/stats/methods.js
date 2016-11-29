@@ -4,11 +4,11 @@ import { check } from 'meteor/check';
 import { Stats } from './stats.js';
 
 Meteor.methods({
-    'stats.insert' (doc) {  
-        console.log("I am in methods");
-        check(doc, Stats.schema);
-        
-        return Stats.insert(doc);
+    'stats.insert' (doc) {   
+        check(doc, Stats.schema); 
+        const id = Stats.insert(doc);
+        console.log("!!New statistics!!", id);
+        return id;
     },
 
     'stats.addChoice' (id, quesId, choice) {

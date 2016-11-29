@@ -11,9 +11,9 @@ Meteor.methods({
             return null;
         } 
 
-        check(ques, Questions.schema);
-         
-        return Questions.insert(ques);
+        check(ques, Questions.schema);         
+        const _id = Questions.insert(ques);
+        return { _id };
     },
 
     'questions.remove' (qid) {
