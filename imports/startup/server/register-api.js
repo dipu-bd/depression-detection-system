@@ -1,4 +1,8 @@
 // Register your apis here
 
-import '../../api/links/methods.js';
-import '../../api/links/server/publications.js';
+import '../../api/questions/methods.js';
+import '../../api/questions/publications.js';
+
+import '../../api/stats/methods.js';
+import '../../api/stats/publications.js';
+

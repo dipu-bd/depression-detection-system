@@ -1,6 +1,4 @@
 // Controller class for home
- 
-import { Template } from 'meteor/templating';
-
+  
 //import "../../components/clouds/clouds.js"; 
 import "./home.html"; 

@@ -1,20 +1,34 @@
 // Controller for /test page
 
-import { AutoForm } from "meteor/aldeed:autoform";
 import { Stats } from "../../../api/stats/stats.js";
+import "../../../api/stats/methods.js";
 
 import "./test.html";
 
 Template.registerHelper('Stats', Stats);
 
-Template.App_test.onRendered(() => {
-    
-}); 
-
-Template.App_test.events({
-    'submit #statsForm'(event) {
-        console.log("Submitted", event.target);
-
-        return false;
+AutoForm.addHooks(null, {
+    formToDoc(doc) {
+        return doc;
     },
-}); 
+    onError(operation, error) {
+        if (error) {
+            console.log(error);
+            Materialize.toast(error.message, 4000);
+        }
+    },
+    onSuccess() {
+
+    },
+    onSubmit(insertDoc) {
+        Stats.schema.clean(insertDoc); 
+        Meteor.call('stats.insert', insertDoc, (error) => {
+            if (error) {
+                console.log(error.error); 
+            } else { 
+                Router.go('/test');
+            }
+        });
+        return false;
+    }
+});

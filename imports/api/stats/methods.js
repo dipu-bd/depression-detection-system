@@ -1,14 +1,14 @@
 // Methods related to statistics
-
-import { Meteor } from 'meteor/meteor';
+ 
 import { check } from 'meteor/check';
 import { Stats } from './stats.js';
 
 Meteor.methods({
-    'stats.insert' (user) { 
-        check(user, Stats.schema);
+    'stats.insert' (doc) {  
+        console.log("I am in methods");
+        check(doc, Stats.schema);
         
-        return Stats.insert(user);
+        return Stats.insert(doc);
     },
 
     'stats.addChoice' (id, quesId, choice) {
