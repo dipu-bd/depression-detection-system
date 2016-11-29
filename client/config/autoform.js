@@ -1,3 +1,5 @@
-// Configuration settings for auto form
+// Configurations for autoform-materialize
+
+import { AutoForm } from "meteor/aldeed:autoform";
 
 AutoForm.setDefaultTemplate('materialize');

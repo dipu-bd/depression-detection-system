@@ -16,17 +16,22 @@ export const StatsSchema = new SimpleSchema({
         type: Date,
         label: "Date of Birth",
         autoform: {
-            type:"pickadate"
-        },
+            type: "pickadate",
+            pickadateOptions: {
+                selectMonths: true,
+                selectYears: 100,
+                closeOnSelect: true,
+            }
+        }
     },
     gender: {
         type: String,
         allowedValues: ['male', 'female', 'other'],
         autoform: {
             options: [
-                {label: "Male", value: "male"},
-                {label: "Female", value: "female"},
-                {label: "Other", value: "other"}
+                { label: "Male", value: "male" },
+                { label: "Female", value: "female" },
+                { label: "Other", value: "other" }
             ]
         },
     },
@@ -37,27 +42,28 @@ export const StatsSchema = new SimpleSchema({
     completed: {
         type: Boolean,
         defaultValue: false,
-    }, 
+    },
 
-     // auto-managed properties
+    // auto-managed properties
     createdAt: {
         type: Date,
-        autoValue: function() {
-        if (this.isInsert) {
-            return new Date();
-        } else if (this.isUpsert) {
-            return {$setOnInsert: new Date()};
-        } else {
-            this.unset();  // Prevent user from supplying their own value
-        }
+        autoValue() {
+            if (this.isInsert) {
+                return new Date();
+            }
+            if (this.isUpsert) {
+                return { $setOnInsert: new Date() };
+            }
+            // Otherwise prevent user from supplying their own value
+            this.unset();
         },
     },
     updatedAt: {
         type: Date,
-        autoValue: function() {
-        if (this.isUpdate) {
-            return new Date();
-        }
+        autoValue() {
+            if (this.isUpdate) {
+                return new Date();
+            }
         },
         denyInsert: true,
         optional: true,

@@ -1,11 +1,18 @@
 <template name="App_test">
-    <section class="valign-wrapper">
-        
-        <div class="container valign">
-            This is a test page
-            <br> Nothing here.
-            <br> Go back. Shuu Shuu
-        </div>
+    <section class="container">
+        <div class="row">
 
+            {{#autoForm id="statsForm" schema=Stats.schema type="method"}}
+            <br>
+            <div class="row">{{> afQuickField name="name"}}</div>
+            <div class="row">{{> afQuickField name="email"}}</div>
+            <div class="row">{{> afQuickField name="dob"}}</div>
+            <div class="row">{{> afQuickField name="gender"}}</div>
+            <div class="row">
+                <button type="submit" class="btn-large waves-effect lime darken-4 right">Ready to Go!</button>
+            </div>
+            {{/autoForm}}
+
+        </div>
     </section>
 </template>

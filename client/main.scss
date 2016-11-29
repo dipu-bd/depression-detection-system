@@ -6,19 +6,22 @@
 @import "{poetic:materialize-scss}/sass/materialize.scss";  
 
 main, main section {
+  width: 100%;
   height: 90vh;
   margin-bottom: 0;
 }
 
 #home-page {
   color: #FFF; 
+  padding: 5px;
   background-color: #FD940A;
   background-image: -webkit-radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
   background-image: radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
 }
 
-#home-page .container {
-  background: url(/img/bg-footer.svg) center / cover;
+#home-page .starter {   
+  padding: 5% 7% 5% 7%;
+  background: url(/img/bg-footer.svg) center / cover; 
 }
 
 footer.page-footer {

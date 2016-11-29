@@ -1,11 +1,7 @@
 <template name="App_home">
-
-    {{> stats_modal }}
-    
     <section id="home-page" class="valign-wrapper">
+        <div class="valign center-block starter z-depth-1-half cyan lighten-5">
 
-        <div class="valign container z-depth-1-half cyan lighten-5">
-            <br><br>
             <h1 class="header center orange-text">
                 <i class="fa fa-thermometer-three-quarters"></i> Depression Test
             </h1>
@@ -15,13 +11,11 @@
                 </h5>
             </div>
             <div class="row center">
-                <a href="#start-modal" class="modal-trigger btn-large waves-effect waves-light orange">
-                    <i class="material-icons right">send</i> Begin Test
+                <a href="/test" class="btn-large waves-effect waves-light orange">
+                    <i class="material-icons right">send</i> Begin Your Test
                 </a>
             </div>
-            <br><br>
         </div>
 
     </section>
-
 </template>

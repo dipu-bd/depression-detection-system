@@ -28,16 +28,17 @@ kadira:flow-router                  # FlowRouter is a very simple router for Met
 kadira:blaze-layout                 # Layout manager for blaze (works well with FlowRouter)
 underscore
 momentjs:moment
+
 dburles:collection-helpers
 aldeed:simple-schema
 aldeed:collection2
 aldeed:autoform 
 fortawesome:fontawesome
+
 fourseven:scss 
 poetic:materialize-scss
 seba:minifiers-autoprefixer
 gildaspk:autoform-materialize
-gildaspk:autoform-modals-materialize
 #meteorstuff:materialize-modal
 #materialize:materialize@=0.97.7
 
