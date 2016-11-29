@@ -25,11 +25,8 @@ shell-server@0.2.1                  # Server-side component of the `meteor shell
 #johanbrook:publication-collector   # Test a Meteor publication by collecting its output
 
 #less@2.7.8                         # Leaner CSS language
-#mrt:external-file-loader           # Loads external files on runtime
 kadira:flow-router                  # FlowRouter is a very simple router for Meteor
 kadira:blaze-layout                 # Layout manager for blaze (works well with FlowRouter)
-striletskyy:tween-lite
-striletskyy:ease-pack
 
 fourseven:scss 
 poetic:materialize-scss
