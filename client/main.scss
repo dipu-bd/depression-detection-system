@@ -17,6 +17,10 @@ html, body, .main-page {
   background-image: radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
 }
 
+#home-page .container {
+  background: url(/img/bg-footer.svg) center / cover;
+}
+
 footer.page-footer {
   margin-top: 0;
 }
