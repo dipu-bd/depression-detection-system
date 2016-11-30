@@ -5,10 +5,9 @@ import { Stats } from './stats.js';
 
 Meteor.methods({
     'stats.insert' (doc) {   
-        check(doc, Stats.schema); 
-        const id = Stats.insert(doc);
-        console.log("!!New statistics!!", id);
-        return id;
+        check(doc, Stats.schema);  
+        throw new Error("Boooo");
+        return Stats.insert(doc);
     },
 
     'stats.addChoice' (id, quesId, choice) {

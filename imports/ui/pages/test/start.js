@@ -6,19 +6,16 @@ import { Match } from 'meteor/check'
 
 import "./start.html";
 
-Template.App_test_start.onCreated(function() {
+Template.App_test_start.onCreated(function () {
     const user = Session.get("stat") || {};
     if (Match.test(user._id, String)) {
-        Meteor.setTimeout(function() {
+        Meteor.setTimeout(function () {
             FlowRouter.go('App.test', { statId: user._id });
         });
     }
 });
 
 Template.App_test_start.helpers({
-    doc() {
-        return Session.get("stat");
-    },
     StatsSchema() {
         return Stats.schema;
     },
@@ -36,15 +33,13 @@ AutoForm.addHooks('statsForm', {
         }
     },
     onSubmit(insertDoc) {
-        const reset = this.resetForm;
-        Meteor.call('stats.insert', insertDoc, function(err, res) {
+        const form = this;
+        Meteor.call('stats.insert', insertDoc, function (err, res) {
             if (err) {
-                reset();
-                Materialize.toast(err, 4000);
+                form.done(err);
             } else {
-                insertDoc._id = res;
-                Session.set("stat", insertDoc);
-                Meteor.setTimeout(function() {
+                Session.set("stat", { _id: res });
+                Meteor.setTimeout(function () {
                     FlowRouter.go('App.test', { statId: res });
                 });
             }
