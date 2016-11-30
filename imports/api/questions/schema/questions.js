@@ -6,7 +6,7 @@ import { OptionsSchema } from './options'
 // schema for each question
 export const QuestionsSchema = new SimpleSchema({ 
   
-  "type": {
+  type: {
     type: Number, 
     defaultValue: 0,   
   },

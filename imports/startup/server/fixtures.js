@@ -7,6 +7,6 @@ import { BeckDepressionInventory } from '../../api/questions/data.js';
 Meteor.startup(() => {
   // if the collection is empty
   if (Questions.find().count() === 0) {
-    BeckDepressionInventory.forEach(ques => Questions.insert(ques));
+    Questions.insertMany(BeckDepressionInventory);
   }
 });
