@@ -43,6 +43,23 @@ footer.page-footer {
 .starter-form {
   padding: 30px;
   margin: 5px;
+ 
+  form .row {
+    margin: 0;
+  }
+
+  #title-div {
+    padding: 15px;
+    font: "Raleway" sans-serif;
+    background: snow url(/img/bg-footer.svg) center / cover; 
+  }
+  #form-div {
+    padding: 20px; 
+    background: white;   
+  }
+  #submit-button {
+      width: 100%;
+  }
 }
 
 @media (min-width: 610px) {

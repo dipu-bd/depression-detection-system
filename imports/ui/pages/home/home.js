@@ -5,6 +5,12 @@ import { Gradient } from "../../js/gradient";
 //import "../../components/clouds/clouds"; 
 import "./home.html";
 
-Template.App_home.onCreated(function () {
-    Gradient();
+const gradient = new Gradient();
+
+Template.App_home.onRendered(function () {
+    gradient.start(this.$('.gradient'));
 }); 
+
+Template.App_home.onDestroyed(function () {    
+    gradient.stop();
+});

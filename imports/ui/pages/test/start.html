@@ -1,21 +1,26 @@
 <template name="App_test_start">
-  <section>
+  <section class="gradient">
     <div class="starter-form">
 
-      <div class="z-depth-1">
-        <h5 class="header center light">Please fill up this form to begin the test</h5>
+      <div class="z-depth-1-half center hoverable" id="title-div">
+        <h4 class="light">Personal Information</h4>
+        <span class="teal-text">None of this information will be public</span>
       </div>
 
-      <div class="z-depth-1">
-        {{#autoForm id="statsForm" schema=StatsSchema type="normal"}}
-        <div class="row">{{> afQuickField name="name"}}</div>
-        <div class="row">{{> afQuickField name="email"}}</div>
-        <div class="row">{{> afQuickField name="dob"}}</div>
-        <div class="row">{{> afQuickField name="gender"}}</div>
-        <div class="row">
-          <button type="submit" class="btn-large waves-effect lime darken-4 right">Continue</button>
-        </div>
+      <div class="z-depth-1 hoverable" id="form-div">
+        {{#autoForm id="statsForm" schema=StatsSchema}}
+        {{> afQuickField name="name"}}
+        {{> afQuickField name="email"}}
+        {{> afQuickField name="dob"}}
+        {{> afQuickField name="gender"}}
         {{/autoForm}}
+      </div>
+
+      <div class="row z-depth-1-half">
+        <button type="submit" form="statsForm" id="submit-button" 
+          class="btn-large waves-effect lime darken-4">
+          Continue
+        </button>
       </div>
 
     </div>
