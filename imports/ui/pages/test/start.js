@@ -2,22 +2,26 @@
 
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Stats } from "/imports/api/stats/stats";
+import { Match } from 'meteor/check'
 
 import "./start.html";
 
-Template.registerHelper('Stats', Stats);
-
 Template.App_test_start.onCreated(function() {
-    const user = Session.get("stats") || {};
-    if (user['_id']) {
+    const user = Session.get("stat") || {};
+    if (Match.test(user._id, String)) {
         Meteor.setTimeout(function() {
-            FlowRouter.go('App.test', { _id: user._id });
+            FlowRouter.go('App.test', { statId: user._id });
         });
     }
 });
 
 Template.App_test_start.helpers({
-    doc: Session.get("stats") || {}
+    doc() {
+        return Session.get("stat");
+    },
+    StatsSchema() {
+        return Stats.schema;
+    },
 })
 
 AutoForm.addHooks('statsForm', {
@@ -31,14 +35,15 @@ AutoForm.addHooks('statsForm', {
             Materialize.toast(error, 4000);
         }
     },
-    onSubmit(insertDoc) { 
+    onSubmit(insertDoc) {
+        const reset = this.resetForm;
         Meteor.call('stats.insert', insertDoc, function(err, res) {
             if (err) {
-                this.resetForm();
+                reset();
                 Materialize.toast(err, 4000);
             } else {
                 insertDoc._id = res;
-                Session.set("stats", insertDoc);
+                Session.set("stat", insertDoc);
                 Meteor.setTimeout(function() {
                     FlowRouter.go('App.test', { _id: res });
                 });

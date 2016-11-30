@@ -11,22 +11,22 @@ import '../../ui/pages/not-found/not-found.js';
 // Set up all routes in the app
 FlowRouter.route('/', {
   name: 'App.home',
-  action(params, queryParams) {
+  action() {
     BlazeLayout.render('App_body', { main: 'App_home' });
   },
 });
 
 FlowRouter.route('/test', {
   name: 'App.test',
-  action(params, queryParams) {
+  action() {
     BlazeLayout.render('App_body', { main: 'App_test_start' });
   }
 });
 
-FlowRouter.route('/test/:_id', {
+FlowRouter.route('/test/:statId', {
   name: 'App.test',
-  action(params, queryParams) {
-    BlazeLayout.render('App_body', { main: 'App_test_main' });
+  action(params) {
+    BlazeLayout.render('App_body', { main: 'App_test_main'});
   }
 });
 

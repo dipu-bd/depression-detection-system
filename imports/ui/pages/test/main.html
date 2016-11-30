@@ -5,10 +5,10 @@
         <ol>
             {{#each questions}}
             <li>
-                {{desc}}
+                <b>{{title}}</b> &nbsp;&nbsp; <i>{{desc}}</i>
                 <ul>
                     {{#each options}}
-                    <li>{{score}}: {{desc}}</li>
+                    <li>{{score}} &nbsp;&nbsp;&nbsp;&nbsp; {{desc}}</li>
                     {{/each}}
                 </ul>
             </li>
