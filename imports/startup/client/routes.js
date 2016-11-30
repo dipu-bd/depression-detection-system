@@ -28,14 +28,9 @@ FlowRouter.route('/test/:statId', {
   action(params) {
     BlazeLayout.render('App_body', { main: 'App_test_main'});
   }
-});
+}); 
 
-FlowRouter.route('/publications/:name', {
-  name:'App.publications',
-  action(params) {
-    return 
-  }
-})
+
 
 FlowRouter.notFound = {
   action(params, queryParams) {

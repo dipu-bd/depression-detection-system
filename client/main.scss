@@ -5,22 +5,38 @@
 // import scss files
 @import "{poetic:materialize-scss}/sass/materialize.scss";  
 
-main, main section {
-  min-width: 100%;
-  min-height: 90vh;
-  margin-bottom: 0;
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,,800,900);
+
+.bg-img {  
+  background: url('http://unsplash.it/1200x800') center center no-repeat;
+  background-size: cover; 
 }
 
-#home-page {
-  color: #FFF; 
-  padding: 5px;
+/* Requires /imports/ui/js/gradient.cs call onRendered to work */
+.gradient
+{ 
+  padding: 0px;
+  margin: 0px; 
   background-color: #FD940A;
   background-image: -webkit-radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
   background-image: radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
 }
 
-#home-page .starter {   
+main, main section {
+  padding: 0px;
+  margin: 0px;
+  min-width: 100%;
+  min-height: 90vh;
+  margin-bottom: 0;
+}
+ 
+footer.page-footer {
+  margin-top: 0;
+}
+
+.starter {   
   padding: 5% 7% 5% 7%;
+  font-family: "Raleway" sans-serif;
   background: url(/img/bg-footer.svg) center / cover; 
 }
 
@@ -35,8 +51,4 @@ main, main section {
     margin: 0 auto; 
     width: 600px;    
   }
-}
-
-footer.page-footer {
-  margin-top: 0;
 }

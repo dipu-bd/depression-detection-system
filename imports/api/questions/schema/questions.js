@@ -12,7 +12,7 @@ export const QuestionsSchema = new SimpleSchema({
   },
   title: {
     type: String, 
-    optional: true,
+    max: 25,
   },
   desc: {
     type: String,
