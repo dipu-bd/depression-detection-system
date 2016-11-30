@@ -30,6 +30,13 @@ FlowRouter.route('/test/:_id', {
   }
 });
 
+FlowRouter.route('/publications/:name', {
+  name:'App.publications',
+  action(params) {
+    return 
+  }
+})
+
 FlowRouter.notFound = {
   action(params, queryParams) {
     BlazeLayout.render('App_body', { main: 'App_notFound' });

@@ -1,6 +1,5 @@
 // Controller for /test page
 
-import { Session } from 'meteor/session'
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Stats } from "/imports/api/stats/stats";
 
@@ -8,17 +7,17 @@ import "./start.html";
 
 Template.registerHelper('Stats', Stats);
 
-Template.App_test_start.onCreated(() => {
+Template.App_test_start.onCreated(function() {
     const user = Session.get("stats") || {};
     if (user['_id']) {
-        Meteor.setTimeout(() => {
+        Meteor.setTimeout(function() {
             FlowRouter.go('App.test', { _id: user._id });
         });
     }
 });
 
 Template.App_test_start.helpers({
-    doc: () => Session.get("stats") || {}
+    doc: Session.get("stats") || {}
 })
 
 AutoForm.addHooks('statsForm', {
@@ -32,16 +31,15 @@ AutoForm.addHooks('statsForm', {
             Materialize.toast(error, 4000);
         }
     },
-    onSubmit(insertDoc) {
-        const reset = this.resetForm;
-        Meteor.call('stats.insert', insertDoc, (err, res) => {
+    onSubmit(insertDoc) { 
+        Meteor.call('stats.insert', insertDoc, function(err, res) {
             if (err) {
-                reset();
+                this.resetForm();
                 Materialize.toast(err, 4000);
             } else {
                 insertDoc._id = res;
                 Session.set("stats", insertDoc);
-                Meteor.setTimeout(() => {
+                Meteor.setTimeout(function() {
                     FlowRouter.go('App.test', { _id: res });
                 });
             }

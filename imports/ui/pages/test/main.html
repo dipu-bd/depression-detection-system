@@ -1,5 +1,21 @@
 <template name="App_test_main">
-     <section class="container ">
-         
-     </section>
+    <section class="container ">
+        {{#if Template.subscriptionsReady}}
+        <!-- This is displayed when all data is ready. -->
+        <ol>
+            {{#each questions}}
+            <li>
+                {{desc}}
+                <ul>
+                    {{#each options}}
+                    <li>{{score}}: {{desc}}</li>
+                    {{/each}}
+                </ul>
+            </li>
+            {{/each}}
+        </ol>
+        {{else}}
+        <p> Loading... </p>
+        {{/if}}
+    </section>
 </template>
