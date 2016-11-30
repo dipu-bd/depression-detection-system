@@ -45,7 +45,7 @@ AutoForm.addHooks('statsForm', {
                 insertDoc._id = res;
                 Session.set("stat", insertDoc);
                 Meteor.setTimeout(function() {
-                    FlowRouter.go('App.test', { _id: res });
+                    FlowRouter.go('App.test', { statId: res });
                 });
             }
         });

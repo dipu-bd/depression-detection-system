@@ -24,6 +24,19 @@ main, main section {
   background: url(/img/bg-footer.svg) center / cover; 
 }
 
+.starter-form {
+  padding: 30px;
+  margin: 5px;
+}
+
+@media (min-width: 610px) {
+  .starter-form { 
+    position: relative; 
+    margin: 0 auto; 
+    width: 600px;    
+  }
+}
+
 footer.page-footer {
   margin-top: 0;
 }

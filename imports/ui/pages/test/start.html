@@ -1,15 +1,16 @@
 <template name="App_test_start">
   <section>
-    <div class="container">
+    <div class="starter-form">
 
-      {{#autoForm id="statsForm" schema=Stats.schema type="normal"}}
-      <br>
+      <h5 class="header center light">Please fill up this form to begin the test</h5>
+      
+      {{#autoForm id="statsForm" schema=StatsSchema type="normal"}}
       <div class="row">{{> afQuickField name="name"}}</div>
       <div class="row">{{> afQuickField name="email"}}</div>
       <div class="row">{{> afQuickField name="dob"}}</div>
       <div class="row">{{> afQuickField name="gender"}}</div>
       <div class="row">
-        <button type="submit" class="btn-large waves-effect lime darken-4 right">Ready to Go!</button>
+        <button type="submit" class="btn-large waves-effect lime darken-4 right">Continue</button>
       </div>
       {{/autoForm}}
 

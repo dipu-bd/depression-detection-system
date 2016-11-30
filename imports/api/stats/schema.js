@@ -3,7 +3,7 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { OptionsSchema } from "../questions/schema/options";
 
-export const StatsSchema = new SimpleSchema({ 
+export const StatsSchema = new SimpleSchema({
     name: {
         type: String,
         label: "Full Name",
@@ -16,11 +16,14 @@ export const StatsSchema = new SimpleSchema({
     dob: {
         type: Date,
         label: "Date of Birth",
+        max: new Date(),
         autoform: {
-            type: "pickadate",
+            type: "pickadate", 
             pickadateOptions: {
                 selectMonths: true,
                 selectYears: 100,
+                formatSubmit: 'd mmmm, yyyy',
+                format: 'd mmmm, yyyy', 
             }
         }
     },
