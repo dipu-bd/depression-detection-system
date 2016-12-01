@@ -1,4 +1,4 @@
-// Controller for main test page
+// Controller for main session page
 
 import { Meteor } from 'meteor/meteor';
 import { Session } from 'meteor/session';
@@ -9,7 +9,7 @@ import { Questions } from '/imports/api/questions/questions';
 
 import "./main.html";
 
-Template.App_test_main.onCreated(function () {
+Template.App_session_main.onCreated(function () {
 
     const id = FlowRouter.getParam('id');
 
@@ -24,7 +24,7 @@ Template.App_test_main.onCreated(function () {
     }
 });
 
-Template.App_test_main.helpers({
+Template.App_session_main.helpers({
     id() {
         return FlowRouter.getParam('id');
     },
