@@ -5,6 +5,7 @@ import { Stats } from "/imports/api/stats/stats";
 import { Match } from 'meteor/check'
 
 import "./start.html";
+import "./start.scss";
 
 Template.App_test_start.onCreated(function () {
     const user = Session.get("stat") || {};

@@ -1,6 +1,7 @@
 // Controller class for App_home
  
 import "./home.html";
+import './home.scss';
 
 Template.App_home.onRendered(function () {
     this.$('.particle').particleground({        

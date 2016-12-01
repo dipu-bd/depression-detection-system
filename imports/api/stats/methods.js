@@ -5,8 +5,7 @@ import { Stats } from './stats.js';
 
 Meteor.methods({
     'stats.insert' (doc) {   
-        check(doc, Stats.schema);  
-        throw new Error("Boooo");
+        check(doc, Stats.schema);   
         return Stats.insert(doc);
     },
 

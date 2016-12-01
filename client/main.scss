@@ -1,3 +1,6 @@
+//*********************************** 
+//       MATERIALIZE THEME             
+//***********************************
 // If you want to override materialize sass variables you can uncomment the following:
 // @import "{poetic:materialize-scss}/sass/components/_color.scss";
 // $primary-color: color("blue", "lighten-2");
@@ -5,23 +8,10 @@
 // import scss files
 @import "{poetic:materialize-scss}/sass/materialize.scss";  
 
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,,800,900);
 
-.bg-img {  
-  background: url('http://unsplash.it/1200x800') center center no-repeat;
-  background-size: cover; 
-}
-
-/* Requires /imports/ui/js/gradient.cs call onRendered to work */
-.gradient
-{ 
-  padding: 0px;
-  margin: 0px; 
-  background-color: #FD940A;
-  background-image: -webkit-radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
-  background-image: radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
-}
-
+//*********************************** 
+//       GLOBAL STYLES             
+//***********************************
 main, main section {
   padding: 0px;
   margin: 0px;
@@ -34,73 +24,28 @@ footer.page-footer {
   margin-top: 0;
 }
 
+//*********************************** 
+//       UTILITY STYLES             
+//***********************************
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,,800,900);
+
+.bg-img {  
+  background: url('http://unsplash.it/1200x800') center center no-repeat;
+  background-size: cover; 
+}
+ 
+.gradient
+{ 
+  padding: 0px;
+  margin: 0px; 
+  background-color: #FD940A;
+  background-image: -webkit-radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
+  background-image: radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
+}
+
 .particles {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-
-.starter {   
-  position: absolute;
-  padding: 40px 60px;
-  left: 5px;
-  right: 5px;
-  top: 20%;
-  font-family: "Raleway" sans-serif;
-  background: url(/img/bg-footer.svg) center / cover; 
-
-  .title-text {
-    font-size: 2em;
-  }  
-}
-@media (min-width: 600px) {
-  .starter {   
-    left: 10%;
-    right: 10%;
-    top: 25%;
-
-    .title-text {
-      font-size: 3em;
-    } 
-  }
-}
-@media (min-width: 960px) {
-  .starter {    
-    left: 20%;
-    right: 20%; 
-    
-    .title-text {
-      font-size: 4em;
-    } 
-  }
-}
-
-.starter-form {
-  padding: 30px;
-  margin: 5px;
- 
-  form .row {
-    margin: 0;
-  }
-
-  #title-div {
-    padding: 15px;
-    font: "Raleway" sans-serif;
-    background: snow url(/img/bg-footer.svg) center / cover; 
-  }
-  #form-div {
-    padding: 20px; 
-    background: white;   
-  }
-  #submit-button {
-      width: 100%;
-  }
-}
-
-@media (min-width: 610px) {
-  .starter-form { 
-    position: relative; 
-    margin: 0 auto; 
-    width: 600px;    
-  }
 }
