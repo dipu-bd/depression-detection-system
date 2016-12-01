@@ -20,7 +20,7 @@ export const QuestionSchema = new SimpleSchema({
     defaultValue: "Choose an option.",
   },
   options: {
-    type: [OptionsSchema], 
+    type: [OptionSchema], 
     minCount: 2,
   },
 
