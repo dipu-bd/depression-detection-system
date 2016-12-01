@@ -1,30 +1,30 @@
 // Controller for /test page
 
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import { Stats } from "/imports/api/stats/stats";
+import { Sessioonss } from "/imports/api/sessions/sessions";
 import { Match } from 'meteor/check'
 
 import "./start.html";
 import "./start.scss";
 
-Template.App_test_start.onCreated(function () {
-    const user = Session.get("stat") || {};
+Template.App_session_start.onCreated(function () {
+    const user = Session.get("session") || {};
     if (Match.test(user._id, String)) {
         Meteor.setTimeout(function () {
-            FlowRouter.go('App.test', { statId: user._id });
+            FlowRouter.go('App.session', { id: user._id });
         });
     }
 });
 
-Template.App_test_start.helpers({
-    StatsSchema() {
-        return Stats.schema;
+Template.App_session_start.helpers({
+    SessionSchema() {
+        return Sessioons.schema;
     },
 })
 
-AutoForm.addHooks('statsForm', {
+AutoForm.addHooks('sessionForm', {
     formToDoc(doc) {
-        Stats.schema.clean(doc);
+        Sessioons.schema.clean(doc);
         return doc;
     },
     onError(operation, error) {
@@ -35,13 +35,13 @@ AutoForm.addHooks('statsForm', {
     },
     onSubmit(insertDoc) {
         const form = this;
-        Meteor.call('stats.insert', insertDoc, function (err, res) {
+        Meteor.call('sessions.insert', insertDoc, function (err, res) {
             if (err) {
                 form.done(err);
             } else {
-                Session.set("stat", { _id: res });
+                Session.set("session", { _id: res });
                 Meteor.setTimeout(function () {
-                    FlowRouter.go('App.test', { statId: res });
+                    FlowRouter.go('App.session', { id: res });
                 });
             }
         });

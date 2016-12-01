@@ -1,15 +1,15 @@
 // Methods related to session
  
 import { check } from 'meteor/check';
-import { Session } from './session.js';
+import { Sessions } from './sessions.js';
 
 Meteor.methods({
-    'session.insert' (doc) {   
+    'sessions.insert' (doc) {   
         check(doc, Session.schema);   
-        return Session.insert(doc);
+        return Sessions.insert(doc);
     },
 
-    'session.addChoice' (id, quesId, choice) {
+    'sessions.addChoice' (id, quesId, choice) {
         return false;
     }
 });

@@ -3,7 +3,7 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 // schema for options used in each questions
-export const OptionsSchema = new SimpleSchema({
+export const OptionSchema = new SimpleSchema({
     title: {
         type: String,
         optional: true,

@@ -3,11 +3,11 @@
 import { Mongo } from 'meteor/mongo';  
 import { SimpleSchema } from 'meteor/aldeed:simple-schema'; 
 
-import { QuestionsSchema } from './schema/questions'
+import { QuestionSchema } from './schema/questions'
 
 export const Questions = new Mongo.Collection('questions');
  
-Questions.schema = QuestionsSchema;
+Questions.schema = QuestionSchema;
 Questions.attachSchema(Questions.schema);
 
 // Deny all client-side updates since we will be using methods

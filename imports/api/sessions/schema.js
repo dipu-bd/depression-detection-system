@@ -1,9 +1,8 @@
-// Schema for Statistics
+// Schema for Sessions
 
-import { SimpleSchema } from 'meteor/aldeed:simple-schema';
-import { OptionsSchema } from "../questions/schema/options";
+import { SimpleSchema } from 'meteor/aldeed:simple-schema'; 
 
-export const StatsSchema = new SimpleSchema({
+export const SessionSchema = new SimpleSchema({
     name: {
         type: String,
         label: "Full Name",
@@ -40,7 +39,7 @@ export const StatsSchema = new SimpleSchema({
     },
 
     choice: {
-        type: [OptionsSchema],
+        type: Object,
         blackbox: true,
         defaultValue: [],
     },

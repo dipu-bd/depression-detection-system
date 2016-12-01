@@ -5,20 +5,20 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import { SessionSchema } from './schema.js'
  
-export const Session = new Mongo.Collection('sessions');
+export const Sessions = new Mongo.Collection('sessions');
 
-Session.schema = SessionSchema;
-Session.attachSchema(Session.schema);
+Sessions.schema = SessionSchema;
+Sessions.attachSchema(Sessions.schema);
 
 // Deny all client-side updates since we will be using methods
 // to manage this collection
-Session.deny({
+Sessions.deny({
     insert() { return true; },
     update() { return true; },
     remove() { return true; },
 });
 
-Session.helpers({
+Sessions.helpers({
     isCompleted() {
         return this.completed;
     }, 

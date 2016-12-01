@@ -1,4 +1,4 @@
-<template name="App_test_start">
+<template name="App_session_start">
   <section class="gradient">
     <div class="starter-form">
 
@@ -8,7 +8,7 @@
       </div>
 
       <div class="z-depth-1 hoverable" id="form-div">
-        {{#autoForm id="statsForm" schema=StatsSchema}}
+        {{#autoForm id="sessionForm" schema=SessionSchema}}
         {{> afQuickField name="name"}}
         {{> afQuickField name="email"}}
         {{> afQuickField name="dob"}}
@@ -17,7 +17,7 @@
       </div>
 
       <div class="row z-depth-1-half">
-        <button type="submit" form="statsForm" id="submit-button" 
+        <button type="submit" form="sessioonForm" id="submit-button" 
           class="btn-large waves-effect lime darken-4">
           Continue
         </button>

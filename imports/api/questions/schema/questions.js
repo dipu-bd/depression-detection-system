@@ -1,10 +1,10 @@
 // Definition of Questions schema
 
 import { SimpleSchema } from 'meteor/aldeed:simple-schema'; 
-import { OptionsSchema } from './options'
+import { OptionSchema } from './options'
 
 // schema for each question
-export const QuestionsSchema = new SimpleSchema({ 
+export const QuestionSchema = new SimpleSchema({ 
   
   type: {
     type: Number, 

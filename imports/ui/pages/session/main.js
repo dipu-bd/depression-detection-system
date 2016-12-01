@@ -4,29 +4,29 @@ import { Meteor } from 'meteor/meteor';
 import { Session } from 'meteor/session';
 import { Match } from 'meteor/check';
 import { Template } from 'meteor/templating';
-import { Stats } from '/imports/api/stats/stats';
+import { Sessions } from '/imports/api/sessions/sessions';
 import { Questions } from '/imports/api/questions/questions';
 
 import "./main.html";
 
 Template.App_test_main.onCreated(function () {
 
-    const statId = FlowRouter.getParam('statId');
+    const id = FlowRouter.getParam('id');
 
     this.autorun(function () {
         Meteor.subscribe('questions.bdi');
-        Meteor.subscribe('stats.user', statId);
+        Meteor.subscribe('sessions.user', id);
     });
 
-    const user = Session.get("stat") || {};
+    const user = Session.get("session") || {};
     if (!Match.test(user._id, String)) {
-        Session.setDefault('stat', { _id: statId });
+        Session.setDefault('session', { _id: id });
     }
 });
 
 Template.App_test_main.helpers({
-    statId() {
-        return FlowRouter.getParam('statId');
+    id() {
+        return FlowRouter.getParam('id');
     },
     questions() {
         return Questions.find();
