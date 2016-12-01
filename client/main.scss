@@ -34,10 +34,45 @@ footer.page-footer {
   margin-top: 0;
 }
 
+.particles {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .starter {   
-  padding: 5% 7% 5% 7%;
+  position: absolute;
+  padding: 40px 60px;
+  left: 5px;
+  right: 5px;
+  top: 20%;
   font-family: "Raleway" sans-serif;
   background: url(/img/bg-footer.svg) center / cover; 
+
+  .title-text {
+    font-size: 2em;
+  }  
+}
+@media (min-width: 600px) {
+  .starter {   
+    left: 10%;
+    right: 10%;
+    top: 25%;
+
+    .title-text {
+      font-size: 3em;
+    } 
+  }
+}
+@media (min-width: 960px) {
+  .starter {    
+    left: 20%;
+    right: 20%; 
+    
+    .title-text {
+      font-size: 4em;
+    } 
+  }
 }
 
 .starter-form {
