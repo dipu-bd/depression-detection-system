@@ -18,9 +18,9 @@ Meteor.methods({
         // get session
         check(sessionId, String);
         const session = Sessions.findOne({ _id: sessionId });
-        check(session, Object);
-        if (session.current._id !== quesId) {
-            Meteor.Error("Invalid question id");
+        check(session, Sessions.schema);
+        if (!session.current || session.current._id !== quesId) {
+            throw new Meteor.Error("Invalid question id");
         }
         // choice data
         const data = {
@@ -44,15 +44,15 @@ Meteor.methods({
         const session = Sessions.findOne({ _id: sessionId });
         check(session, Object);
         if (!session.current.checked) {
-            return Meteor.Error("Another question awating selection");
+            throw new Meteor.Error("Another question awating selection");
         }
         if (session.finished) {
-            return Meteor.Error("The Session was already over");
+            throw new Meteor.Error("The Session was already over");
         }
-        // next question
+        // get next question 
         const ques = getNextQuestion(session);
-        // find first result, and add it to current session
-        Session.update({ _id }, { $set: { current: ques } });
-        return true;
+        ques.session = sessionId;
+        // update and return
+        return Session.update({ _id }, { $set: { current: ques } });
     },
 });

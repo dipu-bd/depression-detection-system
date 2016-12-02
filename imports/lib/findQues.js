@@ -19,6 +19,9 @@ export function getNextQuestion(session) {
 
     // send next question
     const ques = Questions.finOne(src, { sort });
-    return Match.test(ques, Object) ? ques : false;
+    if (!Match.test(ques, Object)) {
+        throw new Meteor.Error("Could not find any question");
+    }
 
+    return ques;
 }

@@ -7,14 +7,13 @@ import { Questions } from './questions';
 
 Meteor.publish('questions.all', function () {
     return Questions.find();
-});   
+});
 
 Meteor.publish('sessions.user', function (_id) {
     check(_id, String);
     const res = Sessions.find({ _id });
-    if (res.count() === 1) {
-        return res;
+    if (res.count() === 0) {        
+        throw new Meteor.Error("No session was found");
     }
-    Meteor.Error("No session found");
-    return false;
+    return res;
 });   

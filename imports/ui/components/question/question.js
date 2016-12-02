@@ -2,6 +2,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { AutoForm } from 'meteor/aldeed:autoform';
 
 import "./question.html";
 import "./question.scss";
@@ -31,6 +32,12 @@ Template.question.events({
     'click .option input'(event, template) {
         const index = event.target.id;
         const quesId = event.target.name;
-        Meteor.call('session.setChoice', template.data.sessionId, quesId, index);
+        const session = template.data.session;
+        Meteor.call('session.setChoice', session, quesId, index, function (err) {
+            if (err) {
+                console.log(err);
+                Materialize.toast(err, 4000);
+            }
+        });
     },
 });

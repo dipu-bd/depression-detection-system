@@ -14,20 +14,18 @@ function sessionId() {
     return FlowRouter.getParam('_id');
 }
 
-Template.App_session_main.onCreated(function() {
-    // subscribe to collections
+Template.App_session_main.onCreated(function () {
+    // load all questions list
     this.autorun(() => {
-        // load current session
-        this.subscribe('sessions.user', sessionId(), function(err) { 
-            if (err) {
+        this.subscribe('questions.all');
+        const handle = this.subscribe('sessions.user', this.data._id, {
+            onError() {
                 SessionCookie.remove();
                 FlowRouter.go('App.session.start');
-            } else { 
+            }, onReady() {
                 SessionCookie.set(sessionId());
             }
         });
-        // load all questions list
-        this.subscribe('questions.all');
     });
 });
 

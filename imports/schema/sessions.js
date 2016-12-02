@@ -44,7 +44,11 @@ export const SessionSchema = new SimpleSchema({
         defaultValue: {},
     },
     current: {
-        type: QuestionSchema,
+        type: Object,
+        defaultValue: { checked: true },
+    },
+    finished: {
+        type: Boolean,
         defaultValue: false,
     },
 
