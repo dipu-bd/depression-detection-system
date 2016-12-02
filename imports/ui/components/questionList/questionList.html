@@ -6,9 +6,14 @@
             <span class="flow-text">Please answer all of the following questions</span>
         </h4>
     </div>
+ 
+    {{#each questions}} 
+        {{> question}} 
+    {{/each}} 
 
     <div class="row z-depth-1" id="bottom-bar">
-        <button class="btn-flat waves-effect">End Session</button>
+        <button class="btn waves-effect left" id="end-session-button">End Session</button>
+        <button class="btn waves-effect right teal darken-2" id="next-question-button">Next</button>
     </div>
 
 </template>

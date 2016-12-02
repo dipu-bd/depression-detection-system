@@ -1,0 +1,33 @@
+ // Styles for question component
+ // 
+ .question {
+     .type,
+     .type-even {
+         font-size: 2em;
+         text-align: right;
+         @media(min-width: 601px) {
+             font-size: 3em;
+             height: 80px;
+             line-height: 80px;
+             vertical-align: bottom;
+         }
+     }
+     .title,
+     .title-even {
+         padding: 5px;
+         font-weight: 400;
+         font-size: 1.5em;
+         @media(min-width: 601px) {
+             font-size: 2em;
+         }
+     }
+     @media(min-width: 601px) {
+         .type,
+         .title {
+             text-align: right;
+         }
+         .type-even {
+             text-align: left;
+         }
+     }
+ }

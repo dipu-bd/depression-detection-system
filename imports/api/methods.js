@@ -24,7 +24,7 @@ Meteor.methods({
         // build search parameters
         const src = {
             type: session.checked + 1,
-        };
+        }; 
         console.log(src);
 
         // find first result, and add it to current session

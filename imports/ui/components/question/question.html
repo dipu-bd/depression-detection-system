@@ -1,3 +1,22 @@
 <template name="question">
-    
+    <div class="row question">
+        <div class="col s12 m3 {{classSuffix2 type}}">
+            <div class="row">
+                <div class="col s6 m12 type{{classSuffix type}}">{{type}}</div>
+                <div class="col m12 divider hide-on-small-and-down"></div>
+                <div class="col s6 m12 title{{classSuffix type}}">{{title}}</div>
+            </div>
+        </div>
+        <div class="col s12 m9">
+            <ul class="row collection with-header z-depth-1 hoverable">
+                <li class="collection-header light lighten-4 {{classSuffix3 type}}">{{desc}}</li>
+                {{#each options}}
+                <li class="collection-item">
+                    <input name="group3" type="radio" id="s{{score}}" />
+                    <label for="s{{score}}" class="text-darken-4">{{desc}}</label>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
 </template>
