@@ -1,7 +1,6 @@
 // Schema for Sessions
 
-import { SimpleSchema } from 'meteor/aldeed:simple-schema'; 
-import { OptionSchema } from '../questions/schema/options';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';  
 
 export const SessionSchema = new SimpleSchema({
     name: {
@@ -40,9 +39,9 @@ export const SessionSchema = new SimpleSchema({
     },
 
     choice: {
-        type: [OptionSchema],
+        type: Object,
         blackbox: true,
-        defaultValue: [],
+        defaultValue: {},
     },
     completed: {
         type: Boolean,
