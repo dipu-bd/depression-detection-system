@@ -18,6 +18,7 @@ caching-compiler@1.1.9
 caching-html-compiler@1.0.7
 callback-hook@1.0.10
 check@1.2.4
+chuangbo:cookie@1.1.0
 danappelxx:particleground@0.0.2
 dburles:collection-helpers@1.1.0
 ddp@1.2.5
@@ -72,7 +73,6 @@ reload@1.1.11
 retry@1.0.9
 routepolicy@1.0.12
 seba:minifiers-autoprefixer@1.0.1
-session@1.1.7
 shell-server@0.2.1
 spacebars@1.0.13
 spacebars-compiler@1.0.13

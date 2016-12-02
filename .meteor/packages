@@ -10,9 +10,6 @@ mongo                               # The database Meteor supports right now
 reactive-var                        # Reactive variable for tracker
 jquery                              # Helpful client-side library
 tracker                             # Meteor's client-side reactive programming library
-session
-underscore
-momentjs:moment
 
 #less                               # Leaner CSS language
 kadira:flow-router                  # FlowRouter is a very simple router for Meteor
@@ -42,4 +39,6 @@ gildaspk:autoform-materialize
 #practicalmeteor:mocha              # A package for writing and running your meteor app and package tests with mocha
 #johanbrook:publication-collector   # Test a Meteor publication by collecting its output
 
+momentjs:moment
+chuangbo:cookie
 danappelxx:particleground
