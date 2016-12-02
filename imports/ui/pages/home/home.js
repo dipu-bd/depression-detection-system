@@ -16,6 +16,10 @@ Template.App_home.onRendered(function () {
     }); 
 }); 
 
+Template.App_home.onDestroyed(function () {
+    this.$('.particle').particleground('destroy');
+}); 
+
 Template.App_home.helpers({
     beginText() {
         const user = Session.get("session") || {};

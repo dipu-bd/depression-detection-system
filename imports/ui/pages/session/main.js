@@ -9,27 +9,25 @@ import { Questions } from '/imports/api/questions/questions';
 
 import "./main.html";
 
+this.getSessionId = () => FlowRouter.getParam('id');
+
 Template.App_session_main.onCreated(function () {
-
-    const id = FlowRouter.getParam('id');
-
-    this.autorun(function () {
-        Meteor.subscribe('questions.bdi');
-        Meteor.subscribe('sessions.user', id);
+    this.autorun(() => {
+        this.subscribe('questions.bdi');
+        this.subscribe('sessions.user', getSessionId());
     });
 
     const user = Session.get("session") || {};
     if (!Match.test(user._id, String)) {
-        Session.setDefault('session', { _id: id });
+        Session.setDefault('session', { _id: getSessionId() });
     }
 });
 
 Template.App_session_main.helpers({
-    id() {
-        return FlowRouter.getParam('id');
-    },
     questions() {
         return Questions.find();
     },
-
+    session() {
+        return Sessions.findOne();
+    },
 });

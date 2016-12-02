@@ -31,7 +31,7 @@ FlowRouter.route('/session/:id', {
 }); 
 
 FlowRouter.notFound = {
-  action(params, queryParams) {
+  action() {
     BlazeLayout.render('App_body', { main: 'App_notFound' });
   },
 };
