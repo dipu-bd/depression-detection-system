@@ -3,7 +3,8 @@
 import { Meteor } from 'meteor/meteor'; 
 import { Template } from 'meteor/templating';
 import { Cookie } from 'meteor/chuangbo:cookie';
-import { Sessions } from '/imports/api/sessions/sessions'; 
+
+import { Sessions } from '/imports/api/sessions'; 
 
 import "../../components/questionList/questionList";
 import "../../components/loader/loader";

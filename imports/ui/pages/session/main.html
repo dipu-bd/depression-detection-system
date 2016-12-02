@@ -2,11 +2,11 @@
     <section>
         <div class="container">
             {{#if Template.subscriptionsReady}} 
-                    {{#if session}}            
-                        {{> question_list session }}  
-                    {{else}} 
-                        {{ > App_notFound }} 
-                    {{/if}}    
+                {{#if session}}            
+                    {{> question_list session }}  
+                {{else}} 
+                    {{ > App_notFound }} 
+                {{/if}}    
             {{else}} 
                 {{> loader }} 
             {{/if}}

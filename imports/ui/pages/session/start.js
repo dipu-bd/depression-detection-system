@@ -3,7 +3,8 @@
 import { Match } from 'meteor/check';
 import { Cookie } from 'meteor/chuangbo:cookie';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import { Sessions } from "/imports/api/sessions/sessions";
+
+import { Sessions } from "/imports/api/sessions";
 
 import "./start.html";
 import "./start.scss";

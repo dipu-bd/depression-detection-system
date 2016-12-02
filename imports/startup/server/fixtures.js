@@ -1,8 +1,8 @@
 // Fill the DB with example data on startup
 
 import { Meteor } from 'meteor/meteor';
-import { Questions } from '../../api/questions/questions.js';
-import { BeckDepressionInventory } from '../../api/questions/data.js';
+import { Questions } from '../../api/questions';
+import { BeckDepressionInventory } from './bdi';
 
 Meteor.startup(() => {
   // if the collection is empty

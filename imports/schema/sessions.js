@@ -1,7 +1,7 @@
 // Schema for Sessions
 
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';  
-import { QuestionSchema } from "../questions/schema/questions";
+import { QuestionSchema } from "./questions";
 
 export const SessionSchema = new SimpleSchema({
     name: {

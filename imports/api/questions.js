@@ -3,7 +3,7 @@
 import { Mongo } from 'meteor/mongo';  
 import { SimpleSchema } from 'meteor/aldeed:simple-schema'; 
 
-import { QuestionSchema } from './schema/questions'
+import { QuestionSchema } from '../schema/questions'
 
 export const Questions = new Mongo.Collection('questions');
  

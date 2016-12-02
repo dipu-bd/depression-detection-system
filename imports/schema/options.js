@@ -9,7 +9,7 @@ export const OptionSchema = new SimpleSchema({
         optional: true,
     },
     score: {
-        type: Number, 
+        type: Number,
     },
     desc: {
         type: String,

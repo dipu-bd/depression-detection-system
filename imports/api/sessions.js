@@ -3,7 +3,7 @@
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
-import { SessionSchema } from './schema.js'
+import { SessionSchema } from '../schema/sessions'
  
 export const Sessions = new Mongo.Collection('sessions');
 
@@ -16,16 +16,4 @@ Sessions.deny({
     insert() { return true; },
     update() { return true; },
     remove() { return true; },
-});
-
-Sessions.helpers({
-    isCompleted() {
-        return this.completed;
-    }, 
-    score() {
-        let tot = 0;
-        this.choice.forEach((option) => tot += option.score);
-        return tot;
-    },
-
 });
