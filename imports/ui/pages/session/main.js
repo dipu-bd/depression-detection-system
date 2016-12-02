@@ -3,9 +3,10 @@
 import { Meteor } from 'meteor/meteor'; 
 import { Template } from 'meteor/templating';
 import { Cookie } from 'meteor/chuangbo:cookie';
-import { Sessions } from '/imports/api/sessions/sessions';
-import { Questions } from '/imports/api/questions/questions';
+import { Sessions } from '/imports/api/sessions/sessions'; 
 
+import "../../components/questionList/questionList";
+import "../../components/loader/loader";
 import "./main.html";
 
 function sessionId() {
@@ -14,8 +15,8 @@ function sessionId() {
 
 Template.App_session_main.onCreated(function () {
     // subscribe to collections
-    this.autorun(() => {
-        this.subscribe('questions.bdi');
+    this.autorun(() => { 
+        this.subscribe('questions.bdi'); 
         this.subscribe('sessions.user', sessionId());
     });
     // set cookie if not match
@@ -27,11 +28,8 @@ Template.App_session_main.onCreated(function () {
     }
 });
 
-Template.App_session_main.helpers({
-    questions() {
-        return Questions.find();
-    },
+Template.App_session_main.helpers({ 
     session() {
         return Sessions.findOne();
-    },
+    }, 
 });
