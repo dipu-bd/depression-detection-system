@@ -10,8 +10,8 @@ mongo                               # The database Meteor supports right now
 reactive-var                        # Reactive variable for tracker
 jquery                              # Helpful client-side library
 tracker                             # Meteor's client-side reactive programming library
-
-#less                               # Leaner CSS language
+ 
+tomwasd:history-polyfill
 kadira:flow-router                  # FlowRouter is a very simple router for Meteor
 kadira:blaze-layout                 # Layout manager for blaze (works well with FlowRouter)
 blaze-html-templates                # Compile .html files into Meteor Blaze views
@@ -33,11 +33,6 @@ seba:minifiers-autoprefixer
 gildaspk:autoform-materialize
 #meteorstuff:materialize-modal
 #materialize:materialize@=0.97.7
-
-#autopublish                        # Publish all data to the clients (for prototyping)
-#insecure                           # Allow all DB writes from clients (for prototyping)
-#practicalmeteor:mocha              # A package for writing and running your meteor app and package tests with mocha
-#johanbrook:publication-collector   # Test a Meteor publication by collecting its output
 
 momentjs:moment
 chuangbo:cookie

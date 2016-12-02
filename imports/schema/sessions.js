@@ -1,9 +1,15 @@
 // Schema for Sessions
 
-import { SimpleSchema } from 'meteor/aldeed:simple-schema';  
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { QuestionSchema } from "./questions";
 
 export const SessionSchema = new SimpleSchema({
+    /*
+    _id: {
+        type: String,
+        regEx: SimpleSchema.RegEx.Id,
+    },
+    */
     name: {
         type: String,
         label: "Full Name",
@@ -18,12 +24,12 @@ export const SessionSchema = new SimpleSchema({
         label: "Date of Birth",
         max: new Date(),
         autoform: {
-            type: "pickadate", 
+            type: "pickadate",
             pickadateOptions: {
                 selectMonths: true,
                 selectYears: 100,
                 formatSubmit: 'd mmmm, yyyy',
-                format: 'd mmmm, yyyy', 
+                format: 'd mmmm, yyyy',
             }
         }
     },
@@ -42,7 +48,11 @@ export const SessionSchema = new SimpleSchema({
     questions: {
         type: [QuestionSchema],
         defaultValue: [],
-    }, 
+    },
+    checked: {
+        type: Number,
+        defaultValue: 0,
+    },
 
     // auto-managed properties
     createdAt: {

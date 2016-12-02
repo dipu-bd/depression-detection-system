@@ -1,12 +1,8 @@
 <template name="App_session_main">
     <section>
         <div class="container">
-            {{#if Template.subscriptionsReady}} 
-                {{#if session}}            
-                    {{> question_list session }}  
-                {{else}} 
-                    {{ > App_notFound }} 
-                {{/if}}    
+            {{#if Template.subscriptionsReady}}        
+                {{> question_list session }}   
             {{else}} 
                 {{> loader }} 
             {{/if}}

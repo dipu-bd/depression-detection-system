@@ -18,7 +18,8 @@ Questions.deny({
     remove() { return true; },
 });
 
-Todos.helpers({
+/*
+Questions.helpers({
     maxType() {
         return 21;
     },
@@ -26,3 +27,4 @@ Todos.helpers({
         return 1;
     },
 });
+*/

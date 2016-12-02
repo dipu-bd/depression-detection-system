@@ -13,22 +13,24 @@ Meteor.methods({
     },
 
     'questions.next'(_id) {
+        // get session
         check(_id, String);
-
         const session = Sessions.findOne({ _id });
-        check(session, Sessions.schema);
+        check(session, Object);
+        if (session.checked < session.questions.length) { 
+            return true;
+        }
 
         // build search parameters
         const src = {
-            type: session.questions.count() + 1,
+            type: session.checked + 1,
         };
+        console.log(src);
 
-        // send first result
+        // find first result, and add it to current session
         const ques = Questions.findOne(src);
-        check(ques, Questions.schema);
-
-        // add it to current session
+        check(ques, Object);
         Sessions.update({ _id }, { $push: { questions: ques } });
-        return this.ready();
+        return true;
     },
 });

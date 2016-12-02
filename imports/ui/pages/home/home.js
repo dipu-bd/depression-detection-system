@@ -1,8 +1,6 @@
 // Controller class for App_home
 
-import { Match } from 'meteor/check';
-import { Cookie } from 'meteor/chuangbo:cookie';
-
+import { Match } from 'meteor/check'; 
 import "./home.html";
 import "./home.scss";
 
@@ -18,26 +16,4 @@ Template.App_home.onRendered(function() {
 
 Template.App_home.onDestroyed(function() {
     this.$('.particle').particleground('destroy');
-});
-
-function getUser() {
-    let user = Cookie.get("session");
-    if (Match.test(user, String)) {
-        return "/" + user;
-    }
-    return "";
-}
-
-Template.App_home.helpers({
-    beginText() {
-        if (getUser().length > 0) {
-            return "Resume Your Test";
-        }
-        else {
-            return "Begin Your Test";
-        }
-    },
-    beginLink() {
-        return "/session" + getUser();
-    },
-});
+}); 

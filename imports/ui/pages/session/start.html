@@ -1,28 +1,49 @@
 <template name="App_session_start">
-  <section class="gradient">
-    <div class="starter-form">
+	<section class="gradient">
+		<div id="starter-form">
 
-      <div class="z-depth-1-half center hoverable" id="title-div">
-        <h4 class="light">Personal Information</h4>
-        <span class="teal-text">None of this information will be public</span>
-      </div>
+			{{#if hasCookie }}
+				{{> resume_form }}
+			{{/if}}
 
-      <div class="z-depth-1 hoverable" id="form-div">
-        {{#autoForm id="sessionForm" schema=SessionSchema}}
-        {{> afQuickField name="name"}}
-        {{> afQuickField name="email"}}
-        {{> afQuickField name="dob"}}
-        {{> afQuickField name="gender"}}
-        {{/autoForm}}
-      </div>
+			<div class="z-depth-1-half center hoverable" id="title-div">
+				<h4 class="light">Personal Information</h4>
+				<span class="teal-text">None of this information will be public</span>
+			</div>
+			
+			<div class="z-depth-1 hoverable" id="form-div">                
+			{{#autoForm id="sessionForm" schema=SessionSchema}}
+				{{> afQuickField name="name"}}
+				{{> afQuickField name="email"}}
+				{{> afQuickField name="dob"}}
+				{{> afQuickField name="gender"}}
+			{{/autoForm}}
+			</div>
 
-      <div class="row z-depth-1-half">
-        <button type="submit" form="sessionForm" id="submit-button" 
-          class="btn-large waves-effect lime darken-4">
-          Continue
-        </button>
-      </div>
+			<div class="row z-depth-1-half">
+			<button type="submit" form="sessionForm" id="submit-button" 
+				class="btn-large waves-effect lime darken-4">
+				Continue
+			</button>
+			</div>
+			
+		</div>
+	</section>
+</template>
+ 
+<template name="resume_form">
 
+	<div class="row z-depth-1-half white" id="resume_div">
+		<h5 class="header flow-text">
+			You already have a session ongoing.
+			Do you want to continue from last time?
+		</h5>
+      	<button class="btn waves-effect orange darken-2 waves-teal left" id="resume-last">
+        	Resume Last Session
+      	</button>
+		<button class="btn waves-effect blue waves-light right" id="cancel-last">
+        	Cancel Last Session
+      	</button>
     </div>
-  </section>
+
 </template>
