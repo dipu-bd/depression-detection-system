@@ -42,11 +42,7 @@ export const SessionSchema = new SimpleSchema({
     questions: {
         type: [QuestionSchema],
         defaultValue: [],
-    },
-    lastType: {
-        type: Number,
-        defaultValue: 1,
-    },
+    }, 
 
     // auto-managed properties
     createdAt: {
