@@ -1,22 +1,25 @@
 <template name="question">
     <div class="row question">
-        <div class="col s12 m3 {{classSuffix2 type}}">
+
+        <div class="col s12 m3 {{leftRight type}}">
             <div class="row">
-                <div class="col s6 m12 type{{classSuffix type}}">{{type}}</div>
+                <div class="col s6 m12 type{{evenSuffix type}}">{{type}}</div>
                 <div class="col m12 divider hide-on-small-and-down"></div>
-                <div class="col s6 m12 title{{classSuffix type}}">{{title}}</div>
+                <div class="col s6 m12 title{{evenSuffix type}}">{{title}}</div>
             </div>
         </div>
+
         <div class="col s12 m9">
             <ul class="row collection with-header z-depth-1 hoverable">
-                <li class="collection-header light lighten-4 {{classSuffix3 type}}">{{desc}}</li>
+                <li class="collection-header light lighten-4 {{headColor type}}">{{desc}}</li>
                 {{#each options}}
-                <li class="collection-item">
-                    <input name="group3" type="radio" id="s{{score}}" />
-                    <label for="s{{score}}" class="text-darken-4">{{desc}}</label>
+                <li class="collection-item option">
+                    <input name="{{_id}}" type="radio" id="{{@index}}" />
+                    <label for="{{@index}}" class="black-text">{{desc}}</label>
                 </li>
                 {{/each}}
             </ul>
         </div>
+
     </div>
 </template>

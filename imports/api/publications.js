@@ -3,6 +3,11 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from "meteor/check";
 import { Sessions } from './sessions';
+import { Questions } from './questions';
+
+Meteor.publish('questions.all', function () {
+    return Questions.find();
+});   
 
 Meteor.publish('sessions.user', function (_id) {
     check(_id, String);

@@ -6,6 +6,8 @@ import { Template } from 'meteor/templating';
 import "./question.html";
 import "./question.scss";
 
+const colors = ["lime", "blue", "green", "teal", "red"];
+
 Template.question.onRendered(function () {
     const template = this;
     template.$("#question-title").css({
@@ -14,13 +16,21 @@ Template.question.onRendered(function () {
 })
 
 Template.question.helpers({
-    classSuffix(type) {
+    evenSuffix(type) {
         return type % 2 ? "" : "-even";
     },
-    classSuffix2(type) {
+    leftRight(type) {
         return type % 2 ? "left" : "right";
     },
-    classSuffix3(type) {
-        return type % 2 ? "lime" : "blue";
+    headColor(type) {
+        return colors[type % colors.length];
     }
+});
+
+Template.question.events({
+    'click .option input'(event, template) {
+        const index = event.target.id;
+        const quesId = event.target.name;
+        Meteor.call('session.setChoice', template.data.sessionId, quesId, index);
+    },
 });

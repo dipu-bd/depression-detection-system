@@ -17,8 +17,7 @@ Questions.deny({
     update() { return true; },
     remove() { return true; },
 });
-
-/*
+ 
 Questions.helpers({
     maxType() {
         return 21;
@@ -26,5 +25,4 @@ Questions.helpers({
     minType() {
         return 1;
     },
-});
-*/
+}); 

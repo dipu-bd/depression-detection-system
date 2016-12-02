@@ -4,12 +4,6 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { QuestionSchema } from "./questions";
 
 export const SessionSchema = new SimpleSchema({
-    /*
-    _id: {
-        type: String,
-        regEx: SimpleSchema.RegEx.Id,
-    },
-    */
     name: {
         type: String,
         label: "Full Name",
@@ -45,13 +39,13 @@ export const SessionSchema = new SimpleSchema({
         },
     },
 
-    questions: {
-        type: [QuestionSchema],
-        defaultValue: [],
+    choices: {
+        type: Object,   //quesId: optionIndex
+        defaultValue: {},
     },
-    checked: {
-        type: Number,
-        defaultValue: 0,
+    current: {
+        type: QuestionSchema,
+        defaultValue: false,
     },
 
     // auto-managed properties

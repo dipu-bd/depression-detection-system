@@ -11,18 +11,20 @@ import "./questionList.scss";
 
 Template.question_list.onCreated(function () {
     const template = this;
-    template.nextQuestion = function () {
+    template.loadQuestion = () => {
         template.autorun(function () {
             Meteor.call("questions.next", template.data._id);
         });
     }
-    template.nextQuestion();
+    if (!template.data.current) {
+        template.loadQuestion();
+    }
 });
 
 Template.question_list.events({
     'click #end-session-button': function (event, template) {
         SessionCookie.remove();
-        FlowRouter.go("App.session.start");
+        FlowRouter.go("App.home");
     },
     'click #next-question-button': function (event, template) {
         if (template.data.checked === template.data.questions.length) {
@@ -30,8 +32,8 @@ Template.question_list.events({
                 template.$('#next-question-button').text("Finish");
             }
             else {
-                template.nextQuestion();
+                template.loadQuestion();
             }
         }
-    }
+    }, 
 });

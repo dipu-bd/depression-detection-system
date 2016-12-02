@@ -17,6 +17,7 @@ function sessionId() {
 Template.App_session_main.onCreated(function() {
     // subscribe to collections
     this.autorun(() => {
+        // load current session
         this.subscribe('sessions.user', sessionId(), function(err) { 
             if (err) {
                 SessionCookie.remove();
@@ -25,6 +26,8 @@ Template.App_session_main.onCreated(function() {
                 SessionCookie.set(sessionId());
             }
         });
+        // load all questions list
+        this.subscribe('questions.all');
     });
 });
 
