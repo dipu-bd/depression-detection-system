@@ -1,6 +1,7 @@
 // Schema for Sessions
 
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';  
+import { QuestionSchema } from "../questions/schema/questions";
 
 export const SessionSchema = new SimpleSchema({
     name: {
@@ -38,14 +39,13 @@ export const SessionSchema = new SimpleSchema({
         },
     },
 
-    choice: {
-        type: Object,
-        blackbox: true,
-        defaultValue: {},
+    questions: {
+        type: [QuestionSchema],
+        defaultValue: [],
     },
-    completed: {
-        type: Boolean,
-        defaultValue: false,
+    lastType: {
+        type: Number,
+        defaultValue: 1,
     },
 
     // auto-managed properties

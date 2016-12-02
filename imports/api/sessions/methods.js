@@ -8,8 +8,12 @@ Meteor.methods({
         check(doc, Sessions.schema); 
         return Sessions.insert(doc);
     },
+    'sessions.insertQuestion' () {
 
-    'sessions.addChoice' (id, quesId, choice) {
+        return false;
+    },
+    'sessions.updateQuestion' () {
+        
         return false;
     }
 });
