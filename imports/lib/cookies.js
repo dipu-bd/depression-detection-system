@@ -12,15 +12,16 @@ export const SessionCookie = {
         return null;
     },
     set(id) {
-        if (this.get() !== id) {
-            Cookie.set("session", id, {
-                path: "/",
-                expires: 30, // in days
-            });
+        if (this.get() === id) {
+            return false;
         }
+        Cookie.set("session", id, {
+            path: "/",
+            expires: 30, // in days
+        });
+        return true;
     },
     remove() {
-        this.set(null);
         Cookie.remove("session");
     },
 };

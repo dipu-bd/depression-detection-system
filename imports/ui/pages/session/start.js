@@ -24,7 +24,7 @@ Template.resume_form.events({
     },
     'click #cancel-last': function (event, template) {
         SessionCookie.remove(); 
-        location.reload();
+        template.$("#resume_div").hide(); 
     }
 });
 

@@ -21,8 +21,7 @@ Template.App_session_main.onCreated(function() {
             if (err) {
                 SessionCookie.remove();
                 FlowRouter.go('App.session.start');
-            } else {
-                console.log('here');
+            } else { 
                 SessionCookie.set(sessionId());
             }
         });
