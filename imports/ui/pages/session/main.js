@@ -18,7 +18,7 @@ Template.App_session_main.onCreated(function () {
     // load all questions list
     this.autorun(() => {
         this.subscribe('questions.all');
-        const handle = this.subscribe('sessions.user', this.data._id, {
+        const handle = this.subscribe('sessions.user', sessionId(), {
             onError() {
                 SessionCookie.remove();
                 FlowRouter.go('App.session.start');

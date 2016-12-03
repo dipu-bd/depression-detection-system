@@ -17,12 +17,18 @@ Questions.deny({
     update() { return true; },
     remove() { return true; },
 });
- 
-Questions.helpers({
-    maxType() {
-        return 21;
-    },
-    minType() {
-        return 1;
-    },
-}); 
+
+// some global functions
+Questions.maxType = () => {
+    return 21;
+};
+Questions.minType = () => {
+    return 1;
+};
+Questions.getType = (_id) => {
+    const ques = Questions.findOne({ _id });
+    return ques ? ques.type : 0;
+};
+Questions.isLast = (_id) => {
+    return Questions.getType(_id) === Questions.maxType();
+}

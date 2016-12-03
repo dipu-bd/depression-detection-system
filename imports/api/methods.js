@@ -5,7 +5,7 @@ import { Match, check } from 'meteor/check';
 import { Questions } from './questions';
 import { Sessions } from './sessions';
 
-import { getNextQuestion } from '/imports/lib/findQues.js';
+import { QuestionFinder } from '/imports/lib/ques-finder.js';
 
 Meteor.methods({
 
@@ -14,45 +14,65 @@ Meteor.methods({
         return Sessions.insert(doc);
     },
 
-    'session.setChoice'(sessionId, quesId, optionId) {
-        // get session
-        check(sessionId, String);
-        const session = Sessions.findOne({ _id: sessionId });
-        check(session, Sessions.schema);
-        if (!session.current || session.current._id !== quesId) {
-            throw new Meteor.Error("Invalid question id");
+    'questions.next'(sessionId) {
+        // validate
+        if(!Match.test(sessionId, String)) {
+            throw new Meteor.Error("Invalid session id");
         }
-        // choice data
-        const data = {
-            opt: optionId,
-            score: session.current.options[opt].score,
-        };
-        const finished = (Questions.maxType() === session.current.type);
-        // update
+        const session = Sessions.findOne({ _id: sessionId });
+        if(!Match.test(session, Object)) {
+            throw new Meteor.Error("Session was not found");
+        }
+        if (session.finished) {
+            throw new Meteor.Error("The Session is already over");
+        }
+        // get next question 
+        const quesId = QuestionFinder.findOne(session);
+        const finished = Questions.isLast(session.current);
         return Sessions.update({ _id: sessionId }, {
-            "$set": {
-                "choices.quesId": data,
-                "current.checked": optionId,
+            $set: {
+                "current": quesId,
+                "checked": false,
                 "finished": finished,
-            },
+            }
         });
     },
 
-    'questions.next'(sessionId) {
-        // get session
+    'session.setChoice'(sessionId, quesId, optionId) {
+        // validate
         check(sessionId, String);
         const session = Sessions.findOne({ _id: sessionId });
-        check(session, Object);
-        if (!session.current.checked) {
-            throw new Meteor.Error("Another question awating selection");
+        if (!Match.test(session, Object)) {
+            throw new Meteor.Error("Session was not found");
         }
-        if (session.finished) {
-            throw new Meteor.Error("The Session was already over");
+        if (!Match.test(session.current, quesId)) {
+            throw new Meteor.Error("Invalid question id");
         }
-        // get next question 
-        const ques = getNextQuestion(session);
-        ques.session = sessionId;
-        // update and return
-        return Session.update({ _id }, { $set: { current: ques } });
+        const question = Questions.findOne({ _id: quesId });
+        if (!Match.test(question, Object)) {
+            throw new Meteor.Error("Question was not found");
+        }
+        if (question.options.length <= optionId) {
+            throw new Meteor.Error("Option is not valid");
+        }
+        // data to be set
+        const score = question.options[optionId].score;
+        const finished = Match.test(question.type, Questions.maxType());
+        const data = {
+            "$set": {
+                "checked": true,
+                "finished": finished,
+            },
+            "$push": {
+                choices: {
+                    score,
+                    ques: quesId,
+                    opt: optionId,
+                },
+            },
+        };
+        // update
+        return Sessions.update({ _id: sessionId }, data);
     },
+
 });

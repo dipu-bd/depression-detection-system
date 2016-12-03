@@ -7,8 +7,8 @@
         </h4>
     </div>
  
-    {{#each questions}} 
-        {{> question }} 
+    {{#each ques in questions}} 
+        {{> question (questionArgs ques) }} 
     {{/each}} 
 
     <div class="row z-depth-1" id="bottom-bar">

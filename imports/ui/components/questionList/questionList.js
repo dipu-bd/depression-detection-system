@@ -11,27 +11,34 @@ import "./questionList.html";
 import "./questionList.scss";
 
 Template.question_list.onCreated(function () {
-    const template = this; 
+    const template = this;
+    console.log(this);
     template.loadQuestion = () => {
         template.autorun(function () {
-            Meteor.call("questions.next", template.data._id);
+            Meteor.call("questions.next", template.data._id, function onError(err) {
+                if (err) {
+                    console.log(err);
+                    Materialize.toast(err, 4000);
+                }
+            });
         });
     }
     template.loadQuestion();
 });
 
 Template.question_list.helpers({
-    questions() {
-        console.log(this);
-        const keys = Object.keys(this.choices);
-        console.log(keys);
-        return Questions.find({ _id: { '$in': keys } });
+    questions() { 
+        return Sessions.question({ _id: { '$in': keys } });
     },
     nextButtonDisable() {
-        return this.current.checked ? "" : "disable";
+        return this.checked ? "" : "disable";
     },
     nextButtonLabel() {
         return this.finished ? "View Result" : "Next Question";
+    },
+    questionArgs(ques) {
+        ques.session = this._id;
+        return ques;
     }
 });
 
@@ -40,7 +47,7 @@ Template.question_list.events({
         SessionCookie.remove();
         FlowRouter.go("App.home");
     },
-    'click #next-question-button': function (event, template) { 
+    'click #next-question-button': function (event, template) {
         if (template.data.finished) {
             FlowRouter.go("App.session.result", { _id: template.data._id });
         }

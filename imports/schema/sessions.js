@@ -40,13 +40,17 @@ export const SessionSchema = new SimpleSchema({
     },
 
     choices: {
-        type: Object,   //quesId: optionIndex
-        defaultValue: {},
+        type: [Object],   //quesId: optionIndex
+        defaultValue: [],
     },
     current: {
-        type: Object,
-        defaultValue: { checked: true },
+        type: String,
+        optional: true,
     },
+    checked: {
+        type: Boolean,
+        defaultValue: true,
+    },    
     finished: {
         type: Boolean,
         defaultValue: false,
@@ -76,5 +80,5 @@ export const SessionSchema = new SimpleSchema({
                 return new Date();
             }
         },
-    },
+    }, 
 });
