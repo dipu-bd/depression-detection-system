@@ -53,7 +53,7 @@ Template.question_list.events({
     },
     'click #next-question-button': function(event, template) {
         if (template.data.finished) {
-            FlowRouter.go("App.session.result", { _id: template.data._id });
+            FlowRouter.go("App.result", { _id: template.data._id });
         }
         else {
             loadQuestion(template);

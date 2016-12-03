@@ -10,6 +10,7 @@ import '/imports/ui/layouts/body/body.js';
 import '/imports/ui/pages/home/home.js';
 import '/imports/ui/pages/session/start.js';
 import '/imports/ui/pages/session/main.js';
+import '/imports/ui/pages/result/result.js';
 import '/imports/ui/pages/not-found/not-found.js';
 
 
@@ -34,6 +35,14 @@ FlowRouter.route('/session/:_id', {
         BlazeLayout.render('App_body', { main: 'App_session_main' });
     }
 });
+
+FlowRouter.route('/result/:_id', {
+    name: 'App.result',
+    action(params) {
+        BlazeLayout.render('App_body', { main: 'App_result' });
+    }
+});
+
 
 FlowRouter.notFound = {
     action() {
