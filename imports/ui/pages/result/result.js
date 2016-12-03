@@ -8,6 +8,7 @@ import { Sessions } from '/imports/api/sessions';
 import { SessionCookie } from '/imports/lib/cookies';
 
 import "./result.html";
+import "./result.scss";
 
 function sessionId() {
     return FlowRouter.getParam('_id');
@@ -25,5 +26,10 @@ Template.App_result.onCreated(function() {
             }
         });
     });
+});
 
+Template.App_result.helpers({
+    session() {
+        return Sessions.findOne();        
+    }
 });

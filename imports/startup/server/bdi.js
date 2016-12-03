@@ -171,7 +171,7 @@ export const BeckDepressionInventory = [
 
     {
         type: 8,
-        title: "Self-incrimation",
+        title: "Self-incrimination",
         desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
@@ -464,7 +464,7 @@ export const BeckDepressionInventory = [
         options: [
             {
                 score: 0,
-                desc: "I am nore more worried about my health than usual.",
+                desc: "I am no more worried about my health than usual.",
             },
             {
                 score: 1,

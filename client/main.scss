@@ -41,14 +41,34 @@ footer.page-footer {
 
 // use with particleground()
 .particles {
-    width: 100%;
-    height: 100%;
+    margin: 0px;
+    padding: 0px;
     overflow: hidden;
+    background: #FD940A radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
 }
 
 // a full page gradient background 
 .overlay {
-    padding: 0px;
     margin: 0px;
+    padding: 0px;
     background: linear-gradient(#fff 0%, #cff 25%, #fcf 50%, #ffc 75%, #fff 100%);
+}
+
+// from http://www.svgeneration.com/recipes/Gplay
+.gplay-overlay {
+    background-color: #f0f0f0;
+    background-repeat: repeat-x;
+    background-image: url(/img/gplay.svg) center / cover;
+}
+
+// downloaded from http://www.svgeneration.com/recipes/Border-Triangles/
+.border-triangles {
+    background-color: #c1e6c8;
+    background-repeat: repeat-x;
+    background-image: url(/img/border_triangles.svg);
+}
+
+.launch-day-boom {
+    background-color: #fff;
+    background-image: url(/img/launch-day-boom.svg) center / cover;
 }

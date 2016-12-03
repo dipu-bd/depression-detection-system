@@ -5,7 +5,7 @@ import "./home.html";
 import "./home.scss";
 
 Template.App_home.onRendered(function() {
-    this.$('.particle').particleground({
+    this.$('.particles').particleground({
         lineColor: '#669955',
         dotColor: '#996655',
         density: 4000,
@@ -15,5 +15,5 @@ Template.App_home.onRendered(function() {
 });
 
 Template.App_home.onDestroyed(function() {
-    this.$('.particle').particleground('destroy');
+    this.$('.particles').particleground('destroy');
 }); 

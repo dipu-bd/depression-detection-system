@@ -9,25 +9,23 @@
     #title-bar {
         margin: 20px 0 0 0;
         border-radius: 25px 25px 0 0;
-        background: #cff url(/img/bg-footer.svg) center / cover;
+        background: #dff url(/img/bg-footer.svg) center / cover;
         .header {
             padding: 20px 0 0 0;
         }
     }
     #button-bar {
         margin: 0;
-        padding: 20px 30px;
-        background: #cff;
-        background: #cff url(/img/bg-footer.svg) center / cover;
+        padding: 20px 30px; 
+        background: #dff url(/img/bg-footer.svg) center / cover;
         .btn-large {
             width: 250px;
         }
     }
     #question-list {
         margin: 0 0 20px 0;
-        padding: 15px;
-        background: #cff;
+        padding: 15px; 
         border-radius: 0 0 25px 25px;
-        background: #cff url(/img/bg-footer.svg) center / cover;
+        background: #dff url(/img/bg-footer.svg) center / cover;
     }
 }
