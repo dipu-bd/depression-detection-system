@@ -2,9 +2,7 @@
 
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
-
-import { Sessions } from '/imports/api/sessions';
-
+ 
 // Import needed templates
 import '/imports/ui/layouts/body/body.js';
 import '/imports/ui/pages/home/home.js';
@@ -38,7 +36,7 @@ FlowRouter.route('/session/:_id', {
 
 FlowRouter.route('/result/:_id', {
     name: 'App.result',
-    action(params) {
+    action(params) {        
         BlazeLayout.render('App_body', { main: 'App_result' });
     }
 });

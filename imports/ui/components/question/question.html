@@ -1,11 +1,12 @@
 <template name="question">
-    <div class="row question">
 
-        <div class="col s12 m3 {{leftRight type}}">
-            <div class="row">
-                <div class="col s6 m12 type{{evenSuffix type}}">{{type}}</div>
-                <div class="col m12 divider hide-on-small-and-down"></div>
-                <div class="col s6 m12 title{{evenSuffix type}}">{{title}}</div>
+    <div class="row question">
+    
+        <div class="col s12 m3 {{leftRight type}} type-title-col">
+            <div class="row type-title-row">
+                <div class="col s2 m12 type{{evenSuffix type}}">{{type}}</div>
+                <div class="col m12 divider lighten-2 {{headColor type}} hide-on-small-and-down"></div> 
+                <div class="col s10 m12 title{{evenSuffix type}}">{{title}}</div>
             </div>
         </div>
 
@@ -25,4 +26,7 @@
         </div>
 
     </div>
+        
+    <div class="row divider lighten-3 {{headColor type}}"></div>
+
 </template>

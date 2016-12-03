@@ -18,8 +18,8 @@ Meteor.publish('choices.user', function (session) {
 Meteor.publish('sessions.user', function (_id) {
     check(_id, String);
     const res = Sessions.find({ _id });
-    if (res.count() === 0) {
-        throw new Meteor.Error("No session was found");
+    if (res && res.count() === 1) {
+        return res;
     }
-    return res;
+    throw new Meteor.Error("No session was found");
 });   

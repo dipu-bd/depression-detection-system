@@ -8,8 +8,7 @@ import { SessionCookie } from '/imports/lib/cookies';
 
 import "../../components/questionList/questionList";
 import "../../components/loader/loader";
-import "./main.html";
-import "./main.scss";
+import "./main.html"; 
 
 function sessionId() {
     return FlowRouter.getParam('_id');

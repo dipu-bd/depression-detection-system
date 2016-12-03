@@ -57,6 +57,9 @@ Template.question_list.events({
         }
         else {
             loadQuestion(template);
+            if (!template.data.checked) {
+                Materialize.toast("Please check the last question", 4000);
+            }
         }
     },
 });

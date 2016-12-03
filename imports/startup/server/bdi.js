@@ -4,7 +4,7 @@ export const BeckDepressionInventory = [
     {
         type: 1,
         title: "Sadness",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -28,7 +28,7 @@ export const BeckDepressionInventory = [
     {
         type: 2,
         title: "Pessimism",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -52,7 +52,7 @@ export const BeckDepressionInventory = [
     {
         type: 3,
         title: "Past Failures",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -76,7 +76,7 @@ export const BeckDepressionInventory = [
     {
         type: 4,
         title: "Loss of Pleasure",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -100,7 +100,7 @@ export const BeckDepressionInventory = [
     {
         type: 5,
         title: "Guilt",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -124,7 +124,7 @@ export const BeckDepressionInventory = [
     {
         type: 6,
         title: "Sense of Punishment",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -148,7 +148,7 @@ export const BeckDepressionInventory = [
     {
         type: 7,
         title: "Loathing",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -172,7 +172,7 @@ export const BeckDepressionInventory = [
     {
         type: 8,
         title: "Self-incrimation",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -196,7 +196,7 @@ export const BeckDepressionInventory = [
     {
         type: 9,
         title: "Suicidal Thoughts",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -220,7 +220,7 @@ export const BeckDepressionInventory = [
     {
         type: 10,
         title: "Crying",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -244,7 +244,7 @@ export const BeckDepressionInventory = [
     {
         type: 11,
         title: "Irritation",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -268,7 +268,7 @@ export const BeckDepressionInventory = [
     {
         type: 12,
         title: "Loss of Interest",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -292,7 +292,7 @@ export const BeckDepressionInventory = [
     {
         type: 13,
         title: "Indecision",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -316,7 +316,7 @@ export const BeckDepressionInventory = [
     {
         type: 14,
         title: "Worthlessness",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -340,7 +340,7 @@ export const BeckDepressionInventory = [
     {
         type: 15,
         title: "Difficulty of Concentration",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -364,7 +364,7 @@ export const BeckDepressionInventory = [
     {
         type: 16,
         title: "Change of Sleep",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -388,7 +388,7 @@ export const BeckDepressionInventory = [
     {
         type: 17,
         title: "Fatigue",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -412,7 +412,7 @@ export const BeckDepressionInventory = [
     {
         type: 18,
         title: "Change fo Appetite",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -436,7 +436,7 @@ export const BeckDepressionInventory = [
     {
         type: 19,
         title: "Weight-loss",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -460,7 +460,7 @@ export const BeckDepressionInventory = [
     {
         type: 20,
         title: "Health",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -484,7 +484,7 @@ export const BeckDepressionInventory = [
     {
         type: 21,
         title: "Loss of Interest in Sex",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,
@@ -516,7 +516,7 @@ export const BeckDepressionInventory = [
     {
         type: ,
         title: "",
-        desc: "Choose the option that best describe your current state of mind.",
+        desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
                 score: 0,

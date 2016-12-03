@@ -6,10 +6,6 @@
 // $primary-color: color("blue", "lighten-2");
 // import scss files
 @import "{poetic:materialize-scss}/sass/materialize.scss";
-
-// import fonts
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,,800,900);
-
 //*********************************** 
 //       GLOBAL STYLES             
 //***********************************
@@ -40,7 +36,6 @@ footer.page-footer {
     padding: 0px;
     margin: 0px;
     background-color: #FD940A;
-    background-image: -webkit-radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
     background-image: radial-gradient(circle, #f9a72b 0%, #fa9026 70%, #fb6c1f 100%);
 }
 
@@ -51,10 +46,9 @@ footer.page-footer {
     overflow: hidden;
 }
 
-// a full page gradient background
-.overlay { 
-    margin: 0;
-    background: -webkit-linear-gradient(rgba(0, 160, 227, 0.5) 0%, rgba(176, 203, 31, 0.5) 50%, rgba(239, 127, 26, 0.5) 100%);
-    background: -o-linear-gradient(rgba(0, 160, 227, 0.5) 0%, rgba(176, 203, 31, 0.5) 50%, rgba(239, 127, 26, 0.5) 100%);
-    background: linear-gradient(rgba(0, 160, 227, 0.5) 0%, rgba(176, 203, 31, 0.5) 50%, rgba(239, 127, 26, 0.5) 100%);;
+// a full page gradient background 
+.overlay {
+    padding: 0px;
+    margin: 0px;
+    background: linear-gradient(#fff 0%, #cff 25%, #fcf 50%, #ffc 75%, #fff 100%);
 }

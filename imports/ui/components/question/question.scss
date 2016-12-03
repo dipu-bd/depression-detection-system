@@ -1,10 +1,22 @@
  // Styles for question component
  // 
  .question {
+     .row, .col {
+         margin: 0;
+         padding: 0;
+     }
+     .collection { 
+         margin-top: 0;
+         margin-bottom: 0;
+     }
+     .divider {
+         height: 3px;  
+     }
      .type,
      .type-even {
-         font-size: 2em;
-         text-align: right;
+         font-family: Trebuchet, serif;
+         font-size: 2em; 
+         padding: 0 10px 0 10px;
          @media(min-width: 601px) {
              font-size: 3em;
              height: 80px;
@@ -14,20 +26,17 @@
      }
      .title,
      .title-even {
-         padding: 5px;
+         padding: 5px 10px 5px 10px;
          font-weight: 400;
-         font-size: 1.5em;
+         font-size: 1.6em; 
          @media(min-width: 601px) {
-             font-size: 2em;
+             font-size: 1.8em;
          }
      }
      @media(min-width: 601px) {
          .type,
          .title {
              text-align: right;
-         }
-         .type-even {
-             text-align: left;
-         }
+         } 
      }
  }
