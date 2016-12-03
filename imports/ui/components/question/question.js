@@ -3,6 +3,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { AutoForm } from 'meteor/aldeed:autoform';
+import { Choices } from '/imports/api/choices';
 
 import "./question.html";
 import "./question.scss";
@@ -25,15 +26,30 @@ Template.question.helpers({
     },
     headColor(type) {
         return colors[type % colors.length];
-    }
+    },
+    getName() {
+        return this._id;
+    },
+    getId(index) {
+        return this._id + "-" + index;
+    },
+    getChecked(option) {
+        const choice = Choices.findOne({
+            question: this._id,
+            session: this.session,
+        });
+        // return class modifier
+        return (choice && choice.option === option) ? "checked" : "";
+    },
 });
 
 Template.question.events({
-    'click .option input'(event, template) {
-        const index = event.target.id;
-        const quesId = event.target.name;
+    'click .option input'(event, template) { 
+        // call server function
         const session = template.data.session;
-        Meteor.call('session.setChoice', session, quesId, index, function (err) {
+        const ques = template.data._id;
+        const index = event.target.value; 
+        Meteor.call('choices.set', session, ques, index, function (err) {
             if (err) {
                 console.log(err);
                 Materialize.toast(err, 4000);

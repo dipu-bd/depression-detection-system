@@ -4,7 +4,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { OptionSchema } from './options'
 
 // schema for each question
-export const QuestionSchema = new SimpleSchema({ 
+export const QuestionSchema = new SimpleSchema({  	
 	type: {
 		type: Number,
 		defaultValue: 0,

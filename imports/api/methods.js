@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { Match, check } from 'meteor/check';
 import { Questions } from './questions';
 import { Sessions } from './sessions';
+import { Choices } from './choices';
 
 import { QuestionFinder } from '/imports/lib/ques-finder.js';
 
@@ -16,11 +17,11 @@ Meteor.methods({
 
     'questions.next'(sessionId) {
         // validate
-        if(!Match.test(sessionId, String)) {
+        if (!Match.test(sessionId, String)) {
             throw new Meteor.Error("Invalid session id");
         }
         const session = Sessions.findOne({ _id: sessionId });
-        if(!Match.test(session, Object)) {
+        if (!Match.test(session, Object)) {
             throw new Meteor.Error("Session was not found");
         }
         if (session.finished) {
@@ -38,15 +39,12 @@ Meteor.methods({
         });
     },
 
-    'session.setChoice'(sessionId, quesId, optionId) {
+    'choices.set'(sessionId, quesId, optionId) { 
         // validate
         check(sessionId, String);
         const session = Sessions.findOne({ _id: sessionId });
         if (!Match.test(session, Object)) {
             throw new Meteor.Error("Session was not found");
-        }
-        if (!Match.test(session.current, quesId)) {
-            throw new Meteor.Error("Invalid question id");
         }
         const question = Questions.findOne({ _id: quesId });
         if (!Match.test(question, Object)) {
@@ -55,24 +53,32 @@ Meteor.methods({
         if (question.options.length <= optionId) {
             throw new Meteor.Error("Option is not valid");
         }
-        // data to be set
-        const score = question.options[optionId].score;
-        const finished = Match.test(question.type, Questions.maxType());
-        const data = {
-            "$set": {
-                "checked": true,
-                "finished": finished,
-            },
-            "$push": {
-                choices: {
-                    score,
-                    ques: quesId,
-                    opt: optionId,
-                },
-            },
-        };
-        // update
-        return Sessions.update({ _id: sessionId }, data);
+        // update session if it is current question
+        if (Match.test(quesId, session.current)) {
+            const finished = Match.test(question.type, Questions.maxType());
+            Sessions.update({ _id: sessionId }, {
+                "$set": {
+                    "checked": true,
+                    "finished": finished,
+                }
+            });
+        }
+        // find if choice exists
+        const src = { session: sessionId, question: quesId };
+        let choice = Choices.findOne(src);
+        if (Match.test(choice, Object)) {
+            //update if found
+            return Choices.update(src, {
+                $set: { option: optionId },
+            });
+        } else {
+            // insert if not found
+            return Choices.insert({
+                session: sessionId,
+                question: quesId,
+                option: optionId,
+            });
+        }
     },
 
 });

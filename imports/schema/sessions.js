@@ -3,7 +3,7 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { QuestionSchema } from "./questions";
 
-export const SessionSchema = new SimpleSchema({
+export const SessionSchema = new SimpleSchema({ 
     name: {
         type: String,
         label: "Full Name",
@@ -38,11 +38,7 @@ export const SessionSchema = new SimpleSchema({
             ]
         },
     },
-
-    choices: {
-        type: [Object],   //quesId: optionIndex
-        defaultValue: [],
-    },
+ 
     current: {
         type: String,
         optional: true,
@@ -50,7 +46,7 @@ export const SessionSchema = new SimpleSchema({
     checked: {
         type: Boolean,
         defaultValue: true,
-    },    
+    },
     finished: {
         type: Boolean,
         defaultValue: false,
@@ -80,5 +76,5 @@ export const SessionSchema = new SimpleSchema({
                 return new Date();
             }
         },
-    }, 
+    },
 });

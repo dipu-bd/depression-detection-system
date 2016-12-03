@@ -12,10 +12,13 @@
         <div class="col s12 m9">
             <ul class="row collection with-header z-depth-1 hoverable">
                 <li class="collection-header light lighten-4 {{headColor type}}">{{desc}}</li>
-                {{#each options}}
+                {{#each opt in options}}
                 <li class="collection-item option">
-                    <input name="{{_id}}" type="radio" id="{{@index}}" />
-                    <label for="{{@index}}" class="black-text">{{desc}}</label>
+                    <input name="{{getName}}" type="radio" id="{{getId @index}}"
+                           value="{{@index}}" {{getChecked @index}}/>
+                    <label for="{{getId @index}}" class="black-text">
+                        <b>{{opt.title}}&nbsp;&nbsp;</b> {{opt.desc}}
+                    </label>
                 </li>
                 {{/each}}
             </ul>

@@ -10,7 +10,7 @@ export const QuestionFinder = {
     findOne(session) {
         // build search parameters
         let type = Questions.getType(session.current);
-        if (!session.checked) type++;
+        if (session.checked) type++;
         const src = {
             type,
         };
@@ -21,7 +21,7 @@ export const QuestionFinder = {
 
         // send next question
         const ques = Questions.findOne(src, { sort });
-        if (!Match.test(ques._id, String)) {
+        if (!Match.test(ques, Object) || !Match.test(ques._id, String)) {
             throw new Meteor.Error("Could not find any question");
         }
 

@@ -18,21 +18,4 @@ Sessions.deny({
     remove() { return true; },
 });
 
-
-Sessions.questions = (session) => {
-    if (Match.test(session, String)) {
-        session = Sessions.findOne({ _id: session });
-    }
-    if (!Match.test(session, Object)) {
-        throw new Meteor.Error("Session is not valid");
-    }
-    let quesList = [];
-    session.choices.forEach((choice) => {
-        quesList.push(choice.ques);
-    });
-    return Questions.find({ _id: { $in: quesList } }, { sort: { type: 1 } });
-};
-
-Session.choosen = (session, ques) => {
-
-};
+ 
