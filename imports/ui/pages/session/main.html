@@ -1,7 +1,33 @@
 <template name="App_session_main">
     <section class="overlay"> 
         {{#if Template.subscriptionsReady}} 
-            {{> question_list session }} 
+
+            <div id="question-template">
+                <div class="row z-depth-1" id="title-bar">
+                    <h4 class="header center-align">
+                        <span class="light">Welcome,</span> {{name}} <br>
+                        <span class="flow-text">Please answer all of the following questions</span>
+                    </h4>
+                </div>
+
+                <div class="row z-depth-1" id="button-bar">
+                    <div class="col m6 center-align">
+                        <button class="btn-large waves-effect red" 
+                                id="end-session-button">End Session</button>
+                    </div>
+                    <div class="col m6 center-align">
+                        <button class="btn-large waves-effect blue darken-2" 
+                                {{nextButtonDisable}} id="next-question-button">{{nextButtonLabel}}</button>
+                    </div>
+                </div>
+
+                <div id="question-list" class="z-depth-1">
+                    {{#each ques in questions}} 
+                        {{> question (questionArg ques) }} 
+                    {{/each}}
+                </div>
+            </div> 
+
         {{else}} 
             {{> loader }} 
         {{/if}} 

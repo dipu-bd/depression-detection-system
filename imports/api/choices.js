@@ -19,9 +19,9 @@ Choices.deny({
     remove() { return true; },
 });
 
-Choices.questions = (session) => {
+Choices.questions = (session, quesList) => {
     check(session, String);
-    let quesList = [];
+    quesList = quesList || [];
     Choices.find({ session }).forEach((choice) => {
         quesList.push(choice.question);
     });
