@@ -22,7 +22,9 @@ export const SessionCookie = {
         return true;
     },
     remove() {
-        Cookie.remove("session");
+        Cookie.remove("session", {
+            path: '/'
+        });
     },
 };
 

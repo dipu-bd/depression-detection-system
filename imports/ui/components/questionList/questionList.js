@@ -32,7 +32,7 @@ Template.question_list.helpers({
     questions() {
         var keys = Choices.questions(this._id);
         keys.push(this.current);
-        return Questions.find({ _id: { '$in': keys } });
+        return Questions.find({ _id: { '$in': keys } }, { sort: { type: -1 } });
     },
     nextButtonDisable() {
         return this.checked ? "" : "disable";
