@@ -34,6 +34,7 @@ gildaspk:autoform-materialize
 #meteorstuff:materialize-modal
 #materialize:materialize@=0.97.7
 
+erasaur:meteor-lodash
 momentjs:moment
 chuangbo:cookie
 danappelxx:particleground

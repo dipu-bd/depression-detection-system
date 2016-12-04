@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Mono|PT+Sans');
+
+$backColor: #ffffea;
+
 #result-viewer {
     margin: 10px;
     padding: 0;
@@ -8,9 +10,10 @@
         margin: 0 auto;
     }
     .top-bar {
+        font-family: 'Raleway', sans-serif;
         margin: 20px 0 0 0;
         border-radius: 25px 25px 0 0;
-        background: #ffe url(/img/bg-footer.svg) center / cover;
+        background: $backColor url(/img/bg-footer.svg) center / cover;
         .header {
             margin: 0;
             padding: 20px 0 0 0;
@@ -19,7 +22,7 @@
     .middle-bar {
         margin: 0;
         padding: 20px 30px;
-        background-color: #ffe;
+        background-color: $backColor;
         background-repeat: repeat-x;
         background-image: url(/img/border_triangles.svg);
     }
@@ -30,14 +33,15 @@
         margin: 0 0 20px 0;
         padding: 15px;
         border-radius: 0 0 25px 25px;
-        background: #ffe url(/img/bg-footer.svg) center / cover;
+        background: $backColor url(/img/bg-footer.svg) center / cover;
     }
     .message {
         font-family: 'PT Sans', sans-serif;
-        font-size: 1.4em;
+        font-size: 1.4em; 
         color: #033;
         padding: 10px;
         border: 1px solid #ccc;
+        background: #fff;
     }
     table {
         td {

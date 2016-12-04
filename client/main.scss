@@ -9,6 +9,9 @@
 //*********************************** 
 //       GLOBAL STYLES             
 //***********************************
+
+@import url('https://fonts.googleapis.com/css?family=PT+Mono|PT+Sans|Raleway');
+
 main,
 main section {
     padding: 0px;
@@ -54,13 +57,6 @@ footer.page-footer {
     background: linear-gradient(#fff 0%, #cff 25%, #fcf 50%, #ffc 75%, #fff 100%);
 }
 
-// from http://www.svgeneration.com/recipes/Gplay
-.gplay-overlay {
-    background-color: #f0f0f0;
-    background-repeat: repeat-x;
-    background-image: url(/img/gplay.svg) center / cover;
-}
-
 // downloaded from http://www.svgeneration.com/recipes/Border-Triangles/
 .border-triangles {
     background-color: #c1e6c8;
@@ -71,4 +67,11 @@ footer.page-footer {
 .launch-day-boom {
     background-color: #fff;
     background-image: url(/img/launch-day-boom.svg) center / cover;
+}
+
+// from http://www.svgeneration.com/recipes/Gplay
+.gplay-overlay {
+    background-color: #f0f0f0;
+    background-repeat: repeat-x;
+    background-image: url(/img/gplay.svg) center / cover;
 }

@@ -38,8 +38,10 @@ Questions.isLast = (_id) => {
 
 Questions.optionDetails = (choices) => {
     const optionList = [];
-    const quesList = Object.keys(choices);
-    Questions.find({ _id: { $in: quesList } }).forEach((ques) => { 
+    const quesList = Object.keys(choices);    
+    const src = { _id: { $in: quesList } };
+    const op = { sort: { type: 1 } };
+    Questions.find(src, op).forEach((ques) => {
         let option = ques.options[choices[ques._id]];
         option.question = {
             _id: ques._id,

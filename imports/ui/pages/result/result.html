@@ -1,68 +1,92 @@
 <template name="App_result">
     <section class="overlay">
         <div id="result-viewer">
+            {{#if Template.subscriptionsReady}}
 
-            <div class="z-depth-1 top-bar">
-                <h3 class="header center-align">
-                    Report <br>
-                    <span class="flow-text">Result of your depression test</span>
-                </h3>
-            </div>
+                <div class="z-depth-1 top-bar">
+                    <h3 class="header center-align">
+                        Report <br>
+                        <span class="flow-text">Result of your depression test</span>
+                    </h3>
+                </div>
 
-            <div class="z-depth-1 middle-bar">
-                <h5 class="header light">Patient Information</h5>
-                <table>
-                    <tr>
-                        <td class="first">Name</td>
-                        <td>{{session.name}}</td>
-                    </tr>
-                    <tr>
-                        <td class="first">Age</td>
-                        <td>{{getAge session.dob}}</td>
-                    </tr>
-                    <tr>
-                        <td class="first">Gender</td>
-                        <td>{{session.gender}}</td>
-                    </tr>
-                </table>
-            </div>
+                <!-- middle-bars -->
+                {{> patientInfo name=session.name age=(getAge session.dob) gender=(upperFirst session.gender) }}            
+                {{> allMessages messages }}
+                {{> yourChoices optionList=optionList }}
 
-            <div class="z-depth-1 middle-bar">
-                <h5 class="header light">Your Depression Level</h5>
-                <p class="message">{{depressionMessage}}</p>
-            </div>
+                <div class="z-depth-1 bottom-bar">
+                    All results were based on the <a href="http://www.beckscales.com">Beck's Scale</a>.
+                    <br> We do not take any responsibility for any kind of mishaps.
+                </div>
 
-            <div class="z-depth-1 middle-bar">
-                <h5 class="header light">Your Anxiety Level</h5>
-                <p class="message">{{anxietyMessage}}</p>
-            </div>
-
-            <div class="z-depth-1 middle-bar">
-                <h5 class="header light">Your Suicual Tendency</h5>
-                <p class="message">{{suicidalMessage}}</p>
-            </div>
-
-            <div class="z-depth-1 middle-bar">
-                <h5 class="header light">Your Hopelessness Scale</h5>
-                <p class="message">{{hopelessMessage}}</p>
-            </div>
-
-            <div class="z-depth-1 middle-bar">
-                <h5 class="header light">Your Choices</h5>
-                <ol class="collection">
-                    {{#each optionList}}
-                    <li class="collection-item">
-                        <b>{{question.title}}</b>: {{desc}}
-                    </li>
-                    {{/each}}
-                </ol>
-            </div>
-
-            <div class="z-depth-1 bottom-bar">
-                All results were based on the <a href="www.beckscales.com">Beck's Scale</a>.
-                <br> We do not take any responsibility for any kind of mishaps.
-            </div>
-
+            {{else}} 
+                {{> loader }} 
+            {{/if}}
         </div>
     </section>
+</template>
+
+<template name="patientInfo">
+    <div class="z-depth-1 middle-bar">
+        <h5 class="header light">Patient Information</h5>
+        <table>
+            <tr>
+                <td class="first">Name</td>
+                <td>{{name}}</td>
+            </tr>
+            <tr>
+                <td class="first">Age</td>
+                <td>{{age}}</td>
+            </tr>
+            <tr>
+                <td class="first">Gender</td>
+                <td>{{gender}}</td>
+            </tr>
+        </table>
+    </div>
+</template>
+
+<template name="allMessages">
+    <div class="z-depth-1 middle-bar">
+        <h5 class="header light">Your Depression Level</h5>
+        <p class="message">{{bds}}</p>
+    </div>
+
+    <div class="z-depth-1 middle-bar">
+        <h5 class="header light">Your Anxiety Level</h5>
+        <p class="message">{{bas}}</p>
+    </div>
+
+    <div class="z-depth-1 middle-bar">
+        <h5 class="header light">Your Suicual Tendency</h5>
+        <p class="message">{{bss}}</p>
+    </div>
+
+    <div class="z-depth-1 middle-bar">
+        <h5 class="header light">Your Hopelessness Scale</h5>
+        <p class="message">{{bhs}}</p>
+    </div>
+
+    <div class="z-depth-1 middle-bar">
+        <h5 class="header light">What To Do Next</h5>
+        <ul class="collection">
+            {{#each item in advices}}
+            <li class="collection-item">{{item}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</template>
+
+<template name="yourChoices">
+    <div class="z-depth-1 middle-bar">
+        <h5 class="header light">Your Choices</h5>
+        <ol class="collection">
+            {{#each optionList}}
+            <li class="collection-item">
+                <b>{{question.title}}</b>: {{desc}}
+            </li>
+            {{/each}}
+        </ol>
+    </div>
 </template>
