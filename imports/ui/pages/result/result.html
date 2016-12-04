@@ -11,17 +11,17 @@
 
             <div class="z-depth-1 middle-bar">
                 <h5 class="header light">Patient Information</h5>
-                <table class="collection">
-                    <tr class="collection-item">
-                        <td><b>Name</b></td>
+                <table>
+                    <tr>
+                        <td class="first">Name</td>
                         <td>{{session.name}}</td>
                     </tr>
-                    <tr class="collection-item">
-                        <td><b>Age</b></td>
+                    <tr>
+                        <td class="first">Age</td>
                         <td>{{getAge session.dob}}</td>
                     </tr>
-                    <tr class="collection-item">
-                        <td><b>Gender</b></td>
+                    <tr>
+                        <td class="first">Gender</td>
                         <td>{{session.gender}}</td>
                     </tr>
                 </table>
@@ -38,6 +38,16 @@
             </div>
 
             <div class="z-depth-1 middle-bar">
+                <h5 class="header light">Your Suicual Tendency</h5>
+                <p class="message">{{suicidalMessage}}</p>
+            </div>
+
+            <div class="z-depth-1 middle-bar">
+                <h5 class="header light">Your Hopelessness Scale</h5>
+                <p class="message">{{hopelessMessage}}</p>
+            </div>
+
+            <div class="z-depth-1 middle-bar">
                 <h5 class="header light">Your Choices</h5>
                 <ol class="collection">
                     {{#each optionList}}
@@ -49,7 +59,9 @@
             </div>
 
             <div class="z-depth-1 bottom-bar">
-                This is the end of the world!
+                All results were based on the <a href="www.beckscales.com">Beck's Scale</a>. 
+                <br>
+                We do not take any responsibility for any kind of mishaps.
             </div>
 
         </div>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
 #result-viewer {
     margin: 10px;
     padding: 0;
@@ -22,7 +24,29 @@
         background-repeat: repeat-x;
         background-image: url(/img/border_triangles.svg);
     }
+    .message {
+        font-family: 'PT Sans', sans-serif;
+        font-size: 1.4em;
+        color: #033;
+        padding: 10px;
+        border: 1px solid #ccc; 
+    }
+    table {  
+        td {
+            padding: 8px;
+            font-size: 1.2em;
+            border: 1px solid #ccc;
+        }
+        .first {
+            font-size: 1.0em;
+            font-weight: 600; 
+            text-align: right;
+        }
+    }
     .bottom-bar {
+        text-align: center;
+        font-size: 0.9em;
+        font-family: 'PT Sans', sans-serif;
         margin: 0 0 20px 0;
         padding: 15px;
         border-radius: 0 0 25px 25px;
