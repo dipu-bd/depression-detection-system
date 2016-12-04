@@ -27,3 +27,12 @@ Choices.questions = (session, quesList) => {
     });
     return quesList;
 };
+
+Choices.allChoices = (session) => {
+    check(session, String);
+    let choiceList = {};
+    Choices.find({ session }).forEach((choice) => {
+        choiceList[choice.question] = choice.option;
+    });
+    return choiceList;
+};

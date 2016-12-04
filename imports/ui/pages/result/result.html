@@ -10,17 +10,48 @@
             </div>
 
             <div class="z-depth-1 middle-bar">
-                In the middle
+                <h5 class="header light">Patient Information</h5>
+                <table class="collection">
+                    <tr class="collection-item">
+                        <td><b>Name</b></td>
+                        <td>{{session.name}}</td>
+                    </tr>
+                    <tr class="collection-item">
+                        <td><b>Age</b></td>
+                        <td>{{getAge session.dob}}</td>
+                    </tr>
+                    <tr class="collection-item">
+                        <td><b>Gender</b></td>
+                        <td>{{session.gender}}</td>
+                    </tr>
+                </table>
             </div>
 
             <div class="z-depth-1 middle-bar">
-                Again In the middle
+                <h5 class="header light">Your Depression Level</h5>
+                <p class="message">{{depressionMessage}}</p>
+            </div>
+
+            <div class="z-depth-1 middle-bar">
+                <h5 class="header light">Your Anxiety Level</h5>
+                <p class="message">{{anxietyMessage}}</p>
+            </div>
+
+            <div class="z-depth-1 middle-bar">
+                <h5 class="header light">Your Choices</h5>
+                <ol class="collection">
+                    {{#each optionList}}
+                    <li class="collection-item">
+                        <b>{{question.title}}</b>: {{desc}}
+                    </li>
+                    {{/each}}
+                </ol>
             </div>
 
             <div class="z-depth-1 bottom-bar">
                 This is the end of the world!
             </div>
-            
+
         </div>
     </section>
 </template>
