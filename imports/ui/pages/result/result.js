@@ -53,7 +53,7 @@ Template.App_result.helpers({
         return new Messages(sessionId()).bhs();
     },
     optionList() {
-        const choices = Choices.allChoices(sessionId()); 
+        const choices = Choices.allChoices(sessionId());
         return Questions.optionDetails(choices);
     }
 
