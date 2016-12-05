@@ -3,6 +3,7 @@
     margin: 0 auto;
     padding: 5px;
     max-width: 800px;
+    font-family: serif;
     .top-bar {
         text-align: center;
         margin: 5px 0 0 0;
@@ -12,8 +13,7 @@
             margin: 0;
             padding: 10px 0 0 0;
         }
-        .subheader {
-            font-family: 'PT Sans', sans-serif;
+        .subheader { 
             font-size: 0.9em;
         }
     }
@@ -22,7 +22,7 @@
         padding: 5px 10px;
     }
     table {
-        background: #fff;
+        background: #fff; 
         td {
             padding: 5px;
             border: 1px solid #ccc;
@@ -32,10 +32,10 @@
             text-align: right;
         }
         .last {
-            font-family: 'PT Mono', monospace;
+            font-family: monospace;
+            text-align: center;
         }
-        .message {
-            font-family: 'PT Sans', sans-serif;
+        .message { 
             font-size: 1.1em;
             color: #033;
         }
@@ -43,7 +43,7 @@
     .bottom-bar {
         text-align: right;
         font-size: 0.9em;
-        font-family: 'PT Mono', monospace;
+        font-family: monospace;
         margin: 0 0 5px 0;
         padding: 5px;
         border-top: 1px solid #ccc;
