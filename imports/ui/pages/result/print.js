@@ -11,15 +11,14 @@ import { SessionCookie } from '/imports/lib/cookies';
 import { Questions } from "/imports/api/questions";
 import { Messages } from '/imports/lib/messages';
 
-import "../../components/loader/loader";
-import "./result.html";
-import "./result.scss";
+import "./print.html";
+import "./print.scss";
 
 function sessionId() {
     return FlowRouter.getParam('_id');
 }
 
-Template.App_result.onCreated(function () {
+Template.App_result_print.onCreated(function () {
     // load all questions list
     this.autorun(() => {
         this.subscribe('questions.all');
@@ -35,7 +34,7 @@ Template.App_result.onCreated(function () {
     });
 });
 
-Template.App_result.helpers({
+Template.App_result_print.helpers({
     session() {
         return Sessions.findOne();
     },
@@ -51,5 +50,19 @@ Template.App_result.helpers({
     },
     upperFirst(data) {
         return _.upperFirst(data);
+    },
+    siteLink() {
+        return Meteor.absoluteUrl();
     }
+});
+
+Template.App_result_print.onRendered(function () {
+    const template = this;
+    const id = Meteor.setInterval(function () {
+        if(template.subscriptionsReady()) {
+            window.print();
+            Meteor.clearInterval(id);
+        } 
+    }, 500);
+
 });

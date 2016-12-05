@@ -3,26 +3,30 @@
         <div id="result-viewer">
             {{#if Template.subscriptionsReady}}
 
-                <div class="z-depth-1 top-bar">
-                    <h3 class="header center-align">
-                        Report <br>
-                        <span class="flow-text">Result of your depression test</span>
-                    </h3>
+            <div class="z-depth-1 top-bar">
+                <h3 class="header center-align">
+                    Report <br>
+                    <span class="flow-text">Result of your depression test</span>
+                </h3>
+            </div>
+
+            <!-- middle-bars -->
+            {{> patientInfo name=session.name age=(getAge session.dob) gender=(upperFirst session.gender) }} 
+            {{> allMessages messages  }} 
+            {{> yourChoices optionList=optionList }}
+
+            <div class="row z-depth-1" id="button-bar">
+                <div class="col s12">
+                    <a class="btn-large waves-effect red" target="_blank" href="/print/{{session._id}}">Print this Report</a>
                 </div>
+            </div>
 
-                <!-- middle-bars -->
-                {{> patientInfo name=session.name age=(getAge session.dob) gender=(upperFirst session.gender) }}            
-                {{> allMessages messages }}
-                {{> yourChoices optionList=optionList }}
+            <div class="z-depth-1 bottom-bar">
+                All results were based on the <a href="http://www.beckscales.com" target="_blank">Beck's Scale</a>.
+                <br> We do not take any responsibility for any kind of mishaps.
+            </div>
 
-                <div class="z-depth-1 bottom-bar">
-                    All results were based on the <a href="http://www.beckscales.com">Beck's Scale</a>.
-                    <br> We do not take any responsibility for any kind of mishaps.
-                </div>
-
-            {{else}} 
-                {{> loader }} 
-            {{/if}}
+            {{else}} {{> loader }} {{/if}}
         </div>
     </section>
 </template>
@@ -59,7 +63,7 @@
     </div>
 
     <div class="z-depth-1 middle-bar">
-        <h5 class="header light">Your Suicual Tendency</h5>
+        <h5 class="header light">Your Suicidal Tendency</h5>
         <p class="message">{{bss}}</p>
     </div>
 

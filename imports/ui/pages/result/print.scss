@@ -1,0 +1,51 @@
+#print-viewer {
+    position: relative;
+    margin: 0 auto;
+    padding: 5px;
+    max-width: 800px;
+    .top-bar {
+        text-align: center;
+        margin: 5px 0 0 0;
+        font-family: 'Raleway', sans-serif;
+        border-bottom: 1px solid #ccc;
+        .header {
+            margin: 0;
+            padding: 10px 0 0 0;
+        }
+        .subheader {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 0.9em;
+        }
+    }
+    .middle-bar {
+        margin: 0;
+        padding: 5px 10px;
+    }
+    table {
+        background: #fff;
+        td {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        .first {
+            font-weight: 600;
+            text-align: right;
+        }
+        .last {
+            font-family: 'PT Mono', monospace;
+        }
+        .message {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 1.1em;
+            color: #033;
+        }
+    }
+    .bottom-bar {
+        text-align: right;
+        font-size: 0.9em;
+        font-family: 'PT Mono', monospace;
+        margin: 0 0 5px 0;
+        padding: 5px;
+        border-top: 1px solid #ccc;
+    }
+}

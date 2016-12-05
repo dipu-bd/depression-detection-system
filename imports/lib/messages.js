@@ -15,20 +15,20 @@ export class Messages {
         this.id = id;
         const choices = Choices.allChoices(id);
         this.options = Questions.optionDetails(choices);
-        this.total = this.totalScore(); 
+        this.total = this.totalScore();
     }
 
     // calculate the total score
-    totalScore() {  
+    totalScore() {
         let total = 0;
-        this.options.forEach(function (opt) { 
+        this.options.forEach(function (opt) {
             total += opt.score;
         });
         return total;
     }
 
     // beck depression scale 
-    bds() {  
+    bds() {
         if (this.total <= 10) {
             return "These ups and downs are considered normal.";
         } else if (this.total <= 16) {
@@ -39,7 +39,7 @@ export class Messages {
             return "You have moderate depression.";
         } else if (this.total <= 40) {
             return "You are suffering from severe depression.";
-        } else if(this.total <= 63) {
+        } else if (this.total <= 63) {
             return "You are suffering from extreme depression!";
         } else {
             return "Your depression level is immeasurably high.";
@@ -67,8 +67,7 @@ export class Messages {
         return opt ? opt.score : 0;
     }
 
-    // beck suicide scale
-    bss() {
+    bssScore() {
         let score = 0;
         score += this.scoreOf(1);
         score += this.scoreOf(2);
@@ -81,15 +80,19 @@ export class Messages {
                 score += this.scoreOf(i);
             }
         }
-        if (score <= 24) {
+        return score;
+    }
+
+    // beck suicide scale
+    bss() {
+        if (this.bssScore() <= 24) {
             return "You do not have significant suicidal tendency.";
         } else {
             return "You are at a significant risk for suicide.";
         }
     }
 
-    // beck hopelessness scale
-    bhs() {
+    bhsScore() {
         const mark = [-1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1];
         let score = 0;
         for (let i = 1; i <= 20; ++i) {
@@ -99,10 +102,15 @@ export class Messages {
                 score += 1 - mark[i];
             }
         }
-        if (score <= 8) {
+        return score;
+    }
+
+    // beck hopelessness scale
+    bhs() {
+        if (this.bhsScore() <= 8) {
             return "You do not feel particularly hopeless.";
-        } else {            
-            return "You feel very hopeless and are at greater risk for suicide.";
+        } else {
+            return "You feel very hopeless and are at some risk for suicide.";
         }
     }
 
@@ -111,7 +119,7 @@ export class Messages {
         if (this.total <= 17) {
             return [
                 "You currently do not need any immediate medical attention.",
-               
+
                 "Do not forget to exercise regularly to keep your body " +
                 "and mind healthy and fit.",
 

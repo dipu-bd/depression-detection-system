@@ -411,7 +411,7 @@ export const BeckDepressionInventory = [
 
     {
         type: 18,
-        title: "Change fo Appetite",
+        title: "Change of Appetite",
         desc: "Choose the option that describe your usual state of mind.",
         options: [
             {
