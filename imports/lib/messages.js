@@ -107,7 +107,7 @@ export class Messages {
 
     // beck hopelessness scale
     bhs() {
-        if (this.bhsScore() <= 8) {
+        if (this.bhsScore() <= 9) {
             return "You do not feel particularly hopeless.";
         } else {
             return "You feel very hopeless and are at some risk for suicide.";
