@@ -13,8 +13,10 @@
 			
 			<div class="z-depth-1 hoverable" id="form-div">                
 			{{#autoForm id="sessionForm" schema=SessionSchema}}
+				{{> afQuickField name="batch"}}
 				{{> afQuickField name="name"}}
 				{{> afQuickField name="email"}}
+				{{> afQuickField name="regno"}}
 				{{> afQuickField name="dob"}}
 				{{> afQuickField name="gender"}}
 			{{/autoForm}}

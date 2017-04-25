@@ -13,10 +13,17 @@ export const SessionSchema = new SimpleSchema({
         regEx: SimpleSchema.RegEx.Email,
         label: "E-mail",
     },
+    batch: {
+        type: String,
+        label: "Batch",
+    },
+    regno: {
+        type: String,
+        label: "Registration",
+    },
     dob: {
         type: Date,
         label: "Date of Birth",
-        max: new Date(),
         autoform: {
             type: "pickadate",
             pickadateOptions: {
