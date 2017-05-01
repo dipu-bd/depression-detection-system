@@ -19,10 +19,24 @@ export const SessionSchema = new SimpleSchema({
     },
     regno: {
         type: String,
-        label: "Registration",
+        //optional: true,
+        label: "Registration Number",
+    },
+    gender: {
+        type: String,
+        //optional: true,
+        allowedValues: ['male', 'female', 'other'],
+        autoform: {
+            options: [
+                { label: "Male", value: "male" },
+                { label: "Female", value: "female" },
+                { label: "Other", value: "other" }
+            ]
+        },
     },
     dob: {
         type: Date,
+        //optional: true,
         label: "Date of Birth",
         autoform: {
             type: "pickadate",
@@ -33,17 +47,6 @@ export const SessionSchema = new SimpleSchema({
                 format: 'd mmmm, yyyy',
             }
         }
-    },
-    gender: {
-        type: String,
-        allowedValues: ['male', 'female', 'other'],
-        autoform: {
-            options: [
-                { label: "Male", value: "male" },
-                { label: "Female", value: "female" },
-                { label: "Other", value: "other" }
-            ]
-        },
     },
  
     current: {
