@@ -8,11 +8,11 @@ export const SessionSchema = new SimpleSchema({
         type: String,
         label: "Full Name",
     },
-    email: {
+    /*email: {
         type: String,
         regEx: SimpleSchema.RegEx.Email,
         label: "E-mail",
-    },
+    },*/
     batch: {
         type: String,
         label: "Batch",
@@ -22,7 +22,7 @@ export const SessionSchema = new SimpleSchema({
         //optional: true,
         label: "Registration Number",
     },
-    gender: {
+    /*gender: {
         type: String,
         //optional: true,
         allowedValues: ['male', 'female', 'other'],
@@ -47,7 +47,7 @@ export const SessionSchema = new SimpleSchema({
                 format: 'd mmmm, yyyy',
             }
         }
-    },
+    },*/
  
     current: {
         type: String,
