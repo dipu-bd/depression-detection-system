@@ -86,9 +86,10 @@ Template.App_session_main.events({
         }
         else {
             loadQuestion(template);
+            /*
             if (!session().checked) {
                 Materialize.toast("Please check the last question", 4000);
-            }
+            }*/
         }
     },
 });
