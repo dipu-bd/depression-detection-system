@@ -28,7 +28,7 @@ module.exports = {
       // If you are using ssl, it needs to start with https://
 	PORT: 8001,
 	ROOT_URL: 'http://depression.sustcse12.xyz/',
- 	//MONGO_URL: 'mongodb://bingo:1993@ds047146.mlab.com:47146/bingo'
+ 	MONGO_URL:'mongodb://dipu:secure123@ds123050.mlab.com:23050/dds'
     },
 
     docker: {
@@ -48,11 +48,4 @@ module.exports = {
     enableUploadProgressBar: false
   },
 
-  mongo: {
-    port: 27017,
-    version: '3.4.1',
-    servers: {
-      one: {}
-    }
-  }
 };
