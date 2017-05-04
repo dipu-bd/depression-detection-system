@@ -14,8 +14,19 @@ export const SessionSchema = new SimpleSchema({
         label: "E-mail",
     },*/
     batch: {
-        type: String,
         label: "Batch",
+        type: 'select',
+        options: function () {
+            var data = [];
+            let year = (new Date()).getFullYear();
+            for(let i = 0; i < 20; i--) {
+                data.push({
+                    label: year - i,
+                    value: year - i
+                });
+            }
+            return data;
+        }
     },
     regno: {
         type: String,
