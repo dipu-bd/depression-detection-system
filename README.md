@@ -1,6 +1,6 @@
 # Adaptive Depression Detection System
 
-This is a prototype version of the original project.
+This is now live at http://depression.sustcse12.xyz.
 
 ### Project Aim
 Implemeting a depression detection system based on the Beck's Scale by Q&A process.
@@ -26,6 +26,6 @@ Web Application
 
 ## License
 
-Copyright &copy; 2017. Licensed under the terms of the [Apache License Version 2.0].
+Copyright &copy; 2017. Licensed under the terms of the [Apache License Version 2.0](LICENSE).
 
 
