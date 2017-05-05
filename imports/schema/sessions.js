@@ -15,19 +15,24 @@ export const SessionSchema = new SimpleSchema({
     },*/
     batch: {
         label: "Batch",
-        type: 'select',
-        options: function () {
-            var data = [];
-            let year = (new Date()).getFullYear();
-            for(let i = 0; i < 20; i--) {
-                data.push({
-                    label: year - i,
-                    value: year - i
-                });
+        type: String,
+        autoform: {
+            options: function(){
+                var data = [];
+                var thisYear = (new Date()).getFullYear();
+
+                for (var i = thisYear; i >= 2000; i--) {
+                    data.push({ 
+                        label: i, 
+                        value: i 
+                    });   
+                }
+
+                return data;
             }
-            return data;
-        }
+        },
     },
+
     regno: {
         type: String,
         //optional: true,
