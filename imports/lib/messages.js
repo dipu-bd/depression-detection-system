@@ -18,6 +18,10 @@ export class Messages {
         this.total = this.totalScore();
     }
 
+    completed() {
+        return this.options.length === Questions.count();
+    }
+
     // calculate the total score
     totalScore() {
         let total = 0;

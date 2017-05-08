@@ -10,6 +10,7 @@ import '/imports/ui/pages/session/start.js';
 import '/imports/ui/pages/session/main.js';
 import '/imports/ui/pages/result/result.js';
 import '/imports/ui/pages/result/print.js';
+import '/imports/ui/pages/statistics/stats.js';
 import '/imports/ui/pages/not-found/not-found.js';
 
 
@@ -46,6 +47,13 @@ FlowRouter.route('/print/:_id', {
     name: 'App.print',
     action(params) {        
         BlazeLayout.render('App_result_print');
+    }
+});
+
+FlowRouter.route('/statistics', {
+    name: 'App.stats',
+    action(params) {        
+        BlazeLayout.render('App_body', { main: 'App_stats' });
     }
 });
 

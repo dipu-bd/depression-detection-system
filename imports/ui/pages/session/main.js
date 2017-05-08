@@ -69,7 +69,7 @@ Template.App_session_main.helpers({
         return Questions.find({ _id: { '$in': keys } }, { sort: { type: -1 } });
     },
     nextButtonDisabled() {
-        return loading.get() ? "disabled" : "";
+        return loading.get() || !session().checked ? "disabled" : "";
     },
     nextButtonLabel() {
         return session().finished ? "View Result" : "Next Question";
