@@ -38,7 +38,7 @@ Template.App_stats.onCreated(function () {
         this.subscribe('choices.all');
         this.subscribe('sessions.all');
         if (this.subscriptionsReady()) {
-            calculateEntities();
+            setTimeout(calculateEntities, 100);
         }
     });
 });
