@@ -13,7 +13,7 @@ import "../../components/question/question";
 import "./main.scss";
 import "./main.html";
 
-
+let loadingQues = false;
 
 function sessionId() {
     return FlowRouter.getParam('_id');
@@ -23,8 +23,10 @@ function session() {
 }
 
 function loadQuestion(template) {
+    loadingQues = true;
     template.autorun(function () {
         Meteor.call("questions.next", sessionId(), function onError(err) {
+            loadingQues = false;
             if (err) {
                 console.log(err);
                 Materialize.toast(err, 4000);
@@ -36,7 +38,6 @@ function loadQuestion(template) {
 
 
 Template.App_session_main.onCreated(function () {
-
     const template = this; 
     template.autorun(() => {
         template.subscribe('questions.all');
@@ -64,7 +65,7 @@ Template.App_session_main.helpers({
         return Questions.find({ _id: { '$in': keys } }, { sort: { type: -1 } });
     },
     nextButtonDisable() {
-        return session().checked ? "" : "disable";
+        return !session().checked || loadingQues ? "disabled" : "";
     },
     nextButtonLabel() {
         return session().finished ? "View Result" : "Next Question";
@@ -86,10 +87,9 @@ Template.App_session_main.events({
         }
         else {
             loadQuestion(template);
-            /*
             if (!session().checked) {
                 Materialize.toast("Please check the last question", 4000);
-            }*/
+            }
         }
     },
 });
