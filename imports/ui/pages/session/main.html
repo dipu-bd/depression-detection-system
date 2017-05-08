@@ -16,10 +16,24 @@
                                 id="end-session-button">End Session</button>
                     </div>
                     <div class="col m6 center-align">
-                        <button class="btn-large waves-effect blue darken-2" 
-                                {{nextButtonDisable}} id="next-question-button">{{nextButtonLabel}}</button>
+                        <button class="btn-large waves-effect blue darken-2"
+                                {{nextButtonDisabled}} id="next-question-button">{{nextButtonLabel}}</button>
                     </div>
                 </div>
+
+                {{#if isloading}}
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+                {{/if}}
 
                 <div id="question-list" class="z-depth-1">
                     {{#each ques in questions}} 

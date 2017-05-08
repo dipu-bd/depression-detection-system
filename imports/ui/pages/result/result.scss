@@ -57,13 +57,14 @@ $backColor: #ffffea;
             font-size: 1.2em;
             border: 1px solid #ccc;
         }
+        .last {
+            font-size: 0.9em;
+        }
         .first {
             font-size: 1.0em;
             font-weight: 600;
             text-align: right;
-        }
-        .last {
-            font-size: 0.9em;
+            width: 30%;
         }
     }
 }

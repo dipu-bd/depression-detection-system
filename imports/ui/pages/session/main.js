@@ -2,6 +2,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var'
 
 import { Choices } from '/imports/api/choices';
 import { Sessions } from '/imports/api/sessions';
@@ -13,7 +14,7 @@ import "../../components/question/question";
 import "./main.scss";
 import "./main.html";
 
-let loadingQues = false;
+var loading = new ReactiveVar(false);
 
 function sessionId() {
     return FlowRouter.getParam('_id');
@@ -23,10 +24,10 @@ function session() {
 }
 
 function loadQuestion(template) {
-    loadingQues = true;
+    loading.set(true);
     template.autorun(function () {
         Meteor.call("questions.next", sessionId(), function onError(err) {
-            loadingQues = false;
+            loading.set(false);
             if (err) {
                 console.log(err);
                 Materialize.toast(err, 4000);
@@ -38,7 +39,7 @@ function loadQuestion(template) {
 
 
 Template.App_session_main.onCreated(function () {
-    const template = this; 
+    const template = this;    
     template.autorun(() => {
         template.subscribe('questions.all');
         template.subscribe('choices.user', sessionId());
@@ -64,8 +65,8 @@ Template.App_session_main.helpers({
         var keys = Choices.questions(sessionId(), [session().current]);
         return Questions.find({ _id: { '$in': keys } }, { sort: { type: -1 } });
     },
-    nextButtonDisable() {
-        return !session().checked || loadingQues ? "disabled" : "";
+    nextButtonDisabled() {
+        return loading.get() ? "disabled" : "";
     },
     nextButtonLabel() {
         return session().finished ? "View Result" : "Next Question";
@@ -73,6 +74,9 @@ Template.App_session_main.helpers({
     questionArg(ques) {
         ques.session = sessionId();
         return ques;
+    },
+    isloading() {
+        return loading.get();
     },
 });
 
