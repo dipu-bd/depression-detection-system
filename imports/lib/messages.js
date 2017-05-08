@@ -16,10 +16,7 @@ export class Messages {
         const choices = Choices.allChoices(id);
         this.options = Questions.optionDetails(choices);
         this.total = this.totalScore();
-    }
-
-    completed() {
-        return this.options.length === Questions.count();
+        this.completed = (this.options.length === Questions.find().count());
     }
 
     // calculate the total score
@@ -33,42 +30,80 @@ export class Messages {
 
     // beck depression scale 
     bds() {
+        return [
+            "These ups and downs are considered normal.",
+            "You have mild mood disturbance.",
+            "You have borderline clinical depression.",
+            "You have moderate depression.",
+            "You are suffering from severe depression.",
+            "You are suffering from extreme depression!",
+            "Your depression level is immeasurably high."
+        ][
+            this.bdsCategory()
+        ];
+    }
+
+    bdsCategory() { 
         if (this.total <= 10) {
-            return "These ups and downs are considered normal.";
+            return 0;
         } else if (this.total <= 16) {
-            return "You have mild mood disturbance.";
+            return 1;
         } else if (this.total <= 20) {
-            return "You have borderline clinical depression.";
+            return 2;
         } else if (this.total <= 30) {
-            return "You have moderate depression.";
+            return 3;
         } else if (this.total <= 40) {
-            return "You are suffering from severe depression.";
+            return 4;
         } else if (this.total <= 63) {
-            return "You are suffering from extreme depression!";
+            return 5;
         } else {
-            return "Your depression level is immeasurably high.";
+            return 6;
         }
     }
 
     // beck anxiety scale
     bas() {
+        return [ 
+            "You have minimum level of anxiety.",
+            "You have mild anxiety.",
+            "You have moderate anxiety.",
+            "You are suffering from severe anxiety.",
+            "Your anxiety level is immeasurably high."
+        ][
+            this.basCategory()
+        ];
+    }
+
+    basCategory() {
         if (this.total <= 7) {
-            return "You have minimum level of anxiety.";
+            return 0;
         } else if (this.total <= 15) {
-            return "You have mild anxiety.";
+            return 1;
         } else if (this.total <= 25) {
-            return "You have moderate anxiety.";
+            return 2;
         } else if (this.total <= 63) {
-            return "You are suffering from severe anxiety.";
+            return 3;
         } else {
-            return "Your anxiety level is immeasurably high.";
+            return 4;
         }
     }
 
-    // calculate the score of a question given the type
-    scoreOf(typeId) {
-        const opt = this.options[typeId - 1];
-        return opt ? opt.score : 0;
+    // beck suicide scale
+    bss() {
+        return [
+            "You do not have significant suicidal tendency.",
+            "You are at a significant risk for suicide."
+        ][
+            this.bssCategory()
+        ];
+    }
+
+    bssCategory() {
+        if(this.bssScore() <= 24) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
     bssScore() {
@@ -87,12 +122,22 @@ export class Messages {
         return score;
     }
 
-    // beck suicide scale
-    bss() {
-        if (this.bssScore() <= 24) {
-            return "You do not have significant suicidal tendency.";
+
+    // beck hopelessness scale
+    bhs() {
+        return [
+            "You do not feel particularly hopeless.",
+            "You feel very hopeless and are at some risk for suicide."
+        ][
+            this.bhsCategory()
+        ];
+    }
+
+    bhsCategory() {
+        if (this.bhsScore() <= 9) {
+            return 0;
         } else {
-            return "You are at a significant risk for suicide.";
+            return 1;
         }
     }
 
@@ -108,14 +153,11 @@ export class Messages {
         }
         return score;
     }
-
-    // beck hopelessness scale
-    bhs() {
-        if (this.bhsScore() <= 9) {
-            return "You do not feel particularly hopeless.";
-        } else {
-            return "You feel very hopeless and are at some risk for suicide.";
-        }
+    
+    // calculate the score of a question given the type
+    scoreOf(typeId) {
+        const opt = this.options[typeId - 1];
+        return opt ? opt.score : 0;
     }
 
     // proper advices based on score
