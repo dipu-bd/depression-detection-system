@@ -82,6 +82,6 @@ Meteor.methods({
     },
 
     'statistics'() {
-        
+        // first calculate new statistics
     }
 });
