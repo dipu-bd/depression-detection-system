@@ -28,6 +28,9 @@ function loadQuestion(template) {
     template.autorun(function () {
         Meteor.call("questions.next", sessionId(), function onError(err) {
             loading.set(false);
+            /*setTimeout(() => {
+                loading.set(false);
+            }, 3000);*/
             if (err) {
                 console.log(err);
                 Materialize.toast(err, 4000);
