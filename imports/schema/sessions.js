@@ -77,6 +77,10 @@ export const SessionSchema = new SimpleSchema({
         type: Boolean,
         defaultValue: false,
     },
+    statistics: {
+        type: Boolean,
+        defaultValue: false,
+    },
 
     // auto-managed properties
     createdAt: {
