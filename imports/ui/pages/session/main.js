@@ -33,7 +33,7 @@ function loadQuestion(template) {
             }, 3000);*/
             if (err) {
                 console.log(err);
-                Materialize.toast(err, 4000);
+                Materialize.toast(err, 5000);
             }
         });
     });
@@ -95,7 +95,7 @@ Template.App_session_main.events({
         else {
             loadQuestion(template);
             if (!session().checked) {
-                Materialize.toast("Please check the last question", 4000);
+                Materialize.toast("Please check the last question", 1000);
             }
         }
     },

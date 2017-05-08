@@ -15,7 +15,8 @@ var loading = new ReactiveVar(false);
 function calculateEntities(self) {
     loading.set(true);
     self.autorun(function () {
-        Meteor.call('statistics', functoin(error, result) {
+        // Asynchronous call
+        Meteor.call('statistics', (error, result) => {
             loading.set(false);
             if (error) {
                 console.log(err);
@@ -25,7 +26,7 @@ function calculateEntities(self) {
             }
         });
     });
-}
+} 
 
 Template.App_stats.onCreated(function () {
     calculateEntities(this);
