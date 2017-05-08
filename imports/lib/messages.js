@@ -16,7 +16,6 @@ export class Messages {
         const choices = Choices.allChoices(id);
         this.options = Questions.optionDetails(choices);
         this.total = this.totalScore();
-        this.completed = (this.options.length === Questions.find().count());
     }
 
     // calculate the total score
