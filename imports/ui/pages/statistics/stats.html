@@ -1,7 +1,112 @@
 <template name="App_stats">
-	<div> 
-		{{#if Template.subscriptionsReady}}
-			I am ready
-		{{/if}}
-	</div>
+    <section class="overlay">
+        <div id="statistics">
+
+            <div class="z-depth-1 top-bar">
+                <h3 class="header center-align">
+                    Statistics
+                </h3>
+            </div>
+
+            <!-- middle-bars -->
+            {{#if isLoading}}
+            <div class="z-depth-1 middle-bar">
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+                <div class="center-align">
+                    Analyzing data. Please be patient.
+                </div>
+            </div>
+            {{else}}
+                {{>overall}}
+            {{/if}}
+
+            <!-- bottom0-bar -->
+            <div class="z-depth-1 bottom-bar">
+                All results were based on the <a href="http://www.beckscales.com" target="_blank">Beck's Scale</a>.
+                <br> We do not take any responsibility for any kind of mishaps.
+            </div>
+
+        </div>
+    </section>
+</template>
+
+<template name="overall">
+    <div class="z-depth-1 middle-bar">
+        <h5 class="header light">
+            Overall Statistics
+        </h5>
+        <table>
+            <tr>
+                <td class="first">Total Participation</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td class="first">Test Completed</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td class="first">Average Depression Level</td>
+                <td> </td>
+            </tr>
+
+            <!-- Beck Depression Test -->
+            <tr>
+                <td class="first" colspan="2">
+                    Beck Depression Results
+                </td>
+            </tr>
+            <tr>
+                <td class="first">Having bo depression</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td class="first">Having mild mood disturbances</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td class="first">Having borderline clinical depression</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td class="first">Having moderate depression</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td class="first">Suffering from severe depression</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td class="first">Suffering from extreme depression</td>
+                <td> </td>
+            </tr>
+
+
+            <!-- beck anxiety scale -->
+            <tr>
+                <td class="first" colspan="2">
+                    Beck Anxiety Results
+                </td>
+            </tr>
+            <tr>
+                <td class="first">Having minimum level of anxiety</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td class="first">Having mild anxiety</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td class="first">Having moderate anxiety</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td class="first">Suffering from severe anxiety</td>
+                <td> </td>
+            </tr>
+
+
+        </table>
+    </div>
 </template>
