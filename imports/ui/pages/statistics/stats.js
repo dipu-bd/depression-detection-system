@@ -16,11 +16,11 @@ function calculateEntities(self) {
     loading.set(true);
     self.autorun(function () {
         // Asynchronous call
-        Meteor.call('statistics', (error, result) => {
+        Meteor.call('statistics', function (error, result) {
             loading.set(false);
             if (error) {
-                console.log(err);
-                Materialize.toast(err, 4000);
+                console.log(error);
+                Materialize.toast(error.reason, 5000);
             } else {
                 console.log(result);
             }
