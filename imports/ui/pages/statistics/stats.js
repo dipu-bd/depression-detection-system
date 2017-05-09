@@ -19,6 +19,7 @@ function getBatch() {
 
 function calculateEntities(self) {
     loading.set(true);
+    console.log(getBatch());
     self.autorun(function () {
         // Asynchronous call for statistics
         Meteor.call('statistics', getBatch(), function (error, result) {
