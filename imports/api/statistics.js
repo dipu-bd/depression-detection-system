@@ -58,16 +58,25 @@ Statistics.calculate = function (session) {
 };
 
 Statistics.generate = function(scale, batch) {	
+    // build query options
 	let options = { scale };
 	if(batch) {
 		options.batch = batch;
 	}
+    // create pipeline
 	let pipeline =[{
 		"$group": { 
 			_id: "$category",
 			count: { $sum: 1 }
 		}
 	}];
-	return Statistics.aggregate(pipeline, options);
+    // group by the categories
+	let result = Statistics.aggregate(pipeline, options);
+    // sort by categories
+    result.sort(function(a, b) {
+        return parseInt(a._id) - parseInt(b._id);
+    });
+    // return result
+    return result;
 }
 

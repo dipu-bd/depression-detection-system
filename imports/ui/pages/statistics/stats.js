@@ -10,30 +10,35 @@ import "../../components/loader/loader";
 import "./stats.html";
 import "./stats.scss";
 
-var loading = new ReactiveVar(false);
+var stats = new ReactiveVar(null);
+var loading = new ReactiveVar(true);
 
 function calculateEntities(self) {
     loading.set(true);
     self.autorun(function () {
-        // Asynchronous call
+        // Asynchronous call for statistics
         Meteor.call('statistics', function (error, result) {
-            loading.set(false);
             if (error) {
                 console.log(error);
                 Materialize.toast(error.reason, 5000);
             } else {
                 console.log(result);
+                stats.set(result);
             }
+            loading.set(false);
         });
     });
 } 
 
-Template.App_stats.onCreated(function () {
+Template.App_stats.onCreated(function () {   
     calculateEntities(this);
 });
 
 Template.App_stats.helpers({ 
     isLoading() {
-        return loading.get() || !this.subscriptionsReady;
+        return loading.get();
+    },
+    getStats() {
+        return stats.get();
     }
 });

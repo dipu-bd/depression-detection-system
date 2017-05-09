@@ -16,7 +16,7 @@ $backColor: #ffffea;
         background: $backColor url(/img/bg-footer.svg) center / cover;
         .header {
             margin: 0;
-            padding: 20px 0 0 0;
+            padding: 20px 0 10px 0;
         }
     }
     .middle-bar {
@@ -63,7 +63,6 @@ $backColor: #ffffea;
         .first {
             font-size: 1.0em;
             font-weight: 600;
-            text-align: right;
         }
     }
 }

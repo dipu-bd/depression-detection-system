@@ -2,9 +2,13 @@
     <section class="overlay">
         <div id="statistics">
 
-            <div class="z-depth-1 top-bar">
+            <div class="z-depth-1 top-bar">            
                 <h3 class="header center-align">
-                    Statistics
+                    {{#if data.batch}}
+                        Statistics of Batch {{ data.batch }}
+                    {{else}}
+                        Overall Statistics
+                    {{/if}}
                 </h3>
             </div>
 
@@ -19,32 +23,28 @@
                 </div>
             </div>
             {{else}}
-                {{>overall}}
+                {{> statistics data=getStats }}
             {{/if}}
 
             <!-- bottom0-bar -->
             <div class="z-depth-1 bottom-bar">
-                All results were based on the <a href="http://www.beckscales.com" target="_blank">Beck's Scale</a>.
-                <br> We do not take any responsibility for any kind of mishaps.
+                All statistics were based on the <a href="http://www.beckscales.com" target="_blank">Beck's Scale</a>.
             </div>
 
         </div>
     </section>
 </template>
 
-<template name="overall">
+<template name="statistics">
     <div class="z-depth-1 middle-bar">
-        <h5 class="header light">
-            Overall Statistics
-        </h5>
         <table>
             <tr>
                 <td class="first">Total Participation</td>
-                <td> </td>
+                <td>{{data.session.total}}</td>
             </tr>
             <tr>
                 <td class="first">Test Completed</td>
-                <td> </td>
+                <td>{{data.session.completed}}</td>
             </tr>
 
 
@@ -55,86 +55,83 @@
                 </td>
             </tr>
             <tr>
-                <td class="first">Having bo depression</td>
-                <td> </td>
+                <td>Having no depression</td>
+                <td>{{data.depression[0].count}}</td>
+            </tr>
+           <!-- <tr>
+                <td>Having mild mood disturbances</td>
+                <td>{{data.depression[1].count}}</td>
             </tr>
             <tr>
-                <td class="first">Having mild mood disturbances</td>
-                <td> </td>
+                <td>Having borderline clinical depression</td>
+                <td>{{data.depression[2].count}}</td>
             </tr>
             <tr>
-                <td class="first">Having borderline clinical depression</td>
-                <td> </td>
+                <td>Having moderate depression</td>
+                <td>{{data.depression[3].count}}</td>
             </tr>
             <tr>
-                <td class="first">Having moderate depression</td>
-                <td> </td>
+                <td>Suffering from severe depression</td>
+                <td>{{data.depression[4].count}}</td>
             </tr>
             <tr>
-                <td class="first">Suffering from severe depression</td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td class="first">Suffering from extreme depression</td>
-                <td> </td>
+                <td>Suffering from extreme depression</td>
+                <td>{{data.depression[5].count}}</td>
             </tr>
 
 
-            <!-- beck anxiety scale -->
             <tr>
                 <td class="first" colspan="2">
                     Anxiety Results
                 </td>
             </tr>
             <tr>
-                <td class="first">Having minimum level of anxiety</td>
-                <td> </td>
+                <td>Having minimum level of anxiety</td>
+                <td>{{data.anxiety[0].count}}</td>
             </tr>
             <tr>
-                <td class="first">Having mild anxiety</td>
-                <td> </td>
+                <td>Having mild anxiety</td>
+                <td>{{data.anxiety[1].count}}</td>
             </tr>
             <tr>
-                <td class="first">Having moderate anxiety</td>
-                <td> </td>
+                <td>Having moderate anxiety</td>
+                <td>{{data.anxiety[2].count}}</td>
             </tr>
             <tr>
-                <td class="first">Suffering from severe anxiety</td>
-                <td> </td>
+                <td>Suffering from severe anxiety</td>
+                <td>{{data.anxiety[3].count}}</td>
             </tr>
 
 
-            <!-- beck suicidal tendency -->
             <tr>
                 <td class="first" colspan="2">
                     Suicidal Tendency
                 </td>
             </tr>
             <tr>
-                <td class="first">No significant suicidal tendency</td>
-                <td> </td>
+                <td>No significant suicidal tendency</td>
+                <td>{{data.suicide[0].count}}</td>
             </tr>
             <tr>
-                <td class="first">At a significant risk for suicide</td>
-                <td> </td>
+                <td>At a significant risk for suicide</td>
+                <td>{{data.suicide[1].count}}</td>
             </tr>
 
 
-            <!-- beck hopelessness score -->
             <tr>
                 <td class="first" colspan="2">
                     Hopelessness Resuts
                 </td>
             </tr>
             <tr>
-                <td class="first">Not particularly hopeless</td>
-                <td> </td>
+                <td>Not particularly hopeless</td>
+                <td>{{data.hopeless[0].count}}</td>
             </tr>
             <tr>
-                <td class="first">Feeling very hopeless</td>
-                <td> </td>
-            </tr>
-        </table>
+                <td>Feeling very hopeless</td>
+                <td>{{data.hopeless[1].count}}</td>
+            </tr> -->
+        </table> 
     </div>
 </template>
 
