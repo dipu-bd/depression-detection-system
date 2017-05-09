@@ -1,21 +1,21 @@
-// Definition of OptionsSchema 
+// Definition of StatisticsSchema 
 
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 // schema for options used in each questions
-export const OptionSchema = new SimpleSchema({
+export const StatisticsSchema = new SimpleSchema({
+    session: {
+        type: String,
+    },
     // scales are one of: ['anxiety', 'depression', 'hopeless', 'suicide']
     scale: {
         type: String,
-        label: 'Scale'
     },
     score: {
         type: Number,
-        label: 'Score'
     },
     category: {
         type: String,
-        label: 'Score Category'
     },
 
     // optional batch

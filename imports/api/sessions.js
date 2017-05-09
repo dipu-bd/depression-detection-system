@@ -18,4 +18,14 @@ Sessions.deny({
     remove() { return true; },
 });
 
- 
+Sessions.numbers = (batch) => {	
+	// count total
+	let options = {};
+	if(batch) options.batch = batch;	
+	const total = Sessions.find(options).count();
+	// count finished
+	options.finished = { $ne: false };
+	const completed = Sessions.find(options).count();
+	// return data
+	return { total, completed };
+};

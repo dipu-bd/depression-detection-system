@@ -5,6 +5,7 @@ import { Match, check } from 'meteor/check';
 import { Questions } from './questions';
 import { Sessions } from './sessions';
 import { Choices } from './choices';
+import { Statistics } from './statistics';
 
 import { QuestionFinder } from '/imports/lib/ques-finder.js';
 
@@ -81,7 +82,28 @@ Meteor.methods({
         }
     },
 
-    'statistics'() {
-        // first calculate new statistics
+    'statistics'(batch) {
+        // first update statistics
+        Meteor.call('statistics.update');
+        // generate statistics data
+        let data = {};    
+        data.batch = batch;
+        data.session = Sessions.numbers(batch);
+        ['anxiety', 'depression', 'hopeless', 'suicide'].forEach((scale) => {
+            data[scale] = Statistics.generate(scale, batch);
+        });
+        return data;
+    },
+
+    'statistics.update'() {
+        // update statistics data
+        Sessions.find({
+            'finished': true,
+            'statistics': { $ne: true }
+        }).forEach(function (session) {
+            //console.log(session._id);
+            Statistics.calculate(session); 
+        });
+        return true;        
     }
 });
