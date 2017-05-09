@@ -13,11 +13,15 @@ import "./stats.scss";
 var stats = new ReactiveVar(null);
 var loading = new ReactiveVar(true);
 
+function getBatch() {    
+    return FlowRouter.getParam('batch');
+}
+
 function calculateEntities(self) {
     loading.set(true);
     self.autorun(function () {
         // Asynchronous call for statistics
-        Meteor.call('statistics', function (error, result) {
+        Meteor.call('statistics', getBatch(), function (error, result) {
             if (error) {
                 console.log(error);
                 Materialize.toast(error.reason, 5000);
@@ -40,5 +44,11 @@ Template.App_stats.helpers({
     },
     getStats() {
         return stats.get();
+    },
+});
+
+Template.statistics.helpers({ 
+    count(value) {
+        return (value || 0);
     }
 });

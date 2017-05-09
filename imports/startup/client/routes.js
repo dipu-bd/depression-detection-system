@@ -50,7 +50,7 @@ FlowRouter.route('/print/:_id', {
     }
 });
 
-FlowRouter.route('/statistics', {
+FlowRouter.route('/statistics/:batch?', {
     name: 'App.stats',
     action(params) {        
         BlazeLayout.render('App_body', { main: 'App_stats' });

@@ -83,6 +83,7 @@ Meteor.methods({
     },
 
     'statistics'(batch) {
+        check(batch, String);
         // first update statistics
         Meteor.call('statistics.update');
         // generate statistics data

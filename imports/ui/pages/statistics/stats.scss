@@ -57,12 +57,16 @@ $backColor: #ffffea;
             font-size: 1.2em;
             border: 1px solid #ccc;
         }
-        .last {
-            font-size: 0.9em;
+        td:nth-child(2) {
+            font-size: 1.5em;
+            font-family: monospace;
+            width: 30%;
+            text-align: center;
         }
         .first {
-            font-size: 1.0em;
-            font-weight: 600;
+            font-size: 1.2em;
+            font-weight: 500;
+            background-color: #f5f4f8;
         }
     }
 }
