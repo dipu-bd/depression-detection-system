@@ -4,6 +4,7 @@ import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Messages } from '../lib/messages';
 import { Sessions } from './sessions';
+import { _ } from 'meteor/erasaur:meteor-lodash';
 
 import { StatisticsSchema } from '../schema/statistics'
 
@@ -22,34 +23,34 @@ Statistics.deny({
 
 Statistics.calculate = function (session) {
     const message = new Messages(session._id);
-	// scales are one of: ['anxiety', 'depression', 'hopeless', 'suicide']
+    // scales are one of: ['anxiety', 'depression', 'hopeless', 'suicide']
     Statistics.insert({
-    	scale: 'anxiety',
-    	score: message.total,
-    	category: message.basCategory(),
-    	batch: session.batch,
-    	session: session._id,
-    });
-	Statistics.insert({
-    	scale: 'depression',
-    	score: message.total,
-    	category: message.bdsCategory(),
-    	batch: session.batch,
-    	session: session._id,
+        scale: 'anxiety',
+        score: message.total,
+        category: message.basCategory(),
+        batch: session.batch,
+        session: session._id,
     });
     Statistics.insert({
-    	scale: 'hopeless',
-    	score: message.bhsScore(),
-    	category: message.bhsCategory(),
-    	batch: session.batch,
-    	session: session._id,
+        scale: 'depression',
+        score: message.total,
+        category: message.bdsCategory(),
+        batch: session.batch,
+        session: session._id,
     });
     Statistics.insert({
-    	scale: 'suicide',
-    	score: message.bssScore(),
-    	category: message.bssCategory(),
-    	batch: session.batch,
-    	session: session._id,
+        scale: 'hopeless',
+        score: message.bhsScore(),
+        category: message.bhsCategory(),
+        batch: session.batch,
+        session: session._id,
+    });
+    Statistics.insert({
+        scale: 'suicide',
+        score: message.bssScore(),
+        category: message.bssCategory(),
+        batch: session.batch,
+        session: session._id,
     });
     // update session
     return Sessions.update({ _id: session._id }, {
@@ -57,26 +58,29 @@ Statistics.calculate = function (session) {
     });
 };
 
-Statistics.generate = function(scale, batch) {	
+Statistics.generate = function(scale, batch) {  
     // build query options
-	let options = { scale };
-	if(batch) {
-		options.batch = batch;
-	}
-    // create pipeline
-	let pipeline =[{
-		"$group": { 
-			_id: "$category",
-			count: { $sum: 1 }
-		}
-	}];
+    let options = { };
+    options.scale = scale;
+    if(batch) options.batch = batch;
     // group by the categories
-	let result = Statistics.aggregate(pipeline, options);
-    // sort by categories
-    result.sort(function(a, b) {
-        return parseInt(a._id) - parseInt(b._id);
+    let group = {};
+    Statistics.find(options).forEach((stat)=> {
+        if(!group[stat.category]) {
+            group[stat.category] = 1;
+        } else {
+            group[stat.category]++;
+        }
     });
-    // return result
-    return result;
+    // calculate result
+    let result = [];
+    Object.keys(group).forEach((key) => {
+        result.push({ 
+            count: group[key],
+            category: key
+        });
+    });
+    // sort by categories and return
+    return _.sortBy(result, "cateogry");
 }
 

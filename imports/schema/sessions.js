@@ -20,14 +20,9 @@ export const SessionSchema = new SimpleSchema({
             options: function(){
                 var data = [];
                 var thisYear = (new Date()).getFullYear();
-
                 for (var i = thisYear; i >= 2000; i--) {
-                    data.push({ 
-                        label: i, 
-                        value: i 
-                    });   
+                    data.push({ label: i, value: i });   
                 }
-
                 return data;
             }
         },
