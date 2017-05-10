@@ -1,31 +1,60 @@
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -9999;
+}
+section#homepage {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #starter-card {
-    position: absolute;
-    padding: 40px 60px;
-    left: 5px;
-    right: 5px;
-    top: 20%; 
+    padding: 20px 30px;
     background: url(/img/bg-footer.svg) center / cover;
-
     .title-text {
         font-size: 2em;
     }
-
+    .consent-text {
+        font-family: monospace; 
+        font-size: 1em;
+        max-width: 600px;
+    }
+    .begin-button {
+        width: 200px;
+    }
+    .info-text {
+        max-width: 600px;
+        text-align: justify;
+        margin: 0 auto;
+        position: relative;
+        font-weight: 300;
+        color: black;
+        font-size: 1.3em;
+    }
+ 
     @media (min-width: 600px) {
-        left: 10%;
-        right: 10%;
-        top: 25%;
-
+        padding: 20px 40px;
         .title-text {
             font-size: 3em;
         }
+        .begin-button {
+            width: 250px;
+        }
     }
-
     @media (min-width: 960px) {
-        left: 20%;
-        right: 20%;
-        
+        width: 900px;
+        padding: 20px 60px;
         .title-text {
-            font-size: 4em;
+            font-size: 4em;            
+        }
+        .begin-button {
+            width: 350px;
         }
     }
 }
+
+

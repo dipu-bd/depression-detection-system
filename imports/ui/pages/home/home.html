@@ -1,19 +1,28 @@
 <template name="App_home">
-    <section class="particles">
+    <section id="homepage">
+        <div class="particles"></div>
         <div class="center-block z-depth-1-half cyan lighten-5" id="starter-card">
 
             <h1 class="center orange-text title-text">
                 <i class="fa fa-thermometer-three-quarters"></i> Depression Test
             </h1>
-            <div class="row center">
-                <p class="flow-text col s12 light black-text">
-                    Test and discover your level of depression, anxiety, hopelessness and suicidal intent. Questions and results are based on the standard <a href="https://www.wikiwand.com/en/Beck_Depression_Inventory" target="_blank">Beck Depression Inventory (II)</a>. <i>None of your information shall be published anywhere, and will be used for statistical purpose only.</i>
-                </p>
+
+            <div class="row">
+                <div class="col s12">
+                    <p class="info-text">
+                        Test now and discover your level of depression, anxiety, hopelessness and suicidal intent. Questions and results are based on the standard <a href="https://www.wikiwand.com/en/Beck_Depression_Inventory" target="_blank">Beck Depression Inventory (II)</a>.
+                    </p>
+                </div>
             </div>
+
             <div class="row center">
-                <a href="/session" class="btn-large waves-effect waves-light orange flow-text">
+                <a href="/session" class="btn-large waves-effect waves-light orange flow-text begin-button">
                     <i class="material-icons right">send</i> Begin Test
                 </a>
+            </div>
+
+            <div class="row center consent-text">
+                <i>None of your information shall be published anywhere, and will be used for statistical purpose only.</i>
             </div>
         </div>
     </section>
