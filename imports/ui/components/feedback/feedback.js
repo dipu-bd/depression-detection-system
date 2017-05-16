@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
 import './feedback.html';
+import './feedback.scss';
 
 function submitFeedback(feedback) {
 	//console.log("=> data", feedback);
@@ -27,6 +28,8 @@ Template.feedback_button.events({
 			closeLabel: 'Close',
 			submitLabel: 'Submit',
 			bodyTemplate: 'feedback_body',
+			bottomSheet: true,
+			fixedFooter: true,
 			callback: (error, rtn) => {
 				if (rtn.submit) {
 					submitFeedback(rtn.value.feedback);

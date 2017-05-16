@@ -1,0 +1,19 @@
+.materialize-modal {
+	min-height: 320px;
+	background: #f4f4f4;
+	box-shadow: 0 0 4px rgba(0,0,0,0.4);
+	.modal-title {
+		color: gray;
+		padding-top: 20px;
+	}
+	.modal-body {
+		border-top: 2px solid aqua;
+		padding-top: 15px;
+	}
+	.modal-content {
+		height: 300px;
+	}
+	.modal-footer {
+		background: #e3e2e4;
+	}
+}
