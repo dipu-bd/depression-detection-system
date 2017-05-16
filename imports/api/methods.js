@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { Match, check } from 'meteor/check';
 import { Questions } from './questions';
 import { Sessions } from './sessions';
+import { Feedbacks } from './feedbacks';
 import { Choices } from './choices';
 import { Statistics } from './statistics';
 
@@ -123,7 +124,11 @@ Meteor.methods({
     },
 
     'feedback'(text) {
+        check(text, String);
 	    clientIP = this.connection.clientAddress;
-        
+        return Feedbacks.insert({
+            ip: clientIP,
+            feedback: text
+        });
     },
 });

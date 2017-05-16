@@ -4,6 +4,10 @@ import { Template } from 'meteor/templating';
 import './feedback.html';
 
 function submitFeedback(feedback) {
+	//console.log("=> data", feedback);
+	if(!feedback || feedback.length <= 5) {
+		return Materialize.toast("Your feedback is too short", 2000);
+	}
 	Meteor.autorun(function() {
 		 Meteor.call('feedback', feedback,  function (err) {
 			 if (err) {
@@ -25,8 +29,7 @@ Template.feedback_button.events({
 			bodyTemplate: 'feedback_body',
 			callback: (error, rtn) => {
 				if (rtn.submit) {
-					console.log("Form data", rtn.value);
-					submitFeedback(rtn.vlaue);
+					submitFeedback(rtn.value.feedback);
 				}
 			}
 		});
