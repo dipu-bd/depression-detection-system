@@ -31,7 +31,7 @@ fourseven:scss
 poetic:materialize-scss
 seba:minifiers-autoprefixer
 gildaspk:autoform-materialize
-#meteorstuff:materialize-modal
+meteorstuff:materialize-modal
 #materialize:materialize@=0.97.7
 
 erasaur:meteor-lodash

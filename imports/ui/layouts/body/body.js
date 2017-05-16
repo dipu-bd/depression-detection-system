@@ -1,5 +1,4 @@
 // Controller for body template
-
 import { Metepr } from 'meteor/meteor'; 
 import { FlowRouter } from 'meteor/kadira:flow-router';;
 

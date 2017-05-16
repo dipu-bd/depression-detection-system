@@ -1,19 +1,14 @@
-<template name="feedback">
-	<div id="feeback-modal" class="modal bottom-sheet">
-		<div class="modal-content">
-			<h4>Your feedback is muchly appreciated!</h4>
-			<div class="row">
-        <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Write your feedback here</label>
-        </div>
-      </div>
-		</div>
+<template name="feedback_button">	
+		<button class="btn green waves-effect waves-light" style="display: block" id="feedback">
+			Give us a feedback
+		</button>
+</template>
 
-		<div class="modal-footer">
-			<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">
-				Submit Feedback
-			</a>
+<template name="feedback_body">
+	<form>
+		<div class="input-field col s12">
+			<textarea name="feedback" class="materialize-textarea"></textarea>
+			<label for="textarea1">Write here</label>
 		</div>
-	</div>
+	</form>
 </template>

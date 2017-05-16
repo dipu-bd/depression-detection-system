@@ -1,2 +1,3 @@
+import '../feedback/feedback.js';
 import './footer.html';
-import '../feedback/feedback';
+

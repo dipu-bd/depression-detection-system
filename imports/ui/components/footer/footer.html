@@ -1,5 +1,6 @@
 <template name="footer">
 	<footer class="page-footer teal darken-2">
+
 		<!-- Upper layer -->
 		<div class="container">
 			<div class="row">
@@ -9,10 +10,8 @@
 					<p class="grey-text text-lighten-4">
 						This is a prototype version of the original project.
 					</p>
-					<!-- Modal Trigger -->
-					<button data-target="feedback-modal" class="btn">
-						Leave a feedback
-					</button>
+					<!-- Feedback Modal Trigger -->
+					{{> feedback_button}}
 				</div>
 
 				<div class="col l4 offset-l2 s12">                
@@ -28,7 +27,8 @@
 				</div>
 
 			</div>
-		</div> <!-- /.upper-layer -->
+		</div> 
+		<!-- /.upper-layer -->
 
 		<!-- Bottom layer -->
 		<div class="footer-copyright">
@@ -42,9 +42,4 @@
 		<!-- bottom-layer -->
 
 	</footer>
-
-	<!-- Feedback Modal -->
-	{{> feedback }}
-	<!-- /.feedback-modal -->
-
 </template>
