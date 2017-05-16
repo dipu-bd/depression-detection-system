@@ -1,33 +1,50 @@
 <template name="footer">
-    <footer class="page-footer teal darken-2">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Adaptive Depression Test</h5>
-                    <p class="grey-text text-lighten-4">
-                        This is a prototype version of the original project.
-                    </p>
-                </div>
-                <div class="col l4 offset-l2 s12">                
-                    <h5 class="row white-text">Developers</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="https://github.com/dipu-bd">Sudipto Chandra</a></li>
-                        <li><a class="grey-text text-lighten-3" href="https://github.com/nowshad-sust">Al-Amin Nowshad</a></li>                            
-                    </ul>
-                    <!-- <ul>
-                        <li><a class="grey-text text-lighten-3" href="https://github.com/dipu-bd">Sudipto Chandra</a></li>
-                        <li><a class="blue-text text-lighten-3" href="mailto:dipu.sudipta@gmail.com">dipu.sudipta@gmail.com</a></li>
-                    </ul> -->
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                Copyright © 2017. Apache License, Version 2.0. 
-                <a class="grey-text text-lighten-4 right"  target="_blank" href="https://github.com/dipu-bd/depression-detection-system">
-                    <i class="fa fa-github"></i> Github Source
-                </a>
-            </div>
-        </div>
-    </footer>
+	<footer class="page-footer teal darken-2">
+		<!-- Upper layer -->
+		<div class="container">
+			<div class="row">
+
+				<div class="col l6 s12">
+					<h5 class="white-text">Adaptive Depression Test</h5>
+					<p class="grey-text text-lighten-4">
+						This is a prototype version of the original project.
+					</p>
+					<!-- Modal Trigger -->
+					<button data-target="feedback-modal" class="btn">
+						Leave a feedback
+					</button>
+				</div>
+
+				<div class="col l4 offset-l2 s12">                
+					<h5 class="row white-text">Developers</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="https://github.com/dipu-bd">Sudipto Chandra</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://github.com/nowshad-sust">Al-Amin Nowshad</a></li>                            
+					</ul>
+					<!-- <ul>
+						<li><a class="grey-text text-lighten-3" href="https://github.com/dipu-bd">Sudipto Chandra</a></li>
+						<li><a class="blue-text text-lighten-3" href="mailto:dipu.sudipta@gmail.com">dipu.sudipta@gmail.com</a></li>
+					</ul> -->
+				</div>
+
+			</div>
+		</div> <!-- /.upper-layer -->
+
+		<!-- Bottom layer -->
+		<div class="footer-copyright">
+			<div class="container">
+				Copyright © 2017. Apache License, Version 2.0. 
+				<a class="grey-text text-lighten-4 right"  target="_blank" href="https://github.com/dipu-bd/depression-detection-system">
+					<i class="fa fa-github"></i> Github Source
+				</a>
+			</div>
+		</div>
+		<!-- bottom-layer -->
+
+	</footer>
+
+	<!-- Feedback Modal -->
+	{{> feedback }}
+	<!-- /.feedback-modal -->
+
 </template>
