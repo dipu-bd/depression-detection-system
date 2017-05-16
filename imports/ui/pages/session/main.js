@@ -39,8 +39,6 @@ function loadQuestion(template) {
     });
 }
 
-
-
 Template.App_session_main.onCreated(function () {
     const template = this;    
     template.autorun(() => {
