@@ -16,8 +16,11 @@
             {{> yourChoices optionList=optionList }}
 
             <div class="row z-depth-1" id="button-bar">
-                <div class="col s12">
+                <div class="col s6">
                     <a class="btn-large waves-effect red" target="_blank" href="/print/{{session._id}}">Print this Report</a>
+                </div>
+                <div class="col s6">
+                    {{> feedback_button}}
                 </div>
             </div>
 

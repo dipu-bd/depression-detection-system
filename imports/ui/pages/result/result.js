@@ -12,6 +12,7 @@ import { Questions } from "/imports/api/questions";
 import { Messages } from '/imports/lib/messages';
 
 import "../../components/loader/loader";
+import "../../components/feedback/feedback";
 import "./result.html";
 import "./result.scss";
 
