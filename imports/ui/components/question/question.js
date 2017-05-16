@@ -42,19 +42,3 @@ Template.question.helpers({
         return (choice && choice.option === option) ? "checked" : "";
     },
 });
-
-Template.question.events({
-    'click .option input'(event, template) { 
-        // call server function
-        const session = template.data.session;
-        const ques = template.data._id;
-        const index = event.target.value; 
-        Meteor.call('choices.set', session, ques, index);
-        /*, function (err) {
-            if (err) {
-                console.log(err);
-                Materialize.toast(err, 4000);
-            }
-        });*/
-    },
-});

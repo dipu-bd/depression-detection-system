@@ -23,14 +23,11 @@ function session() {
     return Sessions.findOne();
 }
 
-function loadQuestion(template) {
+function loadQuestion() {
     loading.set(true);
-    template.autorun(function () {
+    Meteor.autorun(function () {
         Meteor.call("questions.next", sessionId(), function onError(err) {
             loading.set(false);
-            /*setTimeout(() => {
-                loading.set(false);
-            }, 3000);*/
             if (err) {
                 console.log(err);
                 Materialize.toast(err, 5000);
@@ -39,8 +36,29 @@ function loadQuestion(template) {
     });
 }
 
+function setChoice(template) {
+    // call server function
+    const session = template.data.session;
+    const ques = template.data._id;
+    const index = event.target.value;
+
+    loading.set(true);
+    template.autorun(function () {
+        Meteor.call('choices.set', session, ques, index, function (err) {
+            loading.set(false);
+            if (err) {
+                console.log(err);
+                Materialize.toast(err, 2000);
+            } else {
+                //loadQuestion();
+            }
+        });
+    });
+}
+
+
 Template.App_session_main.onCreated(function () {
-    const template = this;    
+    const template = this;
     template.autorun(() => {
         template.subscribe('questions.all');
         template.subscribe('choices.user', sessionId());
@@ -91,10 +109,21 @@ Template.App_session_main.events({
             FlowRouter.go("App.result", { _id: sessionId() });
         }
         else {
-            loadQuestion(template);
+            loadQuestion();
             if (!session().checked) {
                 Materialize.toast("Please check the last question", 1000);
             }
+        }
+    },
+});
+
+Template.question.events({
+    'click .option input'(event, template) { 
+         if (session().finished) {
+            FlowRouter.go("App.result", { _id: sessionId() });
+        }
+        else {
+            setChoice(template);
         }
     },
 });

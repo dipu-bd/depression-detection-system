@@ -17,10 +17,12 @@ Meteor.methods({
     },
 
     'questions.next'(sessionId) {
+        //Meteor._sleepForMs(2000);
         // validate
         if (!Match.test(sessionId, String)) {
             throw new Meteor.Error("Invalid session id");
         }
+
         const session = Sessions.findOne({ _id: sessionId });
         if (!Match.test(session, Object)) {
             throw new Meteor.Error("Session was not found");
@@ -28,25 +30,30 @@ Meteor.methods({
         if (session.finished) {
             throw new Meteor.Error("The Session is already over");
         }
+
         // get next question 
         const quesId = QuestionFinder.findOne(session);
         const finished = Questions.isLast(session.current);
-        return Sessions.update({ _id: sessionId }, {
+        Sessions.update({ _id: sessionId }, {
             $set: {
                 "current": quesId,
                 "checked": false,
                 "finished": finished,
             }
         });
+
+        return true;
     },
 
     'choices.set'(sessionId, quesId, optionId) { 
+        //Meteor._sleepForMs(2000);
         // validate
         check(sessionId, String);
         const session = Sessions.findOne({ _id: sessionId });
         if (!Match.test(session, Object)) {
             throw new Meteor.Error("Session was not found");
         }
+
         const question = Questions.findOne({ _id: quesId });
         if (!Match.test(question, Object)) {
             throw new Meteor.Error("Question was not found");
@@ -54,9 +61,10 @@ Meteor.methods({
         if (question.options.length <= optionId) {
             throw new Meteor.Error("Option is not valid");
         }
+
         // update session if it is current question
+        const finished = Match.test(question.type, Questions.maxType());
         if (Match.test(quesId, session.current)) {
-            const finished = Match.test(question.type, Questions.maxType());
             Sessions.update({ _id: sessionId }, {
                 "$set": {
                     "checked": true,
@@ -64,21 +72,26 @@ Meteor.methods({
                 }
             });
         }
+
         // find if choice exists
         const src = { session: sessionId, question: quesId };
         let choice = Choices.findOne(src);
-        if (Match.test(choice, Object)) {
-            //update if found
-            return Choices.update(src, {
+        if (Match.test(choice, Object)) { //update if found
+            Choices.update(src, {
                 $set: { option: optionId },
             });
-        } else {
-            // insert if not found
-            return Choices.insert({
+        } else { // insert if not found
+            Choices.insert({
                 session: sessionId,
                 question: quesId,
                 option: optionId,
             });
+        }
+
+        if(!finished) {
+            return Meteor.call('questions.next', sessionId);;
+        } else {
+            return true;
         }
     },
 
@@ -106,6 +119,6 @@ Meteor.methods({
             //console.log(session._id);
             Statistics.calculate(session); 
         });
-        return true;        
+        return true;
     }
 });
