@@ -16,4 +16,26 @@
 	.modal-footer {
 		background: #e3e2e4;
 	}
+	#submitButton,
+	#closeButton {
+		margin-left: 10px;
+		width: 180px;
+  	text-decoration: none;
+    color: #fff;
+    background-color: #26a69a;
+    text-align: center;
+    letter-spacing: .5px;
+    -webkit-transition: .2s ease-out;
+    transition: .2s ease-out;
+    cursor: pointer;
+	}
+	#submitButton:hover,
+	#closeButton:hover {
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+    -webkit-transition: .2s ease-out;
+    transition: .2s ease-out;
+	}
+	#closeButton {
+		background-color: #26a6a9;
+	}
 }
