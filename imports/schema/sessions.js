@@ -59,7 +59,13 @@ export const SessionSchema = new SimpleSchema({
             }
         }
     },*/
- 
+    
+    feedback: {
+        type: String,
+        label: "Feedback",
+        optional: true,
+    },
+
     current: {
         type: String,
         optional: true,
