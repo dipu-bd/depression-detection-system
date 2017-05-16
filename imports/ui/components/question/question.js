@@ -43,6 +43,7 @@ Template.question.helpers({
     },
 });
 
+/*
 Template.question.events({
     'click .option input'(event, template) { 
         // call server function
@@ -57,3 +58,4 @@ Template.question.events({
         });
     },
 });
+*/
