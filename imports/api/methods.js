@@ -120,5 +120,10 @@ Meteor.methods({
             Statistics.calculate(session); 
         });
         return true;
-    }
+    },
+
+    'feedback'(text) {
+	    clientIP = this.connection.clientAddress;
+        
+    },
 });

@@ -5,7 +5,7 @@ import './feedback.html';
 
 function submitFeedback(feedback) {
 	Meteor.autorun(function() {
-		 Meteor.call('feedback', feedback, function (err) {
+		 Meteor.call('feedback', feedback,  function (err) {
 			 if (err) {
 				 console.log(err);
 				 Materialize.toast(err, 2000);
