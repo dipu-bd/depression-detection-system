@@ -5,6 +5,7 @@ import { Template } from 'meteor/templating';
 import { moment } from 'meteor/momentjs:moment';
 import { _ } from 'meteor/erasaur:meteor-lodash';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { Chart } from 'meteor/chart:chart';
 
 import "../../components/loader/loader";
 import "./stats.html";
