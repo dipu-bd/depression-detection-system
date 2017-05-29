@@ -40,11 +40,11 @@
         <table>
             <tr>
                 <td class="first">Total Participation</td>
-                <td>{{count data.session.total}}</td>
+                <td>{{data.session.total}}</td>
             </tr>
             <tr>
                 <td class="first">Test Completed</td>
-                <td>{{count data.session.completed}}</td>
+                <td>{{data.session.completed}}</td>
             </tr>
 
             <tr>
@@ -52,30 +52,12 @@
                     Depression Results
                 </td>
             </tr>
+            {{#each (repeat bdsMessage data.depression)}}
             <tr>
-                <td>Having no depression</td>
-                <td>{{count data.depression.[0].count}}</td>
+                <td>{{this.label}}</td>
+                <td>{{this.value}}</td>
             </tr>
-           <tr>
-                <td>Having mild mood disturbances</td>
-                <td>{{count data.depression.[1].count}}</td>
-            </tr>
-            <tr>
-                <td>Having borderline clinical depression</td>
-                <td>{{count data.depression.[2].count}}</td>
-            </tr>
-            <tr>
-                <td>Having moderate depression</td>
-                <td>{{count data.depression.[3].count}}</td>
-            </tr>
-            <tr>
-                <td>Suffering from severe depression</td>
-                <td>{{count data.depression.[4].count}}</td>
-            </tr>
-            <tr>
-                <td>Suffering from extreme depression</td>
-                <td>{{count data.depression.[5].count}}</td>
-            </tr>
+            {{/each}}
             <tr>
                 <td colspan="10">
                     <div style="text-align: center">
@@ -89,22 +71,12 @@
                     Anxiety Results
                 </td>
             </tr>
+            {{#each (repeat basMessage data.anxiety)}}
             <tr>
-                <td>Having minimum level of anxiety</td>
-                <td>{{count data.anxiety.[0].count}}</td>
+                <td>{{this.label}}</td>
+                <td>{{this.value}}</td>
             </tr>
-            <tr>
-                <td>Having mild anxiety</td>
-                <td>{{count data.anxiety.[1].count}}</td>
-            </tr>
-            <tr>
-                <td>Having moderate anxiety</td>
-                <td>{{count data.anxiety.[2].count}}</td>
-            </tr>
-            <tr>
-                <td>Suffering from severe anxiety</td>
-                <td>{{count data.anxiety.[3].count}}</td>
-            </tr>
+            {{/each}}
             <tr>
                 <td colspan="10">
                     <div style="text-align: center">
@@ -119,14 +91,12 @@
                     Suicidal Tendency
                 </td>
             </tr>
+            {{#each (repeat bssMessage data.suicide)}}
             <tr>
-                <td>No significant suicidal tendency</td>
-                <td>{{count data.suicide.[0].count}}</td>
+                <td>{{this.label}}</td>
+                <td>{{this.value}}</td>
             </tr>
-            <tr>
-                <td>At a significant risk for suicide</td>
-                <td>{{count data.suicide.[1].count}}</td>
-            </tr>
+            {{/each}}
             <tr>
                 <td colspan="10">
                     <div style="text-align: center">
@@ -141,14 +111,12 @@
                     Hopelessness Resuts
                 </td>
             </tr>
+            {{#each (repeat bhsMessage data.hopeless)}}
             <tr>
-                <td>Not particularly hopeless</td>
-                <td>{{count data.hopeless.[0].count}}</td>
+                <td>{{this.label}}</td>
+                <td>{{this.value}}</td>
             </tr>
-            <tr>
-                <td>Feeling very hopeless</td>
-                <td>{{count data.hopeless.[1].count}}</td>
-            </tr>
+            {{/each}}
             <tr>
                 <td colspan="10">
                     <div style="text-align: center">
