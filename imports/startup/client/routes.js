@@ -12,7 +12,7 @@ import '/imports/ui/pages/result/result.js';
 import '/imports/ui/pages/result/print.js';
 import '/imports/ui/pages/statistics/stats.js';
 import '/imports/ui/pages/not-found/not-found.js';
-
+import '/imports/ui/pages/admin/admin.js';
 
 // Set up all routes in the app
 FlowRouter.route('/', {
@@ -54,6 +54,13 @@ FlowRouter.route('/statistics/:batch?', {
     name: 'App.stats',
     action(params) {        
         BlazeLayout.render('App_body', { main: 'App_stats' });
+    }
+});
+
+FlowRouter.route('/admin/login', {
+    name: 'App.admin',
+    action(params) {        
+        BlazeLayout.render('App_body', { main: 'App_admin' });
     }
 });
 

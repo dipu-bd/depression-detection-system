@@ -16,10 +16,10 @@ kadira:flow-router                  # FlowRouter is a very simple router for Met
 kadira:blaze-layout                 # Layout manager for blaze (works well with FlowRouter)
 blaze-html-templates                # Compile .html files into Meteor Blaze views
 #standard-minifier-css              # CSS minifier run for production mode
-standard-minifier-js@2.0.0                # JS minifier run for production mode
+standard-minifier-js                # JS minifier run for production mode
 es5-shim@4.6.15                            # ECMAScript 5 compatibility for older browsers.
 ecmascript@0.7.3                          # Enable ECMAScript2015+ syntax in app code
-shell-server@0.2.3                        # Server-side component of the `meteor shell` command
+shell-server                        # Server-side component of the `meteor shell` command
 
 dburles:collection-helpers
 aldeed:simple-schema
@@ -40,3 +40,4 @@ chuangbo:cookie
 danappelxx:particleground
 meteorhacks:aggregate
 chart:chart
+standard-minifier-css
