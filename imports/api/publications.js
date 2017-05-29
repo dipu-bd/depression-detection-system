@@ -22,7 +22,7 @@ Meteor.publish('sessions.user', function (_id) {
         return res;
     }
     throw new Meteor.Error("No session was found");
-});   
+});
 
 Meteor.publish('choices.all', function () {
     return Choices.find();
@@ -32,3 +32,6 @@ Meteor.publish('sessions.all', function () {
     return Sessions.find();
 });
 
+Meteor.publish('statistics', function () {
+    return Statistics.find();
+});

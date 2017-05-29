@@ -1,0 +1,41 @@
+<template name="App_stats">
+    <section class="overlay">
+        <div id="statistics">
+
+            <div class="z-depth-1 top-bar">            
+                <h3 class="header center-align">
+                    {{#if data.batch}}
+                        Statistics of Batch {{ data.batch }}
+                    {{else}}
+                        Overall Statistics
+                    {{/if}}
+                </h3>
+            </div>
+
+            <!-- middle-bars -->
+            {{#if isLoading}}
+            <div class="z-depth-1 middle-bar">
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+                <div class="center-align">
+                    Analyzing data. Please be patient.
+                </div>
+            </div>
+            {{else}}
+            <div class='list'>
+                {{#each people in getPeoples}}
+                
+                {{/each}}
+            </div>
+            {{/if}}
+
+            <!-- bottom0-bar -->
+            <div class="z-depth-1 bottom-bar">
+                All statistics were based on the <a href="http://www.beckscales.com" target="_blank">Beck's Scale</a>.
+            </div>
+
+        </div>
+    </section>
+</template>
+

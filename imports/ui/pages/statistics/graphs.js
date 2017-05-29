@@ -2,106 +2,66 @@ export default {
 	stats: {},
 	Depression() {
 		var depression = this.stats.depression;
-		return [
-				{
-					value: depression[0].count,
-					color:"#F7464A",
-					highlight: "#FF5A5E",
-					label: "None"
-				},
-				{
-					value: depression[1].count,
-					color: "#46BFBD",
-					highlight: "#5AD3D1",
-					label: "Mild"
-				},
-				{
-					value: depression[2].count,
-					color: "#FDB45C",
-					highlight: "#FFC870",
-					label: "Borderline"
-				},
-				{
-					value: depression[3].count,
-					color: "#949FB1",
-					highlight: "#A8B3C5",
-					label: "Moderate"
-				},
-				{
-					value: depression[4].count,
-					color: "#4D5360",
-					highlight: "#616774",
-					label: "Severe"
-				},
-				{
-					value: depression[5].count,
-					color: "#9D5360",
-					highlight: "#916774",
-					label: "Extreme"
-				}
-			];
+		var colors = ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360', '#9D5360'];
+		var highlights = ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774', '#916774'];
+		var labels = ['None', 'Mild', 'Borderline', 'Moderate', 'Severe', 'Extreme'];
+		var config = [];
+		for(var i = 0; i < 6; i++) {
+			config.push({
+				value: (depression[i] && depression[i].count) || 0,
+				highlight: highlights[i],
+				color: colors[i],
+				label: labels[i],
+			});
+		}
+		return config;
 	},
 	Anxiety() {
 		var anxiety = this.stats.anxiety;
-		return [
-				{
-					value: anxiety[0].count,
-					color:"#F7464A",
-					highlight: "#FF5A5E",
-					label: "Minimum"
-				},
-				{
-					value: anxiety[1].count,
-					color: "#46BFBD",
-					highlight: "#5AD3D1",
-					label: "Mild"
-				},
-				{
-					value: anxiety[2].count,
-					color: "#FDB45C",
-					highlight: "#FFC870",
-					label: "Moderate"
-				},
-				{
-					value: anxiety[3].count,
-					color: "#949FB1",
-					highlight: "#A8B3C5",
-					label: "Severe"
-				}
-			];
+		var colors = ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360', '#9D5360'];
+		var highlights = ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774', '#916774'];
+		var labels = ['Minimum', 'Mild', 'Moderate', 'Severe'];
+		var config = [];
+		for(var i = 0; i < 4; i++) {
+			config.push({
+				value: (anxiety[i] && anxiety[i].count) || 0,
+				highlight: highlights[i],
+				color: colors[i],
+				label: labels[i],
+			});
+		}
+		return config;
 	},
 	Hopeless() {
 		var hopeless = this.stats.hopeless;
-		return [
-				{
-					value: hopeless[0].count,
-					color:"#F7464A",
-					highlight: "#FF5A5E",
-					label: "Not Hopeless"
-				},
-				{
-					value: hopeless[1].count,
-					color: "#46BFBD",
-					highlight: "#5AD3D1",
-					label: "Very Hopeless"
-				}
-			];
+		var colors = ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360', '#9D5360'];
+		var highlights = ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774', '#916774'];
+		var labels = ['Not Hopeless', 'Very Hopeless'];
+		var config = [];
+		for(var i = 0; i < 2; i++) {
+			config.push({
+				value: (hopeless[i] && hopeless[i].count) || 0,
+				highlight: highlights[i],
+				color: colors[i],
+				label: labels[i],
+			});
+		}
+		return config;
 	},
 	Suicide() {
 		var suicide = this.stats.suicide;
-		return [
-				{
-					value: suicide[0].count,
-					color:"#F7464A",
-					highlight: "#FF5A5E",
-					label: "No risk"
-				},
-				{
-					value: suicide[1].count,
-					color: "#46BFBD",
-					highlight: "#5AD3D1",
-					label: "At risk"
-				}
-			];
+		var colors = ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360', '#9D5360'];
+		var highlights = ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774', '#916774'];
+		var labels = ['Not at risk', 'At risk'];
+		var config = [];
+		for(var i = 0; i < 2; i++) {
+			config.push({
+				value: (suicide[i] && suicide[i].count) || 0,
+				highlight: highlights[i],
+				color: colors[i],
+				label: labels[i],
+			});
+		}
+		return config;
 	}
 };
