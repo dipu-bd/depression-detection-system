@@ -53,9 +53,46 @@ Template.App_stats.helpers({
 });
 
 Template.statistics.helpers({ 
-    count(value) {
-        return (value || 0);
-    }
+    repeat(labels, list) {
+        var data = [];
+        _.each(labels, (label, i) => {
+            data.push({
+                label,
+                value: (list && list[i] && list[i].count) || 0
+            });
+        });
+        return data;
+    },
+    bdsMessage() {
+        return [
+            'Having no depression',
+            'Having mild mood disturbances',
+            'Having borderline clinical depression',
+            'Having moderate depression',
+            'Suffering from severe depression',
+            'Suffering from extreme depression'
+        ];
+    },
+    basMessage() {
+        return [
+            'Having minimum level of anxiety',
+            'Having mild anxiety',
+            'Having moderate anxiety',
+            'Suffering from severe anxiety'
+        ];
+    },
+    bhsMessage() {
+        return [
+            'Not particularly hopeless',
+            'Feeling very hopeless'
+        ];
+    },
+    bssMessage() {
+        return [
+            'No significant suicidal tendency',
+            'At a significant risk for suicide'
+        ];
+    },
 });
 
 Template.statistics.onRendered(function () {
