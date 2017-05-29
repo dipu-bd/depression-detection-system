@@ -11,7 +11,7 @@
             </div>
 
             <!-- middle-bars -->
-            {{> patientInfo name=session.name }} 
+            {{> patientInfo name=session.name regno=session.regno batch=session.batch }} 
             {{> allMessages messages  }} 
             {{> yourChoices optionList=optionList }}
 
@@ -41,6 +41,14 @@
             <tr>
                 <td class="first">Name</td>
                 <td>{{name}}</td>
+            </tr>
+            <tr>
+                <td class="first">Reg. No.</td>
+                <td>{{regno}}</td>
+            </tr>
+            <tr>
+                <td class="first">Batch</td>
+                <td>{{batch}}</td>
             </tr>
         </table>
     </div>

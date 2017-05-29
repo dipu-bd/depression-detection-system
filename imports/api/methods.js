@@ -122,7 +122,7 @@ Meteor.methods({
         });
         return true;
     },
-
+ 
     'feedback'(text) {
         check(text, String);
 	    clientIP = this.connection.clientAddress;
@@ -131,4 +131,11 @@ Meteor.methods({
             feedback: text
         });
     },
+
+    'login'(user, pass) {
+        if(user === 'admin' && pass === 'secure123') {
+            return true;
+        }
+        throw new Meteor.Error("Invalid user-name or password");
+    }
 });
