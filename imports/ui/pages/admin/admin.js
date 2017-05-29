@@ -7,26 +7,39 @@ import { _ } from 'meteor/erasaur:meteor-lodash';
 
 import "./admin.html";
 
-Template.App_result.onCreated(function () {
+Template.App_admin.onCreated(function () {
     // load all questions list
     
 });
 
-Template.App_result.helpers({
+Template.App_admin.helpers({
     session() {
         return Sessions.findOne();
-    },
-    getAge(dob) {
-        return moment(dob).fromNow(true);
-    },
-    messages() {
-        return new Messages(sessionId());
-    },
-    optionList() {
-        const choices = Choices.allChoices(sessionId());
-        return Questions.optionDetails(choices);
-    },
-    upperFirst(data) {
-        return _.upperFirst(data);
     }
+});
+
+
+Template.App_admin.events({
+
+    'submit .new-task'(event) {
+        // Prevent default browser form submit
+        event.preventDefault();
+    
+        // Get value from form element
+        const target = event.target;
+        let username = target.username.value;
+        let password = target.password.value;
+
+        //check the auth matches
+        if(username && password){
+            if(username == 'admin' && password == 'secure123'){
+                console.log("logged in");
+                //redirect to admin dashboard routes
+                return;
+            }
+            console.log('wrong credentials');
+            return;
+        }
+    
+    },
 });

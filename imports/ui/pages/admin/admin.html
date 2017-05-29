@@ -1,4 +1,27 @@
 <template name="App_admin">
-    Admin Test
-</template>
+    <section class="gradient">
+		<div id="starter-form">
 
+			<div class="z-depth-1-half center hoverable" id="title-div">
+				<h4 class="light">Admin Login</h4>
+				<span class="teal-text">Welcome to the dataset</span>
+			</div>
+
+            <form class="new-task">
+                <div class="z-depth-1 hoverable" id="form-div">                
+                    <label>Username: </label> 
+                    <input type="text" name="username">
+
+                    <label>Password: </label> 
+                    <input type="password" name="password">
+                </div>
+                <button type="submit"
+                    style="width:100%" 
+                    class="btn-large btn-block waves-effect lime darken-4">
+                    Login
+                </button>
+            </form>
+			
+		</div>
+	</section>
+</template>

@@ -79,7 +79,6 @@ reactive-var@1.0.11
 reload@1.1.11
 retry@1.0.9
 routepolicy@1.0.12
-seba:minifiers-autoprefixer@1.0.1
 shell-server@0.2.3
 softwarerero:accounts-t9n@1.1.7
 spacebars@1.0.15
