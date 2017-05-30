@@ -2,13 +2,18 @@
 
     <div id="print-viewer">
         {{#if Template.subscriptionsReady}}
-
+        
         <div class="top-bar">
             <h4 class="header">
                 <i class="fa fa-heartbeat"></i>
                 Adaptive Depression Test<br>
                 <span class="subheader">Patient Report</span>
             </h4>
+            <div style="padding: 20px" class="hide-on-print"> 
+                <button id="print-button" class="btn blue waves-effect waves-light" style="width: 300px">
+                    Print Report <i class="material-icons right">print</i>
+                </button>
+            </div>
         </div>
 
         <div style="height:20px"></div>

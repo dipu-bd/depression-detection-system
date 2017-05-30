@@ -49,4 +49,11 @@
         padding: 5px;
         border-top: 1px solid #ccc;
     }
+
+    @media print {
+        .hide-on-print {
+            visibility: hidden;
+            height: 0;
+        }
+    }
 }

@@ -20,7 +20,7 @@ function category() {
 Template.App_users.onCreated(function () {
     const template = this;
     template.autorun(() => {
-        template.subscribe('stats.users', scale(), category(), {
+        template.subscribe('stats.users', String(scale()), String(category()), {
             onError(err) {
                 console.log(err);   
                 Materialize.toast(err, 5000);             
@@ -35,36 +35,36 @@ Template.App_users.helpers({
     },
     getType() {
         switch(scale()) {
-            case 'depression':
-                return [
-                    'No',
-                    'Mild',
-                    'Borderline',
-                    'Moderate',
-                    'Severe',
-                    'Extreme'
-                ][category()] 
-                + ' Depression';
-            case 'anxiety':
-                return [
-                    'No',
-                    'Mild',
-                    'Moderate',
-                    'Severe'
-                ][category()]
-                + ' Anxiety';
-            case 'suicide':
-                return [
-                    'No risk of',
-                    'At a risk of'
-                ][category()]
-                + ' Suicide';
-            case 'hopeless':
-                return [
-                    'Not',
-                    'Particularly'
-                ][category()]
-                + ' Hopeless';
+        case 'depression':
+            return [
+                'No',
+                'Mild',
+                'Borderline',
+                'Moderate',
+                'Severe',
+                'Extreme'
+            ][category()] 
+            + ' Depression';
+        case 'anxiety':
+            return [
+                'No',
+                'Mild',
+                'Moderate',
+                'Severe'
+            ][category()]
+            + ' Anxiety';
+        case 'suicide':
+            return [
+                'No risk of',
+                'At a risk of'
+            ][category()]
+            + ' Suicide';
+        case 'hopeless':
+            return [
+                'Not',
+                'Particularly'
+            ][category()]
+            + ' Hopeless';
         }
     }
 });

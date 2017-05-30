@@ -56,13 +56,8 @@ Template.App_result_print.helpers({
     }
 });
 
-Template.App_result_print.onRendered(function () {
-    const template = this;
-    const id = Meteor.setInterval(function () {
-        if(template.subscriptionsReady()) {
-            window.print();
-            Meteor.clearInterval(id);
-        } 
-    }, 500);
-
+Template.App_result_print.events({
+    'click #print-button': function (event, template) {
+        window.print();
+    }
 });

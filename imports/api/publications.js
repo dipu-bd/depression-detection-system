@@ -35,7 +35,7 @@ Meteor.publish('sessions.all', function () {
 
 Meteor.publish('stats.users', function (scale, category) {
     check(scale, String);
-    check(category, Number);
+    check(category, String);
 
     let users = [];
     let data = Statistics.find({
@@ -45,6 +45,8 @@ Meteor.publish('stats.users', function (scale, category) {
         users.push(stat.session);
     });
     
+    console.log(users);
+
     return Sessions.find({
         "_id": { "$in": users }
     });

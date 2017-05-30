@@ -8,18 +8,26 @@
                 </h3>
             </div>
 
-            <div class="z-dept-1 middle-bar">
-                <div class="list-group">
+            {{#if Template.subscriptionsReady}}
+
+            <div class="z-dept-1 middle-bar">                
+                <ul class="collection">
                 {{#each people in getPeoples}}                    
-                    <button type="button" class="list-group-item">
-                        [<b>Batch:</b> {{people.batch}}] {{people.name}} ({{people.regno}})
-                    </button>
+                <li class="collection-item">
+                    <div>
+                        <b>Batch: {{people.batch}}</b> &mdash;
+                        {{people.name}} &mdash;
+                        {{people.regno}}
+                        <a href="/print/{{people._id}}" class="secondary-content">
+                            <i class="material-icons">send</i>
+                        </a>
+                    </div>
+                </li>
                 {{/each}}
-                </div>                       
+                </ul>
             </div>
 
-            {{#if Template.subscriptionsReady}}
-            <div class="z-depth-1 bottom-bar">                    
+            <div class="z-depth-1 bottom-bar">
             </div>
 
             {{else}} 
