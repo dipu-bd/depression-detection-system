@@ -21,7 +21,7 @@ function getBatch() {
 
 function calculateEntities(self) {
     loading.set(true);
-    console.log(getBatch());
+    //console.log(getBatch());
     self.autorun(function () {
         // Asynchronous call for statistics
         Meteor.call('statistics', getBatch(), function (error, result) {
@@ -52,7 +52,10 @@ Template.App_stats.helpers({
     },
 });
 
-Template.statistics.helpers({ 
+Template.statistics.helpers({
+    loggedIn() {
+        return localStorage.getItem('session') == 'true';
+    },
     repeat(labels, field) {
         var data = [];
         const list = stats.get()[field];

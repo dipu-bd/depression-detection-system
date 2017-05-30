@@ -54,10 +54,7 @@ FlowRouter.route('/print/:_id', {
 
 FlowRouter.route('/statistics/:batch?', {
     name: 'App.stats',
-    action(params) {        
-        if(localStorage.getItem('session') != 'true') {
-            return FlowRouter.go('/admin/login');
-        }     
+    action(params) {
         BlazeLayout.render('App_body', { main: 'App_stats' });
     }
 });
@@ -74,7 +71,7 @@ FlowRouter.route('/admin/users/:scale/:category', {
 
 FlowRouter.route('/admin/login', {
     name: 'App.admin',
-    action(params) {      
+    action(params) {
         if(localStorage.getItem('session') == 'true') {
             FlowRouter.go('/statistics');
         }
@@ -89,7 +86,7 @@ FlowRouter.route('/admin/logout', {
             FlowRouter.go('/admin/login');
         }
         localStorage.removeItem('session');
-        return FlowRouter.go('/');
+        FlowRouter.go('/');
     }
 });
 

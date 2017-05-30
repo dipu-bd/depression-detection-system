@@ -31,7 +31,7 @@ Template.App_admin.events({
 
         //check the auth matches
         if(username && password){
-            if(username == 'admin' && password == 'secure123'){
+            if(username == 'admin' && password == 'qwe@123'){
                 localStorage.setItem('session', true);
                 return FlowRouter.go('/statistics');
             }
