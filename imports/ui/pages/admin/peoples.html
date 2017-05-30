@@ -1,15 +1,12 @@
 <template name="App_users">
     <section class="overlay">
-        <div id="result-viewer">
+        <div id="people-viewer">
             <div class="z-depth-1 top-bar">
                 <h3 class="header center-align">
                     Respondents <br>
-                    <span class="flow-text">
-                        Peoples suffering from {{getType}} {{getField}}
-                    </span>
+                    <span class="flow-text">Under {{getType}}</span>
                 </h3>
             </div>
-            {{#if Template.subscriptionsReady}}
 
             <div class="z-dept-1 middle-bar">
                 <div class="list-group">
@@ -21,6 +18,7 @@
                 </div>                       
             </div>
 
+            {{#if Template.subscriptionsReady}}
             <div class="z-depth-1 bottom-bar">                    
             </div>
 

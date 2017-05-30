@@ -1,0 +1,70 @@
+
+$backColor: #ffffea;
+
+#people-viewer {
+    margin: 10px;
+    padding: 0;
+    position: relative;
+    max-width: 850px;
+    @media(min-width: 850px) {
+        margin: 0 auto;
+    }
+    .top-bar {
+        font-family: 'Raleway', sans-serif;
+        margin: 20px 0 0 0;
+        border-radius: 25px 25px 0 0;
+        background: $backColor url(/img/bg-footer.svg) center / cover;
+        .header {
+            margin: 0;
+            padding: 20px 0 0 0;
+        }
+    }
+    .middle-bar {
+        margin: 0;
+        padding: 20px 30px;
+        background-color: $backColor;
+        background-repeat: repeat-x;
+        background-image: url(/img/border_triangles.svg);
+    }
+    .bottom-bar {
+        text-align: center;
+        font-size: 0.9em;
+        font-family: 'PT Mono', monospace;
+        margin: 0 0 20px 0;
+        padding: 15px;
+        border-radius: 0 0 25px 25px;
+        background: $backColor url(/img/bg-footer.svg) center / cover;
+    }
+    .message {
+        font-family: 'PT Sans', sans-serif;
+        font-size: 1.4em; 
+        color: #033;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: #fff;
+    }
+    #button-bar {
+        margin: 0;
+        padding: 20px 30px; 
+        background: $backColor;
+        .btn-large {
+            width: 100%;
+        }
+    }
+    table {
+        td {
+            padding: 8px;
+            font-size: 1.2em;
+            border: 1px solid #ccc;
+        }
+        .last {
+            font-size: 0.9em;
+        }
+        .first {
+            font-size: 1.0em;
+            font-weight: 600;
+            text-align: right;
+            width: 30%;
+        }
+    }
+}

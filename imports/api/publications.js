@@ -3,6 +3,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from "meteor/check";
 import { Sessions } from './sessions';
+import { Statistics } from './statistics';
 import { Questions } from './questions';
 import { Choices } from './choices';
 
@@ -32,6 +33,20 @@ Meteor.publish('sessions.all', function () {
     return Sessions.find();
 });
 
-Meteor.publish('statistics', function () {
-    return Statistics.find();
+Meteor.publish('stats.users', function (scale, category) {
+    check(scale, String);
+    check(category, Number);
+
+    let users = [];
+    let data = Statistics.find({
+        scale,
+        category
+    }).forEach((stat)=> {
+        users.push(stat.session);
+    });
+    
+    return Sessions.find({
+        "_id": { "$in": users }
+    });
 });
+
