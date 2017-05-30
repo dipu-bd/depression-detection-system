@@ -52,10 +52,10 @@
                     Depression Results
                 </td>
             </tr>
-            {{#each (repeat bdsMessage data.depression)}}
+            {{#each (repeat bdsMessage 'depression')}}
             <tr>
                 <td>{{this.label}}</td>
-                <td>{{this.value}}</td>
+                <td><a href="{{link}}">{{this.value}}</a></td>
             </tr>
             {{/each}}
             <tr>
@@ -71,7 +71,7 @@
                     Anxiety Results
                 </td>
             </tr>
-            {{#each (repeat basMessage data.anxiety)}}
+            {{#each (repeat basMessage 'anxiety')}}
             <tr>
                 <td>{{this.label}}</td>
                 <td>{{this.value}}</td>
@@ -91,10 +91,10 @@
                     Suicidal Tendency
                 </td>
             </tr>
-            {{#each (repeat bssMessage data.suicide)}}
+            {{#each (repeat bssMessage 'suicide')}}
             <tr>
                 <td>{{this.label}}</td>
-                <td>{{this.value}}</td>
+                <td><a href="{{link}}">{{this.value}}</a></td>
             </tr>
             {{/each}}
             <tr>
@@ -111,10 +111,10 @@
                     Hopelessness Resuts
                 </td>
             </tr>
-            {{#each (repeat bhsMessage data.hopeless)}}
+            {{#each (repeat bhsMessage 'hopeless')}}
             <tr>
                 <td>{{this.label}}</td>
-                <td>{{this.value}}</td>
+                <td><a href="{{link}}">{{this.value}}</a></td>
             </tr>
             {{/each}}
             <tr>

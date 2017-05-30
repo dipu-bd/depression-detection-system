@@ -53,11 +53,13 @@ Template.App_stats.helpers({
 });
 
 Template.statistics.helpers({ 
-    repeat(labels, list) {
+    repeat(labels, field) {
         var data = [];
+        const list = stats.get()[field];
         _.each(labels, (label, i) => {
             data.push({
                 label,
+                link: '/admin/users/' + field + '/' + i,
                 value: (list && list[i] && list[i].count) || 0
             });
         });

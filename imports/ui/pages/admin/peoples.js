@@ -7,3 +7,14 @@ import { _ } from 'meteor/erasaur:meteor-lodash';
 
 import "./peoples.html";
 
+Template.App_users.helpers({
+    getPeoples() {
+
+    },
+    getField() {
+
+    },
+    getType() {
+
+    }
+});

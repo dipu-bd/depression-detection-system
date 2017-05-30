@@ -62,7 +62,7 @@ FlowRouter.route('/statistics/:batch?', {
     }
 });
 
-FlowRouter.route('/admin/users/:type/:category?', {
+FlowRouter.route('/admin/users/:type/:category', {
     name: 'Admin.users',
     action(params) {
         if(localStorage.getItem('session') != 'true') {
