@@ -18,7 +18,6 @@ Template.App_admin.helpers({
     }
 });
 
-
 Template.App_admin.events({
 
     'submit .new-task'(event) {
@@ -33,12 +32,10 @@ Template.App_admin.events({
         //check the auth matches
         if(username && password){
             if(username == 'admin' && password == 'secure123'){
-                console.log("logged in");
-                //redirect to admin dashboard routes
-                return;
+                localStorage.setItem('session', true);
+                return FlowRouter.go('/statistics');
             }
-            console.log('wrong credentials');
-            return;
+            return console.log('wrong credentials');
         }
     
     },

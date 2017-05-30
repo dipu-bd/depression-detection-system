@@ -13,6 +13,8 @@ import '/imports/ui/pages/result/print.js';
 import '/imports/ui/pages/statistics/stats.js';
 import '/imports/ui/pages/not-found/not-found.js';
 import '/imports/ui/pages/admin/admin.js';
+import '/imports/ui/pages/admin/peoples.js';
+
 
 // Set up all routes in the app
 FlowRouter.route('/', {
@@ -53,17 +55,43 @@ FlowRouter.route('/print/:_id', {
 FlowRouter.route('/statistics/:batch?', {
     name: 'App.stats',
     action(params) {        
+        if(localStorage.getItem('session') != 'true') {
+            return FlowRouter.go('/admin/login');
+        }     
         BlazeLayout.render('App_body', { main: 'App_stats' });
+    }
+});
+
+FlowRouter.route('/admin/users/:type/:category?', {
+    name: 'Admin.users',
+    action(params) {
+        if(localStorage.getItem('session') != 'true') {
+            return FlowRouter.go('/admin/login');
+        }
+        BlazeLayout.render('App_body', { main: 'App_users' });        
     }
 });
 
 FlowRouter.route('/admin/login', {
     name: 'App.admin',
-    action(params) {        
+    action(params) {      
+        if(localStorage.getItem('session') == 'true') {
+            FlowRouter.go('/statistics');
+        }
         BlazeLayout.render('App_body', { main: 'App_admin' });
     }
 });
 
+FlowRouter.route('/admin/logout', {
+    name: 'App.admin',
+    action(params) {      
+        if(localStorage.getItem('session') != 'true') {
+            FlowRouter.go('/admin/login');
+        }
+        localStorage.removeItem('session');
+        return FlowRouter.go('/');
+    }
+});
 
 FlowRouter.notFound = {
     action() {
